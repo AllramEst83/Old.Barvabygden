@@ -1,0 +1,4 @@
+project: "Min hemsida"
+menu-id: "Min hemsida"
+base-template: "12001"
+image-folder: "/images/coffee-beans/"

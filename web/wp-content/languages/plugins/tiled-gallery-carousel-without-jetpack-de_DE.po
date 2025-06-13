@@ -1,0 +1,212 @@
+# Translation of Plugins - Tiled Gallery Carousel Without JetPack - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Tiled Gallery Carousel Without JetPack - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-23 08:22:40+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.3\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - Tiled Gallery Carousel Without JetPack - Stable (latest release)\n"
+
+#. Author URI of the plugin/theme
+msgid "http://themepacific.com"
+msgstr "https://themepacific.com"
+
+#. Author of the plugin/theme
+msgid "Raja CRN"
+msgstr "Raja CRN"
+
+#. Description of the plugin/theme
+msgid "Transform your standard image galleries into an immersive full-screen experience without Jetpack.This plugin is made from Jetpack Modules. You can get the tiled galleries with Full screen carousel with out connecting to wordpress.com account."
+msgstr "Verwandle deine normale Bildergalerie in eine beeindruckende Vollbild-Ansicht, ohne dafür Jetpack zu verwenden. Dieses Plugin wird aus Jetpack Modulen zusammengestellt. Du kannst die gekachelten Vollbild-Galerien ohne Wordpress.com Konto verwenden."
+
+#. Plugin Name of the plugin/theme
+msgid "Tiled Galleries Carousel Without Jetpack"
+msgstr "Tiled Galleries Carousel Without Jetpack"
+
+#: tiled-gallery.php:462
+msgid "Display all your gallery pictures in a cool mosaic."
+msgstr "Alle Galeriebilder in einem coolen Mosaik anzeigen."
+
+#: tiled-gallery.php:455
+msgid "Tiled Galleries"
+msgstr "Gekachelte Galerien"
+
+#: tiled-gallery.php:433
+msgid "Circles"
+msgstr "Kreise"
+
+#: tiled-gallery.php:432
+msgid "Square Tiles"
+msgstr "Quadratische Kacheln"
+
+#: tiled-gallery.php:431
+msgid "Tiled Mosaic"
+msgstr "Gekacheltes Mosaik"
+
+#: jetpack-carousel.php:486
+msgid "Display images in full-size carousel slideshow."
+msgstr "Bilder in einer Vollbild-Karussell-Diashow anzeigen."
+
+#: jetpack-carousel.php:478
+msgid "White"
+msgstr "Weiß"
+
+#: jetpack-carousel.php:478
+msgid "Black"
+msgstr "schwarz"
+
+#: jetpack-carousel.php:470
+msgid "Show map of photo location in carousel, when available."
+msgstr "Ein Karte der Geodaten im Karussell anzeigen, sofern verfügbar."
+
+#: jetpack-carousel.php:462
+msgid "Show photo metadata (<a href=\"http://en.wikipedia.org/wiki/Exchangeable_image_file_format\" target=\"_blank\">Exif</a>) in carousel, when available."
+msgstr "Foto-Metadaten (<a href=\"http://en.wikipedia.org/wiki/Exchangeable_image_file_format\" target=\"_blank\">Exif</a>) im Karussell anzeigen, sofern verfügbar."
+
+#: jetpack-carousel.php:405
+msgid "Metadata"
+msgstr "Metadaten"
+
+#: jetpack-carousel.php:402
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: jetpack-carousel.php:398
+msgid "Enable carousel"
+msgstr "Aktiviere Karussell"
+
+#: jetpack-carousel.php:395
+msgid "Image Gallery Carousel"
+msgstr "Karussell für Bilder-Galerie"
+
+#: jetpack-carousel.php:366
+msgid "Please provide a valid email address."
+msgstr "Bitte gib eine gültige E-Mail-Adresse an."
+
+#: jetpack-carousel.php:363
+msgid "Please provide an email address."
+msgstr "Bitte gib deine E-Mail-Adresse an."
+
+#: jetpack-carousel.php:360
+msgid "Please provide your name."
+msgstr "Bitte gib deinen Namen an."
+
+#: jetpack-carousel.php:351
+msgid "Sorry, but we could not authenticate your request."
+msgstr "Entschuldigung, wir konnten deine Anfrage nicht authentisieren."
+
+#: jetpack-carousel.php:341
+msgid "Comments on this post are closed."
+msgstr "Kommentare sind für diesen Beitrag geschlossen."
+
+#: jetpack-carousel.php:329
+msgid "No comment text was submitted."
+msgstr "Es wurde kein Kommentar übermittelt."
+
+#: jetpack-carousel.php:326
+msgid "Missing target post ID."
+msgstr "Fehlende Beitrags-ID."
+
+#: jetpack-carousel.php:323
+msgid "Missing target blog ID."
+msgstr "Fehlende Blog-ID."
+
+#: jetpack-carousel.php:316
+msgid "Nonce verification failed."
+msgstr "Nonce-Verifizierung fehlgeschlagen."
+
+#: jetpack-carousel.php:279
+msgid "Missing attachment ID."
+msgstr "Fehlende Anhangs-ID."
+
+#: jetpack-carousel.php:146
+msgid "Website"
+msgstr "Website"
+
+#: jetpack-carousel.php:144
+msgid "Name"
+msgstr "Name"
+
+#: jetpack-carousel.php:142
+msgid "Email"
+msgstr "E-Mail"
+
+#: jetpack-carousel.php:140
+msgid "%s (Required)"
+msgstr "%s (benötigt)"
+
+#: jetpack-carousel.php:138
+msgid "You must be <a href=\"#\" class=\"jp-carousel-comment-login\">logged in</a> to post a comment."
+msgstr "Du musst <a href=\"#\" class=\"jp-carousel-comment-login\">angemeldet</a> sein, um kommentieren zu können."
+
+#: jetpack-carousel.php:135
+msgid "Commenting as %s"
+msgstr "Kommentiere als %s"
+
+#: jetpack-carousel.php:125
+msgid "Focal Length"
+msgstr "Brennweite"
+
+#: jetpack-carousel.php:124
+msgid "Shutter Speed"
+msgstr "Verschlusszeit"
+
+#: jetpack-carousel.php:123
+msgid "Aperture"
+msgstr "Blende"
+
+#: jetpack-carousel.php:122
+msgid "Camera"
+msgstr "Kamera"
+
+#: jetpack-carousel.php:121
+msgid "Your comment is in moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
+
+#: jetpack-carousel.php:120
+msgid "Your comment was approved."
+msgstr "Dein Kommentar wurde genehmigt."
+
+#: jetpack-carousel.php:119
+msgid "Sorry, but there was an error posting your comment. Please try again later."
+msgstr "Entschuldigung, beim Absenden deines Kommentars ist ein Fehler aufgetreten. Bitte probier es später noch einmal."
+
+#: jetpack-carousel.php:118
+msgid "Please provide your name to comment."
+msgstr "Bitte gib deinen Namen an, um kommentieren zu können."
+
+#: jetpack-carousel.php:117
+msgid "Please provide an email address to comment."
+msgstr "Bitte gib eine E-Mail-Adresse an, um kommentieren zu können."
+
+#: jetpack-carousel.php:116
+msgid "Please be sure to submit some text with your comment."
+msgstr "Bitte stell sicher, dass du einen Text eingegeben hast."
+
+#: jetpack-carousel.php:115
+msgid "View full size <span class=\"photo-size\">%1$s<span class=\"photo-size-times\">&times;</span>%2$s</span>"
+msgstr "Vollbild-Ansicht <span class=\"photo-size\">%1$s<span class=\"photo-size-times\">&times;</span>%2$s</span>"
+
+#: jetpack-carousel.php:114
+msgid "Loading Comments..."
+msgstr "Kommentare laden&#160;&hellip;"
+
+#: jetpack-carousel.php:113
+msgid "Post Comment"
+msgstr "Kommentar absenden"
+
+#: jetpack-carousel.php:112
+msgid "Comment"
+msgstr "Kommentiere"
+
+#: functions.gallery.php:40
+msgid "Type"
+msgstr "Typ"
+
+#: functions.gallery.php:12
+msgid "Thumbnail Grid"
+msgstr "Vorschaubild-Grid"

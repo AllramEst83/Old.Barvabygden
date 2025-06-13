@@ -1,0 +1,201 @@
+#oc_login_masking_overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	z-index: 99999;
+}
+
+#oc_login_masking_overlay_wrap {
+	margin: 0;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 504px;
+	width: 600px;
+	min-height: 246px;
+	color: #3C3C3C;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	box-shadow: 0 0 12px rgba(0 0 0 0.4);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	font-family: 'Open Sans', sans-serif;
+
+}
+
+.oc-bg-white_login_masking {
+	background: #fff;
+	padding: 40px;
+}
+
+#oc_um_head_login_masking {
+	margin: 0 30px;
+}
+
+#oc_um_body_login_masking {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0px;
+	margin: 30px;
+}
+
+#oc_um_footer_login_masking {
+	margin: 30px 30px 8px 30px;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+#oc_um_footer_login_masking .oc_up_btn,
+#oc_um_footer_login_masking .oc_up_btn:hover,
+#oc_um_footer_login_masking .oc_um_btn,
+#oc_um_footer_login_masking .oc_um_btn:hover {
+	font-size: 14px;
+}
+#oc_um_footer_login_masking .oc_cancel_btn{
+	color: var(--onecom-blue);
+}
+#oc_um_head_login_masking h5 {
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 34px;
+	letter-spacing: 0.2px;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#oc_um_footer_login_masking .oc_cancel_btn {
+	margin: 0 0 0 50px;
+}
+
+.oc_login_masking_close {
+	position: absolute;
+	top: 26px;
+	right: 26px;
+	cursor: pointer;
+}
+
+
+#oc_login_masking_overlay .oc-disable-masking {
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0px;
+	margin: 40px 30px 20px 30px;
+}
+#oc_login_masking_overlay input[type=checkbox] {
+	width: 24px;
+	height: 24px;
+	-webkit-appearance: none;
+	padding: 9px;
+	display: inline-block;
+	position: relative;
+	background: #FFF;
+	border: 1px solid #3C3C3C;
+	vertical-align: text-top;
+	outline: 0;
+	border-radius: 0;
+	margin: 0;
+	margin-right: 16px;
+	box-sizing: border-box;
+}
+#oc_login_masking_overlay input[type=checkbox]:checked {
+	background: #76B82A;
+	border: 1px solid #3C3C3C;
+	box-sizing: border-box;
+}
+#oc_login_masking_overlay input[type=checkbox]:checked:before{
+	content: none;
+}
+#oc_login_masking_overlay input[type=checkbox]:focus {
+	box-shadow: none;
+}
+#oc_login_masking_overlay input[type=checkbox]:checked:after{
+	content: url(../images/tick.svg);
+	position: absolute;
+	left: 3px;
+	top: 5px;
+	max-width: 8px;
+}
+
+
+@media only screen and (max-width: 679px) {
+	#oc_login_masking_overlay_wrap{
+		width: 100%;
+		min-width: initial;
+		bottom: 0;
+		top: auto;
+		transform: translate(-50%, 0);
+	}
+	#oc_um_footer_login_masking{
+		text-align: center;
+	}
+	.oc-bg-white_login_masking{
+		padding: 30px;
+	}
+	#oc_um_head_login_masking,
+	#oc_um_body_login_masking,
+	#oc_um_footer_login_masking{
+		margin: 30px 0;
+	}
+	#oc_login_masking_overlay .oc-disable-masking {
+		margin: 0;
+	}
+}
+@media only screen and (max-width: 576px) {
+	#oc_um_footer_login_masking .oc_cancel_btn {
+		margin: 12px 0 0 0;
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+	.oc_login_masking_close{
+		top: 28px;
+		right: 32px;
+	}
+	.oc_login_masking_close img{
+	width: 19px;
+	height: 19px;
+
+	}
+}
+@media only screen and (max-width: 450px) {
+	#oc_login_masking_overlay_wrap {
+		max-height: 100vh;
+		overflow: scroll;
+	}
+	#oc_um_footer_login_masking .oc_up_btn,
+	#oc_um_footer_login_masking .oc_up_btn:hover{
+		/*padding: 8px 16px;*/
+		display: block;
+		font-size: 16px;
+	}
+	#oc_um_head_login_masking h5{
+		font-size: 30px;
+		line-height: 1.2;
+	}
+	#oc_um_body_login_masking,
+	#oc_login_masking_overlay .oc-disable-masking{
+		font-size: 16px;
+	}
+	#oc_um_head_login_masking{
+		margin-top: 30px;
+		margin-bottom: 15px;
+	}
+	#oc_um_body_login_masking{
+		margin-top: 15px;
+		margin-bottom: 30px;
+		font-size: 18px;
+		line-height: 26px;
+		letter-spacing: 0.2px;
+	}
+	#oc_um_footer_login_masking {
+		margin-top: 30px;
+		margin-bottom: 10px;
+	}
+}

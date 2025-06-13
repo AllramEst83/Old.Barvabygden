@@ -1,0 +1,21 @@
+Skapar mapp '/images'
+Skapar mapp '/.ilosoft'
+Skapar mapp '/.ilosoft/project'
+Skapar mapp '/.ilosoft/menu'
+Skapar mapp '/.ilosoft/menutemplate'
+Skapar mapp '/.ilosoft/uninstall'
+Skapar mapp '/images/coffee-beans'
+Skapar fil '%1'
+'coffee.gif' kopierad till '/images/coffee-beans/'.
+'icon-button-active.gif' kopierad till '/images/coffee-beans/'.
+'icon-button.gif' kopierad till '/images/coffee-beans/'.
+'line.gif' kopierad till '/images/coffee-beans/'.
+'middle-pic.jpg' kopierad till '/images/coffee-beans/'.
+'site-background.gif' kopierad till '/images/coffee-beans/'.
+
+Menymall skapad.
+Menystruktur skapad.
+'index.html' skapad.
+
+Installationen slutfördes korrekt.
+

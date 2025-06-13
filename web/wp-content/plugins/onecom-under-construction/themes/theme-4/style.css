@@ -1,0 +1,337 @@
+/* Google fonts loading from one.com CDN */
+/* montserrat-regular - latin */
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	src: local(''),
+			url('https://fonts-static.cdn-one.com/fonts/google/montserrat/montserrat-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('https://fonts-static.cdn-one.com/fonts/google/montserrat/montserrat-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* montserrat-600 - latin */
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	src: local(''),
+			url('https://fonts-static.cdn-one.com/fonts/google/montserrat/montserrat-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('https://fonts-static.cdn-one.com/fonts/google/montserrat/montserrat-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* ******* General CSS ******* */
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.2;
+	color: #3C3C3C;
+	background: #0078C8;
+}
+.ocuc-page h1,
+.ocuc-page h2,
+.ocuc-page h3,
+.ocuc-page h4,
+.ocuc-page h5,
+.ocuc-page h6 {
+	font-weight: normal;
+}
+.ocuc-page .ocuc-content-box {
+	width: 960px;
+	max-width: 100%;
+	min-height: 662px;
+	margin: 0 auto;
+	background: #FFFFFF;
+	opacity: 0.95;
+	padding: 6.25em;
+}
+.ocuc-page .ocuc-site-title-logo h1 {
+    color: #0078C8;
+    font-size: 44px;
+}
+.ocuc-page .ocuc-site-title-logo img {
+	max-width: 90%;
+}
+.ocuc-page .ocuc-headline {
+	margin: 20px 0;
+	font-size: 1.5rem;
+}
+.ocuc-page .ocuc-description {
+	margin: 30px 0;
+	font-size: 15px;
+	line-height: 1.5;
+	/* max-width: 700px; */
+}
+.ocuc-page .ocuc-description ul {
+	list-style: inside;
+}
+.ocuc-page .ocuc-copyright {
+	color: #acacac;
+}
+.ocuc-footer-container {
+	margin-top: 12vh;
+}
+
+/* ******** Countdown Timer ********** */
+.ocuc-page .ocuc-timer {
+	margin-bottom: 10vh;
+}
+.ocuc-page .timer div {
+	display: inline-block;
+}
+.ocuc-page .timer .count-number {
+	font-size: 56px;
+	margin-right: 15px;
+	width: 80px;
+	display: inline-block;
+}
+.ocuc-page .timer .smalltext {
+	color: #bbbbbb;
+	font-size: 14px;
+	display: block;
+}
+.ocuc-page .timer #time-up {
+	margin: 8px 0 0;
+}
+
+/* ****** Newsletter/Subscribe Form ******* */
+.ocuc-page .newsletter {
+	margin: 5vh 0;
+}
+.ocuc-page .newsletter .content {
+	/* max-width: 760px; */
+	/* text-align: center; */
+	position: relative;
+}
+.ocuc-page .newsletter .form-control.oc-newsletter-input {
+	height: 50px;
+	border-color: #ffffff;
+	border-radius: 0;
+	padding: 0.5625rem 1.875rem;
+	background-color: #EDEDED;
+	padding-right: 200px;
+	margin-right:35px;
+}
+.ocuc-page .newsletter .oc-newsletter-input:focus {
+	box-shadow: none;
+	border: 1px solid #999;
+}
+.ocuc-page .newsletter .content .btn {
+	min-height: 50px;
+	border-radius: 0;
+	background: #0078C8;
+	color: #fff;
+	font-weight: 600;
+	font-size: 18px;
+	min-width: 200px;
+}
+
+/* Newsletter with Captcha */
+.ocuc-page .oc-spinner {
+	font-size: 1.5em;
+	vertical-align: middle;
+}
+.ocuc-page .oc-message {
+	display: none;
+}
+.ocuc-page .oc-newsletter-input,
+.ocuc-page .oc-newsletter-input:focus {
+	color: #3C3C3C;
+	outline: none;
+}
+.ocuc-page .oc-newsletter-input::placeholder {
+	line-height: 1.5;
+}
+.ocuc-page .oc-newsletter-submit {
+	transition: opacity linear .1s;
+	padding: 7px 12px 7px;
+	display: inline-block;
+	border: none;
+	height: auto;
+	line-height: 16px !important;
+}
+.ocuc-page .oc-newsletter-submit:hover {
+	opacity: 0.8;
+}
+
+/** Captcha fields */
+.ocuc-page .oc-captcha-wrap .oc-captcha-val {
+	width: 50px;
+	height: 30px;
+	vertical-align: middle;
+	border: 0;
+	font-size: 13px;
+	outline: 0;
+	text-align: center;
+	border-left: 1px solid #ccc;
+	margin-left: 8px;
+}
+.ocuc-page .oc-cap-container {
+	border-radius: 4px;
+	overflow: hidden;
+	border: 1px solid #BBB;
+	height: 28px;
+	background-color: #fff;
+}
+.ocuc-page .oc-captcha-wrap {
+	margin-left: -200px;
+	z-index: 10;
+	color: #3C3C3C;
+}
+.ocuc-page .oc-captcha-wrap label,
+.ocuc-page .oc-captcha-wrap .oc-message {
+	font-size: 11px;
+	margin-bottom: 4px;
+	margin-top: 2px;
+}
+.ocuc-page .oc_csrf_token {
+	display: none !important;
+}
+
+/* Generic Plugin - Admin bar frontend styles @todo see if needed */
+.icon-oc-one-com-white-32px-fill:before {
+	content: \"\e901\"
+}
+.icon-oc-one-com:before {
+    content: \"\e900\"
+}
+.onecom-wp-admin-bar-item>a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1
+}
+.onecom-wp-admin-bar-item>a img {
+    height: 7px !important
+}
+.onecom-wp-admin-bar-item>a img .onecom-wp-admin-bar-item.hover>a img {
+    opacity: 1
+}
+.onecom-wp-admin-bar-item>a:before {
+    content: '';
+    position: static !important;
+    background-color: rgba(240, 245, 250, .4);
+    border-radius: 102px;
+    width: 18px;
+    height: 18px;
+    padding: 0 !important
+}
+.onecom-wp-admin-bar-item>a:before {
+    width: 14px;
+    height: 14px
+}
+.onecom-wp-admin-bar-item.hover>a:before {
+    background-color: #76b82a
+}
+.onecom-wp-admin-bar-item>a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center
+}
+
+/* #################### Social Icons #################### */
+.ocuc-page .ocuc-social-icons ul {
+    margin: 0;
+    padding-left: 0px;
+}
+.ocuc-page .ocuc-social-icons li {
+    float: left;
+    list-style: none;
+    margin-right: 22px;
+}
+.ocuc-page .ocuc-social-icons li:last-child {
+    margin-right: 0;
+}
+.ocuc-page .ocuc-social-icons a:hover svg {
+    opacity: 0.7;
+}
+.ocuc-page .ocuc-social-icons svg {
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+.ocuc-page .ocuc-social-icons .facebook svg * {
+    fill: rgba(51, 102, 153, 1);
+}
+.ocuc-social-icons .twitter svg * {
+    fill: rgba(12, 130, 180, 1);
+}
+.ocuc-page .ocuc-social-icons .youtube svg * {
+    fill: rgba(178, 32, 37, 1);
+}
+.ocuc-page .ocuc-social-icons .linkedin svg * {
+    fill: rgba(66, 102, 153, 1);
+}
+.ocuc-page .ocuc-social-icons .instagram svg * {
+    fill: rgba(66, 102, 153, 1);
+}
+
+/* ******************* Mobile Responsive ****************** */
+/* Extra small devices (portrait phones, less than 576px) */
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 767.98px) {
+    .ocuc-page .oc-captcha-wrap {
+        padding-right: 20px;
+    }
+    .ocuc-page .timer .count-number {
+        font-size: 46px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767.98px) {
+    .ocuc-page .container {
+        max-width: 90%;
+    }
+    .ocuc-page .ocuc-content-box {
+        padding: 75px;
+    }
+    .ocuc-page .newsletter .content .btn {
+        min-width: 150px;
+    }
+    .ocuc-page .newsletter .input-group {
+        display: block;
+    }
+    .ocuc-page .newsletter .form-control.oc-newsletter-input {
+        width: 100%;
+        padding: 0.5625rem 1.875rem;
+    }
+    .ocuc-page .oc-captcha-wrap {
+        margin: 20px 0;
+    }
+    .ocuc-page .oc-cap-container,
+    .ocuc-page .oc-captcha-wrap img {
+        height: 30px;
+    }
+    .ocuc-page .newsletter .input-group-btn {
+        margin-left: 0;
+    }
+    .ocuc-page .ocuc-site-title-logo h1 {
+        font-size: 30px;
+    }
+    .ocuc-page .ocuc-social-icons ul {
+        padding-left: 0px;
+    }
+    .ocuc-page .ocuc-social-icons li {
+        margin-right:16px;
+    }
+    .ocuc-page .oc-captcha-wrap .oc-captcha-val {
+        margin: 1px;
+        border: 1px solid #ccc;
+        height: 26px;
+    }
+}
+
+/* Extra small devices (mobile, 576px and down) */
+@media (max-width: 576px) {
+    .ocuc-page .oc-newsletter-input::placeholder {
+        font-size: 0.8125em;
+    }
+    .ocuc-page .newsletter .form-control.oc-newsletter-input {
+        padding: 0.5625rem 1.2rem;
+    }
+    .ocuc-page .ocuc-content-box {
+        padding: 8vh;
+    }
+    .ocuc-page .oc-captcha-wrap .oc-captcha-val {
+        vertical-align: initial;
+    }
+}

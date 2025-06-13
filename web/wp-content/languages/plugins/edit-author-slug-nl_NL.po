@@ -1,0 +1,253 @@
+# Translation of Plugins - Edit Author Slug - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - Edit Author Slug - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-11-15 14:10:28+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - Edit Author Slug - Stable (latest release)\n"
+
+#. translators: 1: <code>username</code>, 2: <code>username</code>
+#: includes/admin.php:819 includes/admin.php:897
+msgid "Your iThemes settings suggest you don't want the %1$s being used as an author slug. Leaving it set to %2$s will still work, but you may wish to change to something different."
+msgstr "Je iThemes instellingen suggereren dat je niet wil dat %1$s als auteursslug gebruikt wordt. Als je hem op %2$s laat staan, werkt het nog steeds, maar misschien wil je hem op iets anders zetten."
+
+#: includes/admin.php:616
+msgid "Demo:"
+msgstr "Demo:"
+
+#: includes/admin.php:432
+msgid "This also applies to other users."
+msgstr "Dit geldt ook voor andere gebruikers."
+
+#: includes/admin.php:432
+msgid "You can customize your own author slug by visiting your profile page. "
+msgstr "Je kunt je eigen auteurs slug aanpassen door naar je profiel pagina te gaan. "
+
+#: includes/admin.php:411
+msgctxt "Settings menu item"
+msgid "Edit Author Slug"
+msgstr "Bewerk auteur slug"
+
+#: includes/admin.php:73
+msgctxt "Plugin settings page heading"
+msgid "Edit Author Slug"
+msgstr "Bewerk auteur slug"
+
+#: includes/admin.php:964
+msgid "hash"
+msgstr "hash"
+
+#: includes/admin.php:963
+msgid "userid"
+msgstr "userid"
+
+#: includes/admin.php:248
+msgid "<strong>ERROR</strong>: Your iThemes settings prevent your author slug from being the same as your username."
+msgstr "<strong>FOUT</strong>: je iThemes instellingen voorkomen dat je auteursslug hetzelfde is als je gebruikersnaam."
+
+#: includes/classes/class-ba-edit-author-slug.php:208
+msgid "Use class constant, BA_Edit_Author_Slug::DB_VERSION, instead."
+msgstr "Gebruik in plaats daarvan klasse constante BA_Edit_Auteur_Slug :: DB_VERSION."
+
+#: includes/classes/class-ba-edit-author-slug.php:201
+msgid "Use class constant, BA_Edit_Author_Slug::VERSION, instead."
+msgstr "Gebruik in plaats daarvan klasse constante BA_Edit_Auteur_Slug :: VERSION."
+
+#. translators: 1: rewrite tag, 2: rewrite tag demo usage, 3: demo URL using
+#. rewrite tag
+#: includes/admin.php:666
+msgid "Use the %1$s rewrite tag to customize the role-based author base. If you set the author base to \"%2$s\", the resulting author structure will be something like \"%3$s\"."
+msgstr "Gebruik de herschrijftag %1$s om de op rollen gebaseerde auteursbasis aan te passen. Als je de auteursbasis instelt op \" %2$s\", zal de resulterende auteursstructuur zoiets zijn als \"%3$s\"."
+
+#: includes/admin.php:660
+msgid "Set user's Author Base according to their role."
+msgstr "Stel de auteursbasis van de gebruiker in op basis van zijn rol."
+
+#: includes/admin.php:644
+msgid "Remove the \"front\" portion of the author permalink structure."
+msgstr "Verwijder het \"front\" gedeelte van de permalink structuur van de auteur."
+
+#: includes/admin.php:479
+msgid "Remove Front"
+msgstr "Front verwijderen"
+
+#. Author URI of the plugin
+msgid "https://github.com/thebrandonallen/"
+msgstr "https://github.com/thebrandonallen/"
+
+#. Author of the plugin
+msgid "Brandon Allen"
+msgstr "Brandon Allen"
+
+#. Description of the plugin
+msgid "Allows an Admin (or capable user) to edit the author slug of a user, and change the Author Base. <em>i.e. - (WordPress default structure) http://example.com/author/username/ (Plugin allows) http://example.com/ninja/master-ninja/</em>"
+msgstr "Hiermee kan een beheerder (of een capabele gebruiker) de auteursslug van een gebruiker bewerken en de auteursbasis wijzigen. <em>d.w.z. - (standaard WordPress structuur) http://example.com/author/username/ (Plugin allows) http://example.com/ninja/master-ninja/</em>"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/thebrandonallen/edit-author-slug/"
+msgstr "https://github.com/thebrandonallen/edit-author-slug/"
+
+#. translators: Updated author slugs count.
+#: includes/functions.php:259
+msgid "%d user author slug updated."
+msgid_plural "%d user author slugs updated."
+msgstr[0] "%d gebruiker auteur slug geüpdatet."
+msgstr[1] "%d gebruiker auteur slugs geüpdatet."
+
+#: includes/admin.php:929
+msgid "Settings"
+msgstr "Instellingen"
+
+#: includes/admin.php:885
+msgid "Default bulk update author slug options"
+msgstr "Standaard opties voor auteur slug in bulk updaten"
+
+#: includes/admin.php:857
+msgid "Update all users according to the below Author Slug setting. This will only be run after clicking \"Save Changes\"."
+msgstr "Update alle gebruikers volgens de onderstaande auteur slug instelling. Dit wordt alleen uitgevoerd nadat je op \"Wijzigingen opslaan\" hebt geklikt."
+
+#: includes/admin.php:840
+msgid "Update all users at once based on the specified Author Slug structure."
+msgstr "Werk alle gebruikers tegelijk bij op basis van de opgegeven auteur slug-structuur."
+
+#: includes/admin.php:807
+msgid "Default author slug options"
+msgstr "Standaard auteur slug opties"
+
+#: includes/admin.php:962
+msgid "lastname-firstname"
+msgstr "achternaam voornaam"
+
+#: includes/admin.php:961
+msgid "firstname-lastname"
+msgstr "voornaam-achternaam"
+
+#: includes/admin.php:960
+msgid "lastname"
+msgstr "achternaam"
+
+#: includes/admin.php:959
+msgid "firstname"
+msgstr "voornaam"
+
+#: includes/admin.php:958
+msgid "displayname"
+msgstr "Weergavenaam"
+
+#: includes/admin.php:957
+msgid "nickname"
+msgstr "bijnaam"
+
+#: includes/admin.php:956
+msgid "username (Default)"
+msgstr "gebruikersnaam (standaard)"
+
+#: includes/admin.php:779
+msgid "Automatically update Author Slug when a user updates their profile."
+msgstr "Auteur slug automatisch updaten wanneer een gebruiker zijn profiel update."
+
+#: includes/admin.php:614
+msgid "Defaults to 'author'"
+msgstr "Wordt standaard ingesteld op 'auteur'"
+
+#: includes/admin.php:591
+msgid "This could have SEO repercussions if users update their profiles frequently, and it will override any manual editing of the Author Slug you may have previously completed."
+msgstr "Dit kan SEO gevolgen hebben als gebruikers hun profielen regelmatig updaten, en het zal alle handmatige bewerkingen van de auteur slug die je eerder hebt afgerond, overschrijven."
+
+#: includes/admin.php:591
+msgid "Allow Author Slugs to be automatically updated, and set the default Author Slug structure for users. Automatic updating will only occur when a user can't edit Author Slugs on their own."
+msgstr "Laat auteur slugs automatisch worden geüpdatet en stel de standaard auteur slug structuur in voor gebruikers. Automatische updates vinden alleen plaats als een gebruiker auteur slugs niet zelf kan bewerken."
+
+#: includes/admin.php:578
+msgid "Change your author base to something more fun!"
+msgstr "Verander je auteur basis in iets leukers!"
+
+#: includes/admin.php:549
+msgid "Bulk Update"
+msgstr "Bulkupdate"
+
+#: includes/admin.php:541
+msgid "Bulk Update Author Slugs"
+msgstr "Auteur slugs in bulk updaten"
+
+#: includes/admin.php:528 includes/admin.php:559
+msgid "Author Slug Structure"
+msgstr "Auteur slug structure"
+
+#: includes/admin.php:518
+msgid "Automatically Update"
+msgstr "Automatisch updaten"
+
+#: includes/admin.php:510
+msgid "Automatic Author Slug Creation"
+msgstr "Automatische auteur slug aanmaak"
+
+#: includes/admin.php:500
+msgid "Role Slugs"
+msgstr "Rol slugs"
+
+#: includes/admin.php:490
+msgid "Role-Based Author Base"
+msgstr "Op rollen gebaseerde auteursbasis"
+
+#: includes/admin.php:457 includes/admin.php:465
+msgid "Author Base"
+msgstr "Auteur basis"
+
+#: includes/admin.php:410 includes/admin.php:429
+msgid "Edit Author Slug Settings"
+msgstr "Auteur slug instellingen bewerken"
+
+#. translators: 1: author slug
+#: includes/admin.php:264
+msgid "<strong>ERROR</strong>: The author slug, %1$s, already exists. Please try something different."
+msgstr "<strong>FOUT</strong>: de auteur slug, %1$s, bestaat al. Probeer iets anders."
+
+#: includes/admin.php:232
+msgid "<strong>ERROR</strong>: An author slug may not be longer than 50 characters."
+msgstr "<strong>FOUT</strong>: een auteursslug mag niet langer zijn dan 50 tekens."
+
+#: includes/admin.php:223
+msgid "<strong>ERROR</strong>: That author slug appears to be invalid. Please try something different."
+msgstr "<strong>FOUT</strong>: die auteursslug lijkt ongeldig te zijn. Probeer iets anders."
+
+#: includes/admin.php:214
+msgid "<strong>ERROR</strong>: An author slug can only contain alphanumeric characters, underscores (_) and dashes (-)."
+msgstr "<strong>FOUT</strong>: een auteursslug mag alleen alfanumerieke tekens, onderstrepingstekens (_) en streepjes (-) bevatten."
+
+#: includes/admin.php:169
+msgid "<strong>ERROR</strong>: An author slug cannot be blank. Please try again."
+msgstr "<strong>FOUT</strong>: een auteursslug mag niet leeg zijn. Probeer het opnieuw."
+
+#: includes/admin.php:102
+msgid "Custom author slug:"
+msgstr "Aangepaste auteur slug:"
+
+#: includes/admin.php:100
+msgid "Enter a custom author slug in the following field"
+msgstr "Voer een aangepaste auteursslug in in het volgende veld"
+
+#: includes/admin.php:99
+msgid "Custom:"
+msgstr "Aangepast:"
+
+#: includes/admin.php:77 includes/admin.php:79 includes/admin.php:324
+msgid "Author Slug"
+msgstr "Auteur slug"
+
+#: includes/admin.php:74
+msgid "ie. - 'user-name', 'firstname-lastname', or 'master-ninja'"
+msgstr "bijvoorbeeld. - 'gebruikersnaam', 'voornaam-achternaam' of 'master-ninja'"
+
+#: includes/admin.php:74
+msgid "Choose an Author Slug based on the above profile information, or create your own."
+msgstr "Kies een auteur slug op basis van de bovenstaande profielinformatie of maak er zelf een."
+
+#. Plugin Name of the plugin
+msgid "Edit Author Slug"
+msgstr "Edit Author Slug"

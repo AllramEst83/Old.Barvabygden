@@ -1,0 +1,4 @@
+[
+  {"name": "Recommended", "slug": "all", "icon": "recommended.svg", "class":"ocwp_ocp_themes_page_recommended_clicked_event"},
+  {"name": "Classic themes", "slug": "classic-theme", "icon": "classic-theme.svg", "class": "ocwp_ocp_themes_page_classic_themes_clicked_event"}
+]

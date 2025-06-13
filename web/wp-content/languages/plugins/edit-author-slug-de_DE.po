@@ -1,0 +1,215 @@
+# Translation of Plugins - Edit Author Slug - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Edit Author Slug - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-09-30 13:26:35+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - Edit Author Slug - Stable (latest release)\n"
+
+#: includes/classes/class-ba-edit-author-slug.php:201
+msgid "Use class constant, BA_Edit_Author_Slug::VERSION, instead."
+msgstr "Benutze stattdessen die Klassen-Konstante  BA_Edit_Author_Slug::VERSION."
+
+#: includes/classes/class-ba-edit-author-slug.php:208
+msgid "Use class constant, BA_Edit_Author_Slug::DB_VERSION, instead."
+msgstr "Benutze stattdessen die Klassen-Konstante BA_Edit_Author_Slug::DB_VERSION."
+
+#: includes/admin.php:659
+msgid "Set user's Author Base according to their role."
+msgstr "Setze die Autoren-Basis der Benutzer entsprechend ihrer Benutzerrolle"
+
+#. translators: 1: rewrite tag, 2: rewrite tag demo usage, 3: demo URL using
+#. rewrite tag
+#: includes/admin.php:665
+msgid "Use the %1$s rewrite tag to customize the role-based author base. If you set the author base to \"%2$s\", the resulting author structure will be something like \"%3$s\"."
+msgstr "Benutze den %1$s Rewrite-Tag um die Autoren-Basis rollenbasiert anzupassen. Wenn du die Autoren-Basis auf \"%2$s\" setzt, wird die damit gebildete Autoren-URL z.B. \"%3$s\" lauten."
+
+#: includes/admin.php:478
+msgid "Remove Front"
+msgstr "Präfix entfernen"
+
+#: includes/admin.php:643
+msgid "Remove the \"front\" portion of the author permalink structure."
+msgstr "Entferne das Präfix aus der Permalinkstruktur für Autoren."
+
+#: includes/admin.php:914
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/admin.php:947
+msgid "lastname-firstname"
+msgstr "Nachname-Vorname"
+
+#: includes/admin.php:806
+msgid "Default author slug options"
+msgstr "Standard Autoren-Titelform-Optionen"
+
+#: includes/admin.php:832
+msgid "Update all users at once based on the specified Author Slug structure."
+msgstr "Aktualisiere alle Benutzer auf einmal, basiert auf der angegebenen Struktur der Autoren-Titelform."
+
+#: includes/admin.php:849
+msgid "Update all users according to the below Author Slug setting. This will only be run after clicking \"Save Changes\"."
+msgstr "Aktualisiere alle Benutzer entsprechend den nachfolgend aufgeführten Einstellungen zur Autoren-Titelform. Diese Aktualisierung erfolgt erst nach dem Klick auf „Änderungen speichern“."
+
+#: includes/admin.php:877
+msgid "Default bulk update author slug options"
+msgstr "Standard-Aktualisierung aller Autoren-Titelform-Optionen"
+
+#. translators: Updated author slugs count.
+#: includes/functions.php:259
+msgid "%d user author slug updated."
+msgid_plural "%d user author slugs updated."
+msgstr[0] "Autor-Titelform für %d Benutzer aktualisiert."
+msgstr[1] "Autor-Titelform für %d Benutzer aktualisiert."
+
+#. Plugin URI of the plugin
+msgid "https://github.com/thebrandonallen/edit-author-slug/"
+msgstr "https://github.com/thebrandonallen/edit-author-slug/"
+
+#. Description of the plugin
+msgid "Allows an Admin (or capable user) to edit the author slug of a user, and change the Author Base. <em>i.e. - (WordPress default structure) http://example.com/author/username/ (Plugin allows) http://example.com/ninja/master-ninja/</em>"
+msgstr "Erlaube einem Administrator (oder einem Benutzer mit entsprechenden Rechten), die Autoren-Titelform eines Benutzers zu editieren und die Autoren-Basis zu ändern. <em>D.h. - (WordPress Standardstruktur) http://example.com/autor/benutzername/ (vom Plugin ermöglicht) http://example.com/ninja/master-ninja/</em>"
+
+#. Author of the plugin
+msgid "Brandon Allen"
+msgstr "Brandon Allen"
+
+#. Author URI of the plugin
+msgid "https://github.com/thebrandonallen/"
+msgstr "https://github.com/thebrandonallen/"
+
+#. Plugin Name of the plugin
+#: includes/admin.php:73 includes/admin.php:410
+msgid "Edit Author Slug"
+msgstr "Edit Author Slug"
+
+#: includes/admin.php:74
+msgid "ie. - 'user-name', 'firstname-lastname', or 'master-ninja'"
+msgstr "d.h. - 'benutzer-name', 'vorname-nachname' oder 'master-ninja'"
+
+#: includes/admin.php:74
+msgid "Choose an Author Slug based on the above profile information, or create your own."
+msgstr "Wähle eine Autoren-Titelform auf der Grundlage der oben angegebenen Profilinformationen oder gibt Deine eigene an."
+
+#: includes/admin.php:77 includes/admin.php:79 includes/admin.php:323
+msgid "Author Slug"
+msgstr "Autoren-Titelform"
+
+#: includes/admin.php:99
+msgid "Enter a custom author slug in the following field"
+msgstr "Gib eine individuelle Autoren-Titelform in das folgende Feld ein"
+
+#: includes/admin.php:98
+msgid "Custom:"
+msgstr "Individuell angepasst:"
+
+#: includes/admin.php:101
+msgid "Custom author slug:"
+msgstr "Individuelle Autoren-Titelform:"
+
+#: includes/admin.php:168
+msgid "<strong>ERROR</strong>: An author slug cannot be blank. Please try again."
+msgstr "<strong>FEHLER</strong>: Eine Autoren-Titelform darf nicht leer sein. Versuche es bitte erneut."
+
+#: includes/admin.php:577
+msgid "Change your author base to something more fun!"
+msgstr "Ändere deine Autoren-Basis zu etwas mit mehr Spaß!"
+
+#: includes/admin.php:213
+msgid "<strong>ERROR</strong>: An author slug can only contain alphanumeric characters, underscores (_) and dashes (-)."
+msgstr "<strong>FEHLER</strong>:  Eine Autoren-Titelform darf nur aus alphanummerischen Zeichen, Unterstrichen (_) und Bindestrichen (-) bestehen."
+
+#: includes/admin.php:222
+msgid "<strong>ERROR</strong>: That author slug appears to be invalid. Please try something different."
+msgstr "<strong>FEHLER</strong>: Diese Autoren-Titelform ist ungültig. Versuche es bitte mit einer anderen."
+
+#: includes/admin.php:231
+msgid "<strong>ERROR</strong>: An author slug may not be longer than 50 characters."
+msgstr "<strong>FEHLER</strong>: Eine Autoren-Titelform soll nicht länger als 50 Zeichen sein."
+
+#. translators: 1: author slug
+#: includes/admin.php:263
+msgid "<strong>ERROR</strong>: The author slug, %1$s, already exists. Please try something different."
+msgstr "<strong>FEHLER</strong>: Die Autoren-Titelform %1$s existiert bereits. Versuche es bitte mit einer anderen."
+
+#: includes/admin.php:409 includes/admin.php:428
+msgid "Edit Author Slug Settings"
+msgstr "Einstellungen zur Autoren-Titelform ändern"
+
+#: includes/admin.php:456 includes/admin.php:464
+msgid "Author Base"
+msgstr "Autoren-Basis"
+
+#: includes/admin.php:489
+msgid "Role-Based Author Base"
+msgstr "Rollenbasierte Autoren-Basis"
+
+#: includes/admin.php:499
+msgid "Role Slugs"
+msgstr "Rollen-Titelform"
+
+#: includes/admin.php:509
+msgid "Automatic Author Slug Creation"
+msgstr "Automatische Erstellung der Autoren-Titelform"
+
+#: includes/admin.php:517
+msgid "Automatically Update"
+msgstr "Automatisches Aktualisieren"
+
+#: includes/admin.php:527 includes/admin.php:558
+msgid "Author Slug Structure"
+msgstr "Struktur der Autoren-Titelform"
+
+#: includes/admin.php:540
+msgid "Bulk Update Author Slugs"
+msgstr "Massenaktualisierung der Autoren-Titelformen"
+
+#: includes/admin.php:548
+msgid "Bulk Update"
+msgstr "Massen-Aktualisierung"
+
+#: includes/admin.php:590
+msgid "Allow Author Slugs to be automatically updated, and set the default Author Slug structure for users. Automatic updating will only occur when a user can't edit Author Slugs on their own."
+msgstr "Erlaube das automatische Aktualisieren der Autoren-Titelform und setze die Standardstruktur für die Autoren-Titelform. Das automatische Aktualisieren erfolgt nur, wenn ein Benutzer seine eigene Autoren-Titelform nicht ändern kann."
+
+#: includes/admin.php:590
+msgid "This could have SEO repercussions if users update their profiles frequently, and it will override any manual editing of the Author Slug you may have previously completed."
+msgstr "Dies kann SEO-Auswirkungen haben, wenn Benutzer ihr Profil häufig aktualisieren; und es wird alle früheren manuellen Einstellungen der Autoren-Titelform überschreiben."
+
+#: includes/admin.php:613
+msgid "Defaults to 'author'"
+msgstr "Standard: 'author'"
+
+#: includes/admin.php:778
+msgid "Automatically update Author Slug when a user updates their profile."
+msgstr "Aktualisiere die Autoren-Titelform automatisch, wenn ein Benutzer sein Profil aktualisiert."
+
+#: includes/admin.php:941
+msgid "username (Default)"
+msgstr "Benutzername (Standard)"
+
+#: includes/admin.php:942
+msgid "nickname"
+msgstr "Spitzname"
+
+#: includes/admin.php:943
+msgid "displayname"
+msgstr "Öffentlicher Name"
+
+#: includes/admin.php:944
+msgid "firstname"
+msgstr "Vorname"
+
+#: includes/admin.php:945
+msgid "lastname"
+msgstr "Nachname"
+
+#: includes/admin.php:946
+msgid "firstname-lastname"
+msgstr "Vorname-Nachname"

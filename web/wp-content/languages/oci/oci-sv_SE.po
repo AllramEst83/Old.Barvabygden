@@ -1,0 +1,290 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OCI Setup Wizard\n"
+"POT-Creation-Date: 2020-06-23 17:17+0530\n"
+"PO-Revision-Date: 2020-06-23 17:17+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: *.css\n"
+
+#: install.php:61
+msgid "Start"
+msgstr "Börja"
+
+#: install.php:62 install.php:217
+msgid "Contact"
+msgstr "Kontakt"
+
+#: install.php:63 install.php:288
+msgid "Settings"
+msgstr "Inställningar"
+
+#: install.php:64
+msgid "Theme"
+msgstr "Tema"
+
+#: install.php:114
+msgid "WordPress Installation"
+msgstr "Installation av WordPress"
+
+#: install.php:199
+msgid "Welcome to WordPress"
+msgstr "Välkommen till WordPress"
+
+#: install.php:202
+msgid "WordPress is the world's most popular platform for creating websites and blogs. one.com handles the setup so you can focus on making your home on the web truly amazing."
+msgstr "WordPress är världens populäraste plattform för att skapa webbplatser och bloggar. one.com hanterar själva uppsättandet, så att du kan fokusera på att göra ditt hem på webben verkligt fantastiskt."
+
+#: install.php:207
+msgid "Get up and running in a few clicks"
+msgstr "Kom igång med några få klick"
+
+#: install.php:208
+msgid "Customize your site with featured responsive themes and plugins"
+msgstr "Anpassa din webbplats med framträdande och intressanta teman och funktioner"
+
+#: install.php:209
+msgid "Use prebuilt shortcodes to customize your page"
+msgstr "Använd färdiga snabbkoder för att anpassa din webbplats"
+
+#: install.php:210
+msgid "Start selling online with ease"
+msgstr "Börja sälja online utan problem"
+
+#: install.php:219
+msgid "Please provide the contact details for your website admin"
+msgstr "Ange kontaktinformation till din webbplatsadministratör"
+
+#: install.php:226
+msgid "Username"
+msgstr "Användarnamn"
+
+#: install.php:232
+msgid "Usernames can have only alphanumeric characters, spaces, underscores, hyphens, periods, and the @ symbol."
+msgstr "Användarnamn kan bara innehålla alfanumeriska tecken, mellanslag, understreck, bindestreck, punkter och symbolen @."
+
+#: install.php:238
+msgid "Password"
+msgstr "Lösenord"
+
+#: install.php:248
+msgid "Hide"
+msgstr "Dölj"
+
+#: install.php:253
+msgid "Important:"
+msgstr "Viktigt:"
+
+#: install.php:255
+msgid "You will need this password to log in. Please store it in a secure location."
+msgstr "Du kommer att behöva detta lösenord för att logga in. Förvara det på en säker plats."
+
+#: install.php:262
+msgid "Confirm Password"
+msgstr "Bekräfta lösenordet"
+
+#: install.php:266
+msgid "Confirm use of weak password"
+msgstr "Bekräfta användning av ett svagt lösenord"
+
+#: install.php:273
+msgid "Email"
+msgstr "E-post"
+
+#: install.php:279
+msgid "An email address where website visitors can contact you."
+msgstr "En e-postadress där webbplatsens besökare kan kontakta dig."
+
+#: install.php:291
+msgid "Please tell us more about your website:"
+msgstr "Berätta lite mer om din webbplats för oss:"
+
+#: install.php:294
+msgid "Note:"
+msgstr "Obs:"
+
+#: install.php:295
+msgid "Do not worry, you can always change these settings later."
+msgstr "Var inte orolig, du kan alltid ändra dessa inställningar senare."
+
+#: install.php:302
+msgid "Title"
+msgstr "Titel"
+
+#: install.php:307
+msgid "A WordPress Site"
+msgstr "En WordPress-webbplats"
+
+#: install.php:308
+msgid "The title of your website appears at the top of all pages and in search results."
+msgstr "Titeln på din webbplats visas överst på alla sidor och i sökresultat."
+
+#: install.php:314
+msgid "Tagline"
+msgstr "Tagline"
+
+#: install.php:319
+msgid "Just another WordPress site"
+msgstr "Bara ännu en WordPress-webbplats"
+
+#: install.php:320
+msgid "Think of the tagline as a slogan that describes what makes your website special. It will also appear in search results."
+msgstr "Tänk på din tagline som en slogan som beskriver det som gör din webbplats speciell. Denna kommer också att visas i sökresultaten."
+
+#: install.php:325
+msgid "Search Engine Visibility"
+msgstr "Synlighet i sökmotorer"
+
+#: install.php:329
+msgid "Discourage search engines from indexing this site"
+msgstr "Motverka att sökmotorer indexerar denna plats"
+
+#: install.php:330
+msgid "It is up to search engines to honor this request."
+msgstr "Det är upp till sökmotorerna att respektera denna begäran."
+
+#: install.php:336
+msgid "Terms & Conditions"
+msgstr "Villkor"
+
+#: install.php:343
+msgid "Yes, I have read"
+msgstr "Ja, jag har läst"
+
+#: install.php:344
+msgid "the terms of business"
+msgstr "affärsvillkoren"
+
+#: install.php:345
+msgid "and I agree to these!"
+msgstr "och jag godkänner dessa!"
+
+#: install.php:358
+msgid "Step"
+msgstr "Tonsteg"
+
+#: install.php:358
+msgid "of"
+msgstr "av"
+
+#: install.php:362 install.php:363 install.php:364 install.php:365
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: install.php:384
+msgid "Select a theme"
+msgstr "Välj ett tema"
+
+#: install.php:387
+msgid "Select the perfect WordPress theme for your website."
+msgstr "Välj det perfekta WordPress-temat för din webbplats."
+
+#: install.php:434
+msgid "Preview"
+msgstr "Förhandsgranska"
+
+#: install.php:448 install.php:492
+msgid "Install"
+msgstr "Installera"
+
+#: install.php:459
+msgid "No themes found"
+msgstr "Inga teman hittades"
+
+#: install.php:472
+msgid "Skip to dashboard"
+msgstr "Gå till instrumentpanelen"
+
+#: install.php:488
+msgid "Back to Themes"
+msgstr "Tillbaka till teman"
+
+#: install.php:496
+msgid "Desktop"
+msgstr "Skrivbord"
+
+#: install.php:497
+msgid "Mobile"
+msgstr "Mobil"
+
+#: install.php:515
+msgid "Premium feature"
+msgstr "Premiumtjänst"
+
+#: install.php:518
+msgid "The chosen theme is not available in your current subscription."
+msgstr "Det valda temat är inte tillgängligt i ditt nuvarande abonnemang."
+
+#: install.php:518
+msgid "Please upgrade to a subscription with access to Premium features."
+msgstr "Vänligen uppgradera till ett abonnemang med tillgång till Premiumtjänster."
+
+#: install.php:518 oci/oci.php:86
+msgid "Learn more"
+msgstr "Lär dig mer"
+
+#: install.php:522
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: install.php:523
+msgid "Upgrade"
+msgstr "Uppgradera"
+
+#: oci/ajax.php:90
+msgid "Installing theme"
+msgstr "Installerar temat"
+
+#: oci/ajax.php:114 oci/ajax.php:434
+msgid "WordPress is being upgraded. Please try again later."
+msgstr "WordPress uppgraderas. Försök igen senare."
+
+#: oci/ajax.php:117
+msgid "Something went wrong. Please contact the support at one.com."
+msgstr "Något gick fel. Kontakta supporten på one.com."
+
+#: oci/ajax.php:131 oci/ajax.php:224
+msgid "Unable to connect to the file system. Please contact the support at one.com."
+msgstr "Kunde inte ansluta till filsystemet. Kontakta supporten på one.com."
+
+#: oci/ajax.php:146
+msgid "Theme installed successfully."
+msgstr "Temat installerades utan problem."
+
+#: oci/ajax.php:153
+msgid "Theme activated successfully."
+msgstr "Temat aktiverades utan problem."
+
+#: oci/ajax.php:155
+msgid "Theme cannot be activated."
+msgstr "Temat kan inte aktiveras."
+
+#: oci/ajax.php:175
+msgid "Installing plugin"
+msgstr "Installerar funktion"
+
+#: oci/ajax.php:238
+msgid "Plugin installed successfully."
+msgstr "Funktionen installerades utan problem."
+
+#: oci/ajax.php:350
+msgid "WordPress installed successfully!"
+msgstr "WordPress installerades utan problem."
+
+#: oci/ajax.php:439
+msgid "All ok"
+msgstr ""
+
+#: oci/oci.php:86
+msgid "This is a Premium Theme"
+msgstr "Det här är ett premiumtema"

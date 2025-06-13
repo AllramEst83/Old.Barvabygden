@@ -1,0 +1,241 @@
+.onecom_ep_form .fieldset label {
+	font-size: 16px;
+	font-weight: 600;
+	color: #262626;
+	cursor: pointer;
+	line-height: 24px;
+	-webkit-font-smoothing: antialiased;
+	display: inline-flex;
+	align-items: flex-start;
+}
+
+.onecom_ep_form p.oc_desc.indent {
+	margin-left: 54px;
+}
+
+#onecom-status-message {
+	color: rgb(214, 73, 73);
+}
+
+.onecom_ep_form p.oc_desc {
+	color: #9e9e9c;
+	letter-spacing: .18px;
+	line-height: 14px;
+	margin-top: 7px;
+	margin-bottom: 0;
+}
+
+.onecom_ep_form .oc_cb_switch {
+	/* vertical-align: -3px; */
+}
+
+.components-spinner::before {
+	content: "";
+	position: absolute;
+	background-color: #fff;
+	top: 3px;
+	left: 3px;
+	width: 4px;
+	height: 4px;
+	border-radius: 100%;
+	transform-origin: 6px 6px;
+	animation: components-spinner__animation 1s infinite linear;
+}
+
+.components-spinner {
+	display: none;
+	background-color: #7e8993;
+	width: 18px;
+	height: 18px;
+	opacity: 0.7;
+	border-radius: 100%;
+	position: relative;
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
+@keyframes components-spinner__animation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#onecom-error-preview {
+	height: 332px;
+	width: 438px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: contain;
+	display: inline-block;
+	max-width: 100%;
+	background-image: url("../img/error-normal.png");
+	transition: all linear 0.2s;
+}
+
+#onecom-error-preview.onecom-error-extended {
+	background-image: url("../img/error-extended.png");
+}
+
+#onecom_ep_enable {
+	/* display: none; */
+}
+
+input:checked + .oc-failed.oc_cb_slider:before {
+	transform: translateX(0px);
+}
+
+input:checked + .oc-failed.oc_cb_slider {
+	background-color: #666
+}
+
+.oc-success.oc_cb_slider:before {
+	transform: translateX(10px);
+}
+
+.oc-success.oc_cb_slider {
+	background-color: #2386ea;
+}
+
+/**  Plugin redesign */
+.oc_card.error-page {
+	padding: 44px 22px 15px 26px;
+}
+.oc_card.error-page .card-left, .oc_card.error-page .card-right{
+	min-height:auto;
+}
+.error-page .oc_cb_slider {
+	border: 1.3px solid #3C3C3C;
+	box-sizing: border-box;
+	width:44px;
+}
+.error-page .oc_cb_switch {
+	width: 44px;
+	height: 24px;
+	margin-right: 16px;
+}
+.error-page input:checked + .oc_cb_slider {
+	background-color: #76B82A;
+}
+.error-page input:checked + .oc_cb_slider:before {
+	left: 6px;
+}
+
+.error-page .oc_cb_slider:before {
+	height: 16px;
+	width: 16px;
+	left: 3px;
+	top: 3px;
+	background-color: white;
+	border-radius: 100px;
+}
+.error-page .oc-flex-center.oc-icon-box {
+	display: inline-flex;
+	align-items: center;
+}
+
+.error-page .oc-flex-center.oc-icon-box img {
+	margin-right: 18px;
+}
+
+#onecom-ui .error-page .oc-flex-center.oc-icon-box h2 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	letter-spacing: -0.60px;
+	text-align: left;
+	margin:0;
+	line-height:40px;
+}
+
+#onecom-ui .oc_card.error-page .card-left p {
+	font-family: 'Open Sans', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+	color: #3C3C3C;
+	margin-top: 10px;
+	margin-bottom: 35px;
+	max-width:580px;
+}
+.show-on-mobile{
+	display:none;
+}
+@media only screen and (max-width:767px) {
+	.show-on-mobile{
+		display:block;
+	}
+	.hide-on-mobile{
+		display:none !important;
+	}
+	#onecom-error-preview {
+		height: 208px;
+		width: 100%;
+		background-size: cover;
+		margin-bottom: 30px;
+	}
+	#onecom-ui .error-page .oc-flex-center.oc-icon-box h2 {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	.error-page .oc-flex-center.oc-icon-box {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	#onecom-ui .oc_card.error-page .card-left p{
+		margin-bottom: 30px;
+	}
+	#onecom-ui .oc_card.error-page .spinner.oc_cb_spinner.error-page:not(.floating-spinner) {
+		margin: 0 0 0 15px;
+		padding: 2px;
+	}
+	.oc_cb_spinner.error-page {
+		display: inherit !important;
+	}
+}
+
+@media only screen and (max-width:767px) and (orientation: landscape){
+	#onecom-error-preview {
+		height: 208px;
+		background-size: contain;
+		background-position: left center;
+	}
+}
+/* and (orientation: portrait) */
+@media (min-width: 768px) and (max-width: 1190px){
+	.show-on-mobile{
+		display:block;
+	}
+	.hide-on-mobile{
+		display:none !important;
+	}
+	#onecom-ui .oc_card.error-page .card-left {
+		width: calc(100% - 20px);
+	}
+	#onecom-error-preview{
+		height: 293px;
+		width: 438px;
+		margin-bottom:30px;
+		background-position: left center;
+	}
+	#onecom-ui .oc_card.error-page .spinner.oc_cb_spinner:not(.floating-spinner) {
+		margin: 5px 13px 7px;
+	}
+}
+
+/** Plugin redesign css */
+.oc-error-wrap{
+	max-width: 1440px;
+	margin: auto;
+}
+.oc-right {
+	max-width: 480px;
+}
+.oc-left {
+	flex: 0 0 auto;
+	width: calc(50% - 10px);
+}

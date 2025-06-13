@@ -1,0 +1,225 @@
+/* one.com UI styles */
+#onecom-wrap {
+	color: #3c3c3c;
+	font-family: 'Open Sans', sans-serif;
+	margin: 27px 40px 40px 20px;
+	-webkit-font-smoothing: antialiased; /* to match font weight exactly like figma in mac) */
+}
+#onecom-wrap,
+#onecom-wrap p:not(.error.default-password-nag p),
+#onecom-wrap .inner-wrap .oc-show-hide a {
+	font-size: 16px;
+	line-height: 24px;
+}
+#onecom-wrap p:not(.error.default-password-nag p) {
+	margin: 12px 0;
+	padding: 0;
+}
+#onecom-wrap p:last-child:not(.error.default-password-nag p) {
+	margin-bottom: 0;
+}
+#onecom-wrap .oc-flex {
+	display: flex;
+}
+#onecom-wrap .oc-flex-center {
+	display: flex;
+	align-items: center;
+}
+#onecom-wrap .page-description {
+	margin-top: 16px;
+	margin-bottom: 49px;
+	padding: 0;
+	max-width: 580px;
+	font-weight: 400;
+	line-height: 24px;
+}
+#onecom-wrap h1,
+#onecom-wrap h2,
+#onecom-wrap h3 {
+	margin: 0;
+	padding: 0;
+	color: #3C3C3C;
+}
+#onecom-wrap h2 {
+	font-size: 24px;
+	line-height: 32px;
+}
+.one_wrap a:not(.error.default-password-nag p a) {
+	border-bottom: 1px solid transparent;
+	color: #0078C8;
+}
+#onecom-wrap .oc-page-header {
+	margin-top: 27px;
+}
+#onecom-wrap .main-heading {
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 40px;
+	letter-spacing: -0.60px;
+}
+#onecom-wrap .inner-wrap {
+	background-color: #ffffff;
+	padding: 24px;
+}
+#onecom-wrap .inner-wrap .main-heading {
+	margin-left: 18px;
+}
+#onecom-wrap .oc-btn,
+#onecom-wrap .oc-btn:focus,
+#onecom-wrap .oc-btn:active,
+#onecom-wrap a.oc-btn {
+	outline: none;
+	box-shadow: none;
+	border: none;
+	display: inline-block;
+	font-size: 14px;
+	cursor: pointer;
+	border-radius: 42px;
+	vertical-align: middle;
+	text-decoration: none;
+	line-height: 32px;
+	box-sizing: border-box;
+}
+#onecom-wrap .oc-btn-primary,
+#onecom-wrap a.oc-btn-primary,
+#onecom-wrap a.oc-btn-primary:active,
+#onecom-wrap a.oc-btn-primary:hover,
+#onecom-wrap a.oc-btn-primary:focus {
+	background-color: #0078C8;
+	padding: 4px 23px;
+	color: #ffffff;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+#onecom-wrap .oc_notice {
+	margin-bottom: 32px;
+}
+#onecom-wrap .oc-wp-rocket p:not(:last-child) {
+	margin-bottom: 24px;
+}
+#onecom-wrap .oc-icon-box {
+	margin-bottom: 28px;
+}
+#onecom-wrap .oc-wp-rocket h2 {
+	margin-right: 40px;
+	margin-left: 16px;
+}
+#onecom-wrap .oc-main-content {
+	max-width: 702px;
+}
+#onecom-wrap .oc-wp-rocket p:not(.error.default-password-nag p) {
+	margin: 16px 0
+}
+#onecom-wrap .wp-rocket-desc {
+	margin-bottom: 26px;
+}
+#onecom-wrap .oc-wp-rocket .oc-discount-badge {
+	font-family: 'Montserrat', sans-serif;
+	background: #f56f46;
+	color: #ffffff;
+	overflow-wrap: break-word;
+	padding: 5px 15px;
+	text-decoration: none;
+	height: 28px;
+	font-size: 15px;
+	letter-spacing: 0.1px;
+}
+#onecom-wrap .oc-wp-rocket ul li {
+	background: url('../images/check-list.svg') no-repeat 4.75px 7.5px;
+	padding-left: 40px;
+	margin: 16px auto;
+}
+#onecom-wrap .oc-wp-rocket .wp-rocket-btn {
+	margin-top: 40px;
+}
+.oc_cb_spinner {
+	float: none;
+	width: 18px;
+	height: 18px;
+	background-size: 18px 18px;
+}
+.spinner.oc_cb_spinner.is_active{
+	visibility: visible;
+}
+.spinner.oc_cb_spinner.success:not(.is-active) {
+	background-image: url(../images/ok-icon.svg);
+	visibility: visible;
+	animation: 0s linear 2.3s forwards delayedHide;
+}
+/*** Responsive style ***/
+@media only screen and (max-width: 1024px){
+	#onecom-wrap {
+		margin-left: 10px;
+		margin-right: 20px;
+	}
+}
+
+@media screen and ( max-width: 959px ) {
+	#onecom-wrap .oc-page-header {
+		margin-top: 45px;
+	}
+	#onecom-wrap .page-description {
+		margin-bottom: 34px;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	#onecom-wrap,
+	#onecom-wrap p:not(.error.default-password-nag p) {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	#onecom-wrap .oc-btn,
+	#onecom-wrap .oc-btn:focus,
+	#onecom-wrap .oc-btn:active,
+	#onecom-wrap a.oc-btn {
+		font-size: 16px;
+	}
+	/** @todo check if actually getting used */
+	/* .toplevel_page_onecom-vcache-plugin #wpbody-content,
+	._page_onecom-cdn #wpbody-content {
+		padding-bottom: 60px;
+	} */
+	#onecom-wrap .oc-page-header {
+		margin-top: 38px;
+	}
+	#onecom-wrap .page-description {
+		margin-bottom: 40px;
+	}
+	#onecom-wrap .oc-wp-rocket .oc-icon-box {
+		/* flex-wrap: wrap; */
+		flex-direction: row;
+		align-items: flex-start;
+		margin-bottom: 8px;
+	}
+	#onecom-wrap .oc-wp-rocket .oc-icon-box > div {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	#onecom-wrap .inner-wrap .main-heading {
+		margin-left: 0;
+		margin-top: 10px;
+	}
+	#onecom-wrap .oc-wp-rocket h2 {
+		margin-right: 0;
+	}
+	.oc_notice div .inline_icon, .oc_notice span {
+		width: 224px;
+	}
+	#onecom-wrap .page-description {
+		width: 288px;
+	}
+}
+/* CDN CSS END */
+
+@media screen and (max-width: 390px) {
+	#onecom-wrap .oc-wp-rocket .oc-icon-box > div {
+		margin-bottom: 16px;
+	}
+	#onecom-wrap .oc-wp-rocket .oc-icon-box {
+		flex-wrap: wrap;
+	}
+}

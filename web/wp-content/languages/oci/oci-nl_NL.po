@@ -1,0 +1,290 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OCI Setup Wizard\n"
+"POT-Creation-Date: 2020-06-23 17:17+0530\n"
+"PO-Revision-Date: 2020-06-23 17:17+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: *.css\n"
+
+#: install.php:61
+msgid "Start"
+msgstr "Start"
+
+#: install.php:62 install.php:217
+msgid "Contact"
+msgstr "Contact opnemen"
+
+#: install.php:63 install.php:288
+msgid "Settings"
+msgstr "Instellingen"
+
+#: install.php:64
+msgid "Theme"
+msgstr "Thema"
+
+#: install.php:114
+msgid "WordPress Installation"
+msgstr "Installatie van WordPress"
+
+#: install.php:199
+msgid "Welcome to WordPress"
+msgstr "Welkom bij WordPress"
+
+#: install.php:202
+msgid "WordPress is the world's most popular platform for creating websites and blogs. one.com handles the setup so you can focus on making your home on the web truly amazing."
+msgstr "WordPress is een van de populairste platforms ter wereld voor het maken van websites en blogs. one.com verwerkt de installatie, zodat u alleen maar hoef te zorgen dat uw thuisbasis op het internet fantastisch wordt."
+
+#: install.php:207
+msgid "Get up and running in a few clicks"
+msgstr "Beginnen met slechts een paar muisklikken"
+
+#: install.php:208
+msgid "Customize your site with featured responsive themes and plugins"
+msgstr "Pas uw site aan met thema's en plugins"
+
+#: install.php:209
+msgid "Use prebuilt shortcodes to customize your page"
+msgstr "Maak gebruik van ingebouwde snelcodes om uw pagina aan te passen"
+
+#: install.php:210
+msgid "Start selling online with ease"
+msgstr "Start eenvoudig met online verkopen"
+
+#: install.php:219
+msgid "Please provide the contact details for your website admin"
+msgstr "Vul de contactgegevens van uw website-beheerder in"
+
+#: install.php:226
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: install.php:232
+msgid "Usernames can have only alphanumeric characters, spaces, underscores, hyphens, periods, and the @ symbol."
+msgstr "Gebruikersnamen mogen alleen alfanumerieke tekens, spaties, liggende streepjes, streepjes, punten en het symbool @ bevatten."
+
+#: install.php:238
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: install.php:248
+msgid "Hide"
+msgstr "Verbergen"
+
+#: install.php:253
+msgid "Important:"
+msgstr "Belangrijk:"
+
+#: install.php:255
+msgid "You will need this password to log in. Please store it in a secure location."
+msgstr "U hebt dit wachtwoord nodig om u aan te melden. Bewaar het op een veilige plek."
+
+#: install.php:262
+msgid "Confirm Password"
+msgstr "Wachtwoord bevestigen"
+
+#: install.php:266
+msgid "Confirm use of weak password"
+msgstr "Gebruik van een zwak werkwoord bevestigen"
+
+#: install.php:273
+msgid "Email"
+msgstr "E-mailadres"
+
+#: install.php:279
+msgid "An email address where website visitors can contact you."
+msgstr "Een e-mailadres waarop bezoekers van de website contact met u kunnen opnemen."
+
+#: install.php:291
+msgid "Please tell us more about your website:"
+msgstr "Vertel ons meer over uw website:"
+
+#: install.php:294
+msgid "Note:"
+msgstr "Opmerking:"
+
+#: install.php:295
+msgid "Do not worry, you can always change these settings later."
+msgstr "Geen zorgen, u kunt deze instellingen later altijd nog wijzigen."
+
+#: install.php:302
+msgid "Title"
+msgstr "Titel"
+
+#: install.php:307
+msgid "A WordPress Site"
+msgstr "Een site van WordPress"
+
+#: install.php:308
+msgid "The title of your website appears at the top of all pages and in search results."
+msgstr "De titel van uw website wordt bovenaan alle pagina's en in zoekresultaten weergegeven."
+
+#: install.php:314
+msgid "Tagline"
+msgstr "Tagline"
+
+#: install.php:319
+msgid "Just another WordPress site"
+msgstr "Nog een site van WordPress"
+
+#: install.php:320
+msgid "Think of the tagline as a slogan that describes what makes your website special. It will also appear in search results."
+msgstr "De tagline is een soort slogan waarin u omschrijft wat uw site speciaal maakt. Deze wordt ook in zoekresultaten weergegeven."
+
+#: install.php:325
+msgid "Search Engine Visibility"
+msgstr "Zichtbaarheid in zoekmachines"
+
+#: install.php:329
+msgid "Discourage search engines from indexing this site"
+msgstr "Ontmoedig zoekmachines om deze site te indexeren"
+
+#: install.php:330
+msgid "It is up to search engines to honor this request."
+msgstr "Het is aan zoekmachines om dit verzoek in te willigen."
+
+#: install.php:336
+msgid "Terms & Conditions"
+msgstr "Algemene voorwaarden"
+
+#: install.php:343
+msgid "Yes, I have read"
+msgstr "Ja, ik heb de"
+
+#: install.php:344
+msgid "the terms of business"
+msgstr "bedrijfsvoorwaarden gelezen"
+
+#: install.php:345
+msgid "and I agree to these!"
+msgstr "en ik ga ermee akkoord!"
+
+#: install.php:358
+msgid "Step"
+msgstr "Stap"
+
+#: install.php:358
+msgid "of"
+msgstr "van"
+
+#: install.php:362 install.php:363 install.php:364 install.php:365
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: install.php:384
+msgid "Select a theme"
+msgstr "Een thema selecteren"
+
+#: install.php:387
+msgid "Select the perfect WordPress theme for your website."
+msgstr "Selecteer het perfecte WordPress-thema voor uw website."
+
+#: install.php:434
+msgid "Preview"
+msgstr "Voorbeeldweergave"
+
+#: install.php:448 install.php:492
+msgid "Install"
+msgstr "Installeren"
+
+#: install.php:459
+msgid "No themes found"
+msgstr "Geen thema's gevonden"
+
+#: install.php:472
+msgid "Skip to dashboard"
+msgstr "Doorgaan naar dashboard"
+
+#: install.php:488
+msgid "Back to Themes"
+msgstr "Terug naar thema's"
+
+#: install.php:496
+msgid "Desktop"
+msgstr "Desktop"
+
+#: install.php:497
+msgid "Mobile"
+msgstr "Mobiel"
+
+#: install.php:515
+msgid "Premium feature"
+msgstr "Premium functie"
+
+#: install.php:518
+msgid "The chosen theme is not available in your current subscription."
+msgstr "Het gekozen thema is niet inbegrepen bij uw huidige abonnement."
+
+#: install.php:518
+msgid "Please upgrade to a subscription with access to Premium features."
+msgstr "Upgrade naar een abonnement met toegang tot Premium-functies."
+
+#: install.php:518 oci/oci.php:86
+msgid "Learn more"
+msgstr "Meer info"
+
+#: install.php:522
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: install.php:523
+msgid "Upgrade"
+msgstr "Upgraden"
+
+#: oci/ajax.php:90
+msgid "Installing theme"
+msgstr "Thema installeren"
+
+#: oci/ajax.php:114 oci/ajax.php:434
+msgid "WordPress is being upgraded. Please try again later."
+msgstr "WordPress wordt geüpdatet. Probeer het later opnieuw."
+
+#: oci/ajax.php:117
+msgid "Something went wrong. Please contact the support at one.com."
+msgstr "Er is iets mis gegaan. Neem contact op met de helpdesk van one.com."
+
+#: oci/ajax.php:131 oci/ajax.php:224
+msgid "Unable to connect to the file system. Please contact the support at one.com."
+msgstr "Kon geen verbinding maken met het bestandssysteem. Neem contact op met de helpdesk van one.com."
+
+#: oci/ajax.php:146
+msgid "Theme installed successfully."
+msgstr "Thema geïnstalleerd."
+
+#: oci/ajax.php:153
+msgid "Theme activated successfully."
+msgstr "Thema geactiveerd."
+
+#: oci/ajax.php:155
+msgid "Theme cannot be activated."
+msgstr "Thema kan niet geactiveerd worden."
+
+#: oci/ajax.php:175
+msgid "Installing plugin"
+msgstr "Plugin installeren"
+
+#: oci/ajax.php:238
+msgid "Plugin installed successfully."
+msgstr "Plugin geïnstalleerd."
+
+#: oci/ajax.php:350
+msgid "WordPress installed successfully!"
+msgstr "WordPress geïnstalleerd!"
+
+#: oci/ajax.php:439
+msgid "All ok"
+msgstr ""
+
+#: oci/oci.php:86
+msgid "This is a Premium Theme"
+msgstr "Dit is een Premium thema"

@@ -1,0 +1,140 @@
+# Translation of Plugins - Advanced Editor Tools - Stable (latest release) in Portuguese (Portugal)
+# This file is distributed under the same license as the Plugins - Advanced Editor Tools - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-11-12 10:13:01+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: pt\n"
+"Project-Id-Version: Plugins - Advanced Editor Tools - Stable (latest release)\n"
+
+#: tadv_admin.php:541
+msgid "Replace the size setting available for fonts with: %s."
+msgstr "Substitui a definição dos tamanhos disponíveis por: %s"
+
+#: tadv_admin.php:638
+msgid "A stylesheet file named editor-style.css was not added by your theme."
+msgstr "Não foi adicionado ao seu tema nenhum ficheiro de folha de estilos com nome editor-style.css."
+
+#: tinymce-advanced.php:1171
+msgid "Settings"
+msgstr "Definições"
+
+#: tadv_admin.php:628
+msgid "Create CSS classes menu"
+msgstr "Criar menu de classes CSS"
+
+#: tadv_admin.php:715
+msgid "Enable the editor enhancements for:"
+msgstr "Activar os melhoramentos do editor para:"
+
+#: tadv_admin.php:703
+msgid "Settings import and export"
+msgstr "Importar e exportar definições"
+
+#: tadv_admin.php:534
+msgid "Alternative link dialog"
+msgstr "Caixa de diálogo alternativa para ligações"
+
+#: tadv_admin.php:535
+msgid "Open the TinyMCE link dialog when using the link button on the toolbar or the link menu item."
+msgstr "Abre a caixa de diálogo do TinyMCE ao usar o botão de ligação na barra de ferramentas ou o no menu."
+
+#: tadv_admin.php:522
+msgid "Enable more list options: upper or lower case letters for ordered lists, disk or square for unordered lists, etc."
+msgstr "Activa mais opções de listas: listas ordenadas com minúsculas ou maiúsculas, listas não ordenadas com círculos ou quadrados, etc."
+
+#: tadv_admin.php:529
+msgid "Replace the browser context (right-click) menu."
+msgstr "Substitui o menu de contexto do navegador (clique com botão direito)."
+
+#: tadv_admin.php:540
+msgid "Font sizes"
+msgstr "Tamanhos de letra"
+
+#: tadv_admin.php:510
+msgid "Options"
+msgstr "Opções"
+
+#: tadv_admin.php:136 tadv_admin.php:747
+msgid "Save Changes"
+msgstr "Guardar alterações"
+
+#: tadv_admin.php:124
+msgid "Settings saved."
+msgstr "Definições guardadas."
+
+#: tadv_admin.php:710
+msgid "Export Settings"
+msgstr "Exportar definições"
+
+#: tadv_admin.php:701
+msgid "Administration"
+msgstr "Administração"
+
+#: tadv_admin.php:76
+msgid "Importing of settings failed."
+msgstr "Falhou ao importar definições."
+
+#: tadv_admin.php:57
+msgid "Verify"
+msgstr "Verificar"
+
+#: tadv_admin.php:63
+msgid "Back to Editor Settings"
+msgstr "Voltar às definições do editor"
+
+#: tadv_admin.php:711
+msgid "Import Settings"
+msgstr "Importar definições"
+
+#: tadv_admin.php:630
+msgid "Load the CSS classes used in editor-style.css and replace the Formats menu."
+msgstr "Carrega as classes CSS usadas em editor-style.css e substitui o menu Formatos."
+
+#: tadv_admin.php:549
+msgid "Advanced Options"
+msgstr "Opções avançadas"
+
+#: tadv_admin.php:528
+msgid "Context Menu"
+msgstr "Menu de contexto"
+
+#: tadv_admin.php:464
+msgid "Unused Buttons"
+msgstr "Botões não utilizados"
+
+#: tadv_admin.php:347
+msgid "Enable the editor menu."
+msgstr "Activar o menu do editor."
+
+#: tadv_admin.php:106
+msgid "ERROR: All toolbars are empty. Default settings loaded."
+msgstr "ERRO: Todas as barras de ferramentas estão vazias. Definições por omissão carregadas."
+
+#: tadv_admin.php:607
+msgid "However it may behave unexpectedly in rare cases, so test it thoroughly before enabling it permanently."
+msgstr "No entanto podem ocorrer comportamentos inesperados em casos raros, por isso teste exaustivamente antes de activar definitivamente."
+
+#: tadv_admin.php:520
+msgid "List Style Options"
+msgstr "Opções de estilo de lista"
+
+#: tinymce-advanced.php:342
+msgid "Please upgrade your WordPress installation or download an <a href=\"%s\">older version of the plugin</a>."
+msgstr "Por favor, actualize a sua instalação do WordPress ou descarregue uma <a href=\"%s\">versão mais antiga do plugin</a>."
+
+#: tadv_admin.php:752
+msgid "The [Toolbar toggle] button shows or hides the second, third, and forth button rows. It will only work when it is in the first row and there are buttons in the second row."
+msgstr "O botão [Mostrar/esconder barra de ferramentas] mostra ou esconde a segunda, terceira e quarta linha de botões. Apenas funciona se estiver na primeira linha e se existirem botões na segunda linha."
+
+#: tadv_admin.php:746
+msgid "Restore Default Settings"
+msgstr "Repor definições"
+
+#: tadv_admin.php:36
+msgid "Default settings restored."
+msgstr "Definições repostas."

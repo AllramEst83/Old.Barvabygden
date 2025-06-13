@@ -1,0 +1,37 @@
+# Translation of Plugins - Classic Widgets - Stable (latest release) in Polish
+# This file is distributed under the same license as the Plugins - Classic Widgets - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-01-09 17:38:08+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: pl\n"
+"Project-Id-Version: Plugins - Classic Widgets - Stable (latest release)\n"
+
+#. Author URI of the plugin
+#: classic-widgets.php
+msgid "https://github.com/WordPress/classic-widgets/"
+msgstr "https://github.com/WordPress/classic-widgets/"
+
+#. Author of the plugin
+#: classic-widgets.php
+msgid "WordPress Contributors"
+msgstr "Współtwórcy WordPressa"
+
+#. Description of the plugin
+#: classic-widgets.php
+msgid "Enables the classic widgets settings screens in Appearance - Widgets and the Customizer. Disables the block editor from managing widgets."
+msgstr "Włącza klasyczne ekrany ustawień widżetów w wygląd - widżety i konfigurator. Wyłącza edytor bloków z zarządzania widżetami."
+
+#. Plugin URI of the plugin
+#: classic-widgets.php
+msgid "https://wordpress.org/plugins/classic-widgets/"
+msgstr "https://pl.wordpress.org/plugins/classic-widgets/"
+
+#. Plugin Name of the plugin
+#: classic-widgets.php
+msgid "Classic Widgets"
+msgstr "Klasyczne widżety"

@@ -1,0 +1,211 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: varnish\n"
+"POT-Creation-Date: 2024-01-12 19:35+0530\n"
+"PO-Revision-Date: 2018-09-10 17:10+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: *.css\n"
+
+#: OCPushStats.php:148 class-onecom-usage-stats.php:245 validator.php:22
+#: validator.php:200 validator.php:1745
+msgid "Some error occurred, please reload the page and try again."
+msgstr ""
+
+#: class-onecom-centralized-menu.php:21 class-onecom-centralized-menu.php:81
+#: onecom-nested-menu.php:66 validator.php:1713
+msgid "One.com"
+msgstr ""
+
+#: class-onecom-centralized-menu.php:47
+msgid "Performance Cache"
+msgstr ""
+
+#: class-onecom-centralized-menu.php:47
+msgid "Performance Cache&nbsp;"
+msgstr ""
+
+#: class-onecom-centralized-menu.php:53
+msgid "Maintenance Mode"
+msgstr ""
+
+#: class-onecom-centralized-menu.php:66
+msgid "Themes"
+msgstr ""
+
+#: class-onecom-centralized-menu.php:67
+msgid "Plugins"
+msgstr ""
+
+#: class-onecom-usage-stats.php:64
+msgid "For delivering best customer experience, one.com wants to collect non-sensitive data from your website."
+msgstr ""
+
+#: class-onecom-usage-stats.php:65
+msgid "Which data?"
+msgstr ""
+
+#: class-onecom-usage-stats.php:66
+msgid "Allow one.com to collect data."
+msgstr ""
+
+#: class-onecom-usage-stats.php:71
+msgid "Installed plugins"
+msgstr ""
+
+#: class-onecom-usage-stats.php:72
+msgid "Installed themes"
+msgstr ""
+
+#: class-onecom-usage-stats.php:73
+msgid "Counts of "
+msgstr ""
+
+#: class-onecom-usage-stats.php:75
+msgid "Posts"
+msgstr ""
+
+#: class-onecom-usage-stats.php:76
+msgid "Pages"
+msgstr ""
+
+#: class-onecom-usage-stats.php:77
+msgid "Media"
+msgstr ""
+
+#: class-onecom-usage-stats.php:78
+msgid "Products"
+msgstr ""
+
+#: class-onecom-usage-stats.php:79
+msgid "Comments"
+msgstr ""
+
+#: class-onecom-usage-stats.php:80
+msgid "Users"
+msgstr ""
+
+#: class-onecom-usage-stats.php:82
+msgid "Staging exists"
+msgstr ""
+
+#: class-onecom-usage-stats.php:83
+msgid "Frontpage settings"
+msgstr ""
+
+#: class-onecom-usage-stats.php:84
+msgid "Multisite"
+msgstr ""
+
+#: onecom-nested-menu.php:30 validator.php:1911
+msgid "one.com"
+msgstr ""
+
+#: onecom-nested-menu.php:223
+msgid "Sorry, you are not allowed to access this page."
+msgstr ""
+
+#: validator.php:25 validator.php:854
+msgid "Learn more"
+msgstr ""
+
+#: validator.php:475
+msgid "Make your WordPress more powerful"
+msgstr ""
+
+#: validator.php:480
+msgid "Spend less time worrying about your site and more time growing your business with one.com Managed WordPress."
+msgstr ""
+
+#: validator.php:481
+msgid "Quick fix or ignore recommendations"
+msgstr ""
+
+#: validator.php:482
+msgid "Get better performance with Performance Cache and CDN"
+msgstr ""
+
+#: validator.php:483
+msgid "Get notified about security with Vulnerability Monitoring"
+msgstr ""
+
+#: validator.php:484
+msgid "Get helpful tips with Advanced Error Page"
+msgstr ""
+
+#: validator.php:485
+msgid "Get access to our Premium themes"
+msgstr ""
+
+#: validator.php:486
+msgid "Increase your authentication security"
+msgstr ""
+
+#: validator.php:487
+msgid "Host on our WordPress servers built for speed"
+msgstr ""
+
+#: validator.php:495
+msgid "Free upgrade"
+msgstr ""
+
+#: validator.php:498 validator.php:802
+msgid "Cancel"
+msgstr ""
+
+#: validator.php:805
+msgid "Get Managed WordPress"
+msgstr ""
+
+#: validator.php:824
+msgid "Premium"
+msgstr ""
+
+#: validator.php:852
+msgid "This is a Premium Theme"
+msgstr ""
+
+#: validator.php:959
+msgid "Connection timed out"
+msgstr ""
+
+#: validator.php:984
+msgid "Sorry, no compatible themes found for your version of WordPress and PHP."
+msgstr ""
+
+#: validator.php:984
+msgid "Try again"
+msgstr ""
+
+#: validator.php:1078
+#, php-format
+msgid "Make your website even more powerful with %sManaged WordPress%s"
+msgstr ""
+
+#: validator.php:1751
+msgid "Updated"
+msgstr ""
+
+#: validator.php:1906
+#, php-format
+msgid "Welcome to %s plugins"
+msgstr ""
+
+#: validator.php:1907
+msgid "Look after the health, security and performance of your website, and customise it with recommended themes and plugins."
+msgstr ""
+
+#: validator.php:1908
+msgid "Explore plugins"
+msgstr ""

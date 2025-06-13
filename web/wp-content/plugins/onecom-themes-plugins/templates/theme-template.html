@@ -1,0 +1,24 @@
+<div data-index="{{index}}" data-is-premium="{{is_premium}}" data-tslug="{{themeSlug}}" class="one-theme oci-theme-box-nw theme scale-anm {{tags_class}} {{theme_type}}">
+    <div class="theme-screenshot">
+        <div class="theme-screen-bg lazyload" data-bg="{{thumbnail_url}}"></div>
+        <a class="selected_theme showSelected gv-button-primary" id="selecteddemo-{{theme_id}}" data-id="{{theme_id}}" data-demo-url="{{preview_url}}">
+            <span class="step-5-preview">{{selected_text}}</span>
+        </a>
+    </div>
+    <span class="status-badge gv-badge {{gv-badge-class}} {{status_class}}" >{{status}}</span>
+    <div class="theme-overlay">
+        <div class="theme-action gv-border-alt">
+
+            <div class="one-preview">
+                <a class="select_theme hideSelected gv-button gv-button-cancel {{install_class}}" data-theme-type="{{theme_type}}" href="{{link}}" data-theme_slug="{{themeSlug}}" data-name="{{theme_action}}" data-download="{{download_url}}" data-redirect="{{redirect}}">
+                    {{install_text}}
+                </a>
+                <a class="gv-button gv-button-primary preview_link hideSelected ocwp_ocp_themes_page_theme_previewed_event" id="demo-{{theme_id}}" data-id="{{theme_id}}" data-demo-url="{{preview_url}}" data-theme_slug="{{themeSlug}}" data-name="install_theme"  data-redirect="{{redirect}}">
+                    {{preview_text}}
+                </a>
+                <span class="themeName-preview">{{theme_name}}</span>
+            </div>
+
+        </div>
+    </div>
+</div>

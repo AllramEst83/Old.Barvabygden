@@ -1,0 +1,290 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OCI Setup Wizard\n"
+"POT-Creation-Date: 2020-06-23 17:16+0530\n"
+"PO-Revision-Date: 2020-06-23 17:16+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: *.css\n"
+
+#: install.php:61
+msgid "Start"
+msgstr "Comience"
+
+#: install.php:62 install.php:217
+msgid "Contact"
+msgstr "Contacto"
+
+#: install.php:63 install.php:288
+msgid "Settings"
+msgstr "Configuración"
+
+#: install.php:64
+msgid "Theme"
+msgstr "tema"
+
+#: install.php:114
+msgid "WordPress Installation"
+msgstr "Instalación de WordPress"
+
+#: install.php:199
+msgid "Welcome to WordPress"
+msgstr "Bienvenido a WordPress"
+
+#: install.php:202
+msgid "WordPress is the world's most popular platform for creating websites and blogs. one.com handles the setup so you can focus on making your home on the web truly amazing."
+msgstr "WordPress es la plataforma para la creación de sitios web y blogs más popular del mundo. one.com gestiona la instalación para que usted pueda centrarse en desarrollar un sitio web verdaderamente impresionante."
+
+#: install.php:207
+msgid "Get up and running in a few clicks"
+msgstr "Bastan unos cuantos clics para ponerlo todo en marcha"
+
+#: install.php:208
+msgid "Customize your site with featured responsive themes and plugins"
+msgstr "Personalice su sitio con temas y plugins adaptativos"
+
+#: install.php:209
+msgid "Use prebuilt shortcodes to customize your page"
+msgstr "Utilice códigos cortos prediseñados para personalizar su página"
+
+#: install.php:210
+msgid "Start selling online with ease"
+msgstr "Comience a vender fácilmente en Internet"
+
+#: install.php:219
+msgid "Please provide the contact details for your website admin"
+msgstr "Proporcione la información de contacto del administrador de su sitio web"
+
+#: install.php:226
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: install.php:232
+msgid "Usernames can have only alphanumeric characters, spaces, underscores, hyphens, periods, and the @ symbol."
+msgstr "Los nombres de usuario solo pueden contener caracteres alfanuméricos, espacios, guiones bajos, guiones, puntos y el símbolo @."
+
+#: install.php:238
+msgid "Password"
+msgstr "Contraseña"
+
+#: install.php:248
+msgid "Hide"
+msgstr "Ocultar"
+
+#: install.php:253
+msgid "Important:"
+msgstr "Importante:"
+
+#: install.php:255
+msgid "You will need this password to log in. Please store it in a secure location."
+msgstr "necesitará esta contraseña para iniciar sesión. Guárdela en un lugar seguro."
+
+#: install.php:262
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#: install.php:266
+msgid "Confirm use of weak password"
+msgstr "Confirmar el uso de una contraseña no segura"
+
+#: install.php:273
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: install.php:279
+msgid "An email address where website visitors can contact you."
+msgstr "Una dirección de correo electrónico que permita a los visitantes de su sitio web ponerse en contacto con usted."
+
+#: install.php:291
+msgid "Please tell us more about your website:"
+msgstr "Cuéntenos más cosas sobre su sitio web:"
+
+#: install.php:294
+msgid "Note:"
+msgstr "Nota:"
+
+#: install.php:295
+msgid "Do not worry, you can always change these settings later."
+msgstr "no se preocupe, podrá modificar estos datos en cualquier momento."
+
+#: install.php:302
+msgid "Title"
+msgstr "Título"
+
+#: install.php:307
+msgid "A WordPress Site"
+msgstr "Un sitio web de WordPress"
+
+#: install.php:308
+msgid "The title of your website appears at the top of all pages and in search results."
+msgstr "El título de su sitio web se muestra en la parte superior de todas las páginas y en los resultados de búsqueda."
+
+#: install.php:314
+msgid "Tagline"
+msgstr "Lema"
+
+#: install.php:319
+msgid "Just another WordPress site"
+msgstr "Otro sitio web de WordPress"
+
+#: install.php:320
+msgid "Think of the tagline as a slogan that describes what makes your website special. It will also appear in search results."
+msgstr "El lema es parecido a un eslogan y describe lo que hace que su sitio web sea especial. También se mostrará en los resultados de búsqueda."
+
+#: install.php:325
+msgid "Search Engine Visibility"
+msgstr "Visibilidad en motores de búsqueda"
+
+#: install.php:329
+msgid "Discourage search engines from indexing this site"
+msgstr "Impedir la indexación de este sitio por motores de búsqueda"
+
+#: install.php:330
+msgid "It is up to search engines to honor this request."
+msgstr "Corresponde a los motores de búsqueda respetar esta petición."
+
+#: install.php:336
+msgid "Terms & Conditions"
+msgstr "Términos y condiciones"
+
+#: install.php:343
+msgid "Yes, I have read"
+msgstr "Sí, he leído"
+
+#: install.php:344
+msgid "the terms of business"
+msgstr "las condiciones de negocio"
+
+#: install.php:345
+msgid "and I agree to these!"
+msgstr "y las acepto."
+
+#: install.php:358
+msgid "Step"
+msgstr "Paso"
+
+#: install.php:358
+msgid "of"
+msgstr "de"
+
+#: install.php:362 install.php:363 install.php:364 install.php:365
+msgid "Continue"
+msgstr "Continuar"
+
+#: install.php:384
+msgid "Select a theme"
+msgstr "Seleccione un tema"
+
+#: install.php:387
+msgid "Select the perfect WordPress theme for your website."
+msgstr "Seleccione el tema de WordPress perfecto para su sitio web."
+
+#: install.php:434
+msgid "Preview"
+msgstr "Vista previa"
+
+#: install.php:448 install.php:492
+msgid "Install"
+msgstr "Instalar"
+
+#: install.php:459
+msgid "No themes found"
+msgstr "No se ha encontrado ningún tema"
+
+#: install.php:472
+msgid "Skip to dashboard"
+msgstr "Ir al panel de control"
+
+#: install.php:488
+msgid "Back to Themes"
+msgstr "Volver a los temas"
+
+#: install.php:496
+msgid "Desktop"
+msgstr "Sobremesa"
+
+#: install.php:497
+msgid "Mobile"
+msgstr "Móvil"
+
+#: install.php:515
+msgid "Premium feature"
+msgstr "Característica Premium"
+
+#: install.php:518
+msgid "The chosen theme is not available in your current subscription."
+msgstr "El tema elegido no está disponible con su suscripción actual."
+
+#: install.php:518
+msgid "Please upgrade to a subscription with access to Premium features."
+msgstr "Por favor actualice para tener una suscripción con acceso a características Premium."
+
+#: install.php:518 oci/oci.php:86
+msgid "Learn more"
+msgstr "Más información"
+
+#: install.php:522
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: install.php:523
+msgid "Upgrade"
+msgstr "Actualizar"
+
+#: oci/ajax.php:90
+msgid "Installing theme"
+msgstr "Instalando el tema"
+
+#: oci/ajax.php:114 oci/ajax.php:434
+msgid "WordPress is being upgraded. Please try again later."
+msgstr "WordPress se está actualizando. Por favor, pruebe de nuevo más tarde."
+
+#: oci/ajax.php:117
+msgid "Something went wrong. Please contact the support at one.com."
+msgstr "Algo salió mal. Póngase en contacto con el servicio de asistencia de one.com."
+
+#: oci/ajax.php:131 oci/ajax.php:224
+msgid "Unable to connect to the file system. Please contact the support at one.com."
+msgstr "Imposible conectar con el sistema de archivos. Comuníquese con el servicio de asistencia de one.com."
+
+#: oci/ajax.php:146
+msgid "Theme installed successfully."
+msgstr "Tema instalado correctamente."
+
+#: oci/ajax.php:153
+msgid "Theme activated successfully."
+msgstr "Tema activado correctamente."
+
+#: oci/ajax.php:155
+msgid "Theme cannot be activated."
+msgstr "El tema no puede activarse."
+
+#: oci/ajax.php:175
+msgid "Installing plugin"
+msgstr "Instalando plugin"
+
+#: oci/ajax.php:238
+msgid "Plugin installed successfully."
+msgstr "Plugin instalado correctamente."
+
+#: oci/ajax.php:350
+msgid "WordPress installed successfully!"
+msgstr "WordPress instalado correctamente."
+
+#: oci/ajax.php:439
+msgid "All ok"
+msgstr ""
+
+#: oci/oci.php:86
+msgid "This is a Premium Theme"
+msgstr "Este es un tema Premium"

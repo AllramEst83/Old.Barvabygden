@@ -1,0 +1,35 @@
+; Coffee Beans
+
+/replace line-color #999999
+/replace image icon-button.gif
+/replace image-active icon-button-active.gif
+/replace padding-left 8px
+/replace padding-right 8px
+/replace padding-top 6px
+/replace padding-bottom 6px
+
+/define menu-begin
+/begin
+  <table border=0 style="border-collapse: collapse" class=menu cellspacing=0 cellpadding=0 width="195">
+/end
+
+/define menu-end
+/begin
+  </table>
+/end
+
+/define menu-item
+/begin
+  <tr><td align=left valign=middle style="padding-left: $padding-left$; padding-right: $padding-right$; padding-top: $padding-top$; padding-bottom: $padding-bottom$; border-bottom: 1px solid $line-color$; border-top: 1px solid $line-color$"><img src="$image-folder$/$image$" align=absmiddle>&nbsp;&nbsp;<a href="$menu-item-url$">$menu-item-text$</a></td></tr>
+/end
+
+/define menu-item-active
+/begin
+  <tr><td align=left valign=middle style="padding-left: $padding-left$; padding-right: $padding-right$; padding-top: $padding-top$; padding-bottom: $padding-bottom$; border-bottom: 1px solid $line-color$; border-top: 1px solid $line-color$"><img src="$image-folder$/$image-active$" align=absmiddle>&nbsp;&nbsp;$menu-item-text$</td></tr>
+/end
+
+
+
+
+
+/replace image-folder /images/coffee-beans

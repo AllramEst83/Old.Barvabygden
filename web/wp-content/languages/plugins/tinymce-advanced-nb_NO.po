@@ -1,0 +1,406 @@
+# Translation of Plugins - Advanced Editor Tools - Stable (latest release) in Norwegian (Bokmål)
+# This file is distributed under the same license as the Plugins - Advanced Editor Tools - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-04-15 18:45:52+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
+"Language: nb_NO\n"
+"Project-Id-Version: Plugins - Advanced Editor Tools - Stable (latest release)\n"
+
+#: tadv_admin.php:168
+msgid "Disable"
+msgstr "Slå av"
+
+#: tadv_admin.php:164
+msgid "Enable"
+msgstr "Slå på"
+
+#. Plugin Name of the plugin
+#: tadv_admin.php:117 tinymce-advanced.php:1156 tinymce-advanced.php:1157
+msgid "Advanced Editor Tools"
+msgstr "Avanserte redigeringsverktøy"
+
+#. Author URI of the plugin
+msgid "https://automattic.com"
+msgstr "https://automattic.com"
+
+#. Author of the plugin
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/tinymce-advanced/"
+msgstr "https://nb.wordpress.org/plugins/tinymce-advanced/"
+
+#. Description of the plugin
+msgid "Extends and enhances the block editor (Gutenberg) and the classic editor (TinyMCE)."
+msgstr "Utvider og forbedrer blokkredigeringsverktøyet (Gutenberg) og klassisk redigering ( TinyMCE)."
+
+#: tadv_admin.php:603
+msgid "Keep paragraph tags in the Classic block and the Classic Editor"
+msgstr "Behold avsnittsmerker i klassisk blokk og i klassisk redigering"
+
+#: tinymce-advanced.php:810
+msgid "Clear formatting"
+msgstr "Fjern formatering"
+
+#: tadv_admin.php:706
+msgid "It is important that the exported file is not edited in any way."
+msgstr "De er viktig at den eksporterte filen ikke er redigert på noen måte."
+
+#: tadv_admin.php:694
+msgid "To keep the table more responsive please use percentage values when setting widths."
+msgstr "For å holde tabellen mer responsiv vennligst bruk prosentverdier når bredder angis."
+
+#: tadv_admin.php:688
+msgid "Show the advanced tabs in the table properties dialogs"
+msgstr "Vis de avanserte fanene i dialogene for tabellegenskaper"
+
+#: tadv_admin.php:683
+msgid "When disabled, pressing the tab key will jump outside the editor area."
+msgstr "Når deaktivert vil tab-tasten hoppe ut av redigeringsområdet."
+
+#: tadv_admin.php:681
+msgid "Jump to the next cell when pressing the tab key while editing a table"
+msgstr "Hopp til neste rute når tab-tasten trykkes når man redigerer en tabell"
+
+#: tadv_admin.php:676
+msgid "If the grid is disabled the number of rows and columns can be typed in the Insert Table dialog."
+msgstr "Om rutenettet er deaktivert kan antall rader og kolonner legges inn i dialogen for å sette inn tabell."
+
+#: tadv_admin.php:674
+msgid "When inserting a table show a grid where the number of rows and columns can be selected by dragging with the mouse"
+msgstr "Vis et rutenett ved innsetting av tabell, hvor antall rader og kolonner kan velges ved å dra med musepekeren"
+
+#: tadv_admin.php:669
+msgid "This will add a border around the table unless it is overriden by your theme."
+msgstr "Dette vil legge til en kant rundt tabellene, så sant det ikke er overstyrt av dit tema."
+
+#: tadv_admin.php:667
+msgid "When inserting a table set the HTML border attribute to 1"
+msgstr "Sett HTML border-attributtet til 1 når en tabell settes inn"
+
+#: tadv_admin.php:658
+msgid "Then the table, the rows and the cells can be resized by typing the size values in the advanced options tabs."
+msgstr "Da kan størrelsen på tabellen, radene og rutene endres ved å taste inn størrelsesverdier i fanen for avanserte alternativer."
+
+#: tadv_admin.php:653
+msgid "This may override some styles that are set by your theme and usually makes the table non-responsive when viewed on a small screen like a smartphone."
+msgstr "Dette kan overstyre stiler som er angitt i ditt tema og gjør vanligvis tabellen ikke-responsiv nå den vises på små skjermer som smarttelefoner."
+
+#: tadv_admin.php:650
+msgid "Enable resizing of tables, rows, and columns by dragging with the mouse"
+msgstr "Aktiver størrelsesendring av tabeller, rader og kolonner ved å dra med musepekeren"
+
+#: tadv_admin.php:647
+msgid "Advanced options for tables"
+msgstr "Avanserte alternativer for tabeller"
+
+#: tadv_admin.php:605
+msgid "Stop removing &lt;p&gt; and &lt;br&gt; tags in the Classic Editor and show them in the Text tab."
+msgstr "Slutt å fjerne &lt;p&gt; og &lt;br&gt;-elementer i klassisk redigering og vis dem i tekstfanen."
+
+#. translators: URL to (localised) Classic Editor plugin.
+#: tadv_admin.php:591
+msgid "https://wordpress.org/plugins/classic-editor/"
+msgstr "https://nb.wordpress.org/plugins/classic-editor/"
+
+#: tadv_admin.php:570
+msgid "Selecting this option also adds some improvements and fixes for the Classic block."
+msgstr "Å velge dette alternativet legger også til noen forbedringer og rettelser i klassisk blokk."
+
+#: tadv_admin.php:569
+msgid "The default block is inserted on pressing Enter in the title, or clicking under the last block."
+msgstr "Standard blokk settes inn når man taster Enter i tittelfeltet eller klikker nedenfor siste blokk."
+
+#: tadv_admin.php:567
+msgid "Make the Classic Paragraph or Classic block the default block (hybrid mode)"
+msgstr "Gjør klassisk avsnitt eller klassisk blokk standard blokk (hybrid modus)"
+
+#: tadv_admin.php:552
+msgid "Add Classic Paragraph block"
+msgstr "Legg il klassisk avsnittsblokk"
+
+#: tadv_admin.php:342
+msgid "Toolbars for the Classic Editor"
+msgstr "Verktøyrader for klassisk redigering"
+
+#: tadv_admin.php:296
+msgid "Unused Buttons for the Classic Paragraph and Classic blocks toolbars"
+msgstr "Ubrukte knapper på verktøyraden for for klassisk avsnitt og klassiske blokker"
+
+#: tadv_admin.php:92
+msgid "Importing of settings failed. The imported file is invalid."
+msgstr "Import av innstillinger mislyktes. Den importerte filen er ugyldig."
+
+#: tadv_admin.php:89
+msgid "Importing of settings failed. The imported file is empty."
+msgstr "Import av innstillinger mislyktes. Den importerte filen er tom."
+
+#: tadv_admin.php:86
+msgid "Importing of settings failed. Please import a valid settings file."
+msgstr "Import av innstillinger mislyktes. Vennligst importer en gyldig innstillingsfil."
+
+#: tadv_admin.php:79 tadv_admin.php:97
+msgid "Settings imported successfully."
+msgstr "Innstillinger importert."
+
+#: tadv_admin.php:58
+msgid "Import settings from string"
+msgstr "Importer innstillinger fra streng"
+
+#: tadv_admin.php:49
+msgid "Import settings"
+msgstr "Importer innstillinger"
+
+#: tadv_admin.php:47
+msgid "The settings are imported from a previously exported settings file."
+msgstr "Innstillingene er importert fra en tidligere eksportert fil med innstillinger."
+
+#: tinymce-advanced.php:811
+msgid "Mark"
+msgstr "Merk"
+
+#: tinymce-advanced.php:791
+msgid "For use instead of the Paragraph Block. Supports transforming to and from multiple Paragraph blocks, Image, Table, List, Quote, Custom HTML, and most other blocks."
+msgstr "For bruk i stedet for avsnittsblokken. Støtter transformering til å fra flere avsnittsblokker, bilde, tabell, liste, sitat, tilpasset HTML og de fleste andre blokker."
+
+#: tadv_admin.php:560
+msgid "In addition most default blocks can be transformed into classic paragraphs, and a Classic Paragraph can be converted to multiple blocks."
+msgstr "I tillegg kan de fleste standardblokker transformeres til klassiske avsnitt, og et klassisk avsnitt kan konverteres til flere blokker."
+
+#: tadv_admin.php:514
+msgid "Append all buttons to the top toolbar in the Classic Paragraph and Classic blocks."
+msgstr "Føy til alle knapper på topp-verktøylinjen i klassisk avsnitts- og klassisk-blokkene."
+
+#: tadv_admin.php:176
+msgid "The toolbars in the Classic Paragraph and Classic blocks are narrower and show on focus."
+msgstr "Verktøylinjene i klassisk avsnitt og klassisk blokk er smalere og vises ved fokus."
+
+#: tadv_admin.php:173
+msgid "Toolbars for the Classic Paragraph and Classic blocks"
+msgstr "Verktøylinjer for klassisk avsnitts- og klassisk-blokker"
+
+#: tadv_admin.php:146
+msgid "Classic Editor (TinyMCE)"
+msgstr "Klassisk redigering (TinyMCE)"
+
+#: tadv_admin.php:141
+msgid "Block Editor (Gutenberg)"
+msgstr "Blokkredigeringsverktøy (Gutenberg)"
+
+#: tadv_admin.php:561
+msgid "It can be used everywhere instead of the Paragraph block including in columns, when creating reusable blocks, etc."
+msgstr "Den kan brukes overalt i stedet for avsnittsblokken, inkludert i kolonner, når man lager gjenbrukbare blokker osv."
+
+#: tadv_admin.php:556
+msgid "Also, like the Classic block, most existing TinyMCE plugins and add-ons will continue to work."
+msgstr "Også, som med klassisk blokk, de fleste eksisterende TinyMCE-utvidelser og tillegg vil fortsette å virke."
+
+#: tadv_admin.php:555
+msgid "You can add multiple paragraphs, tables, galleries, embed video, set fonts and colors, and generally use everything that is available in the Classic Editor."
+msgstr "Du kan legge til flere avsnitt, tabeller, gallerier, bygge inn video, bestemme skrifttyper og farger, og generelt bruke alt som er tilgjengelig i det klassiske redigeringsverktøyet."
+
+#: tadv_admin.php:554
+msgid "The Classic Paragraph block includes the familiar TinyMCE editor and is an extended and enhanced Classic block."
+msgstr "Den klassiske avsnittsblokken inkluderer den vanlige TinyMCE-redigeringen og er en utvidet og forbedret klassisk blokk."
+
+#: tinymce-advanced.php:789
+msgid "Classic Paragraph"
+msgstr "Klassisk avsnitt"
+
+#: tadv_admin.php:637
+msgid "Disabled:"
+msgstr "Deaktivert:"
+
+#: tadv_admin.php:589
+msgid "If you prefer to use both editors side by side, do not enable this option. It is better to install the %1$sClassic Editor plugin%2$s."
+msgstr "Om du foretrekker å bruke begge redigeringsverktøyene side om side, ikke aktiver dette alternativet. Det er bedre å installere %1$sutvidelsen Klassisk redigering%2$s."
+
+#: tadv_admin.php:584
+msgid "It will allow you to use other plugins that enhance that editor, add old-style Meta Boxes, or in some way depend on the previous Edit Post screen."
+msgstr "Den vil la deg bruke andre utvidelser som forbedrer det redigeringsverktøyet, legge til gammeldagse meta-bokser, eller som på noen måter er avhengig av den tidligere Rediger innlegg-skjermen."
+
+#: tadv_admin.php:583
+msgid "Selecting this option will restore the previous (&#8220;classic&#8221;) editor and the previous Edit Post screen."
+msgstr "Valg av dette alternativet vil gjenopprette det forrige (&#8220;klassiske&#8221;) redigeringsverktøyet og den forrige Rediger innlegg-skjermen."
+
+#: tadv_admin.php:581
+msgid "Replace the Block Editor with the Classic Editor"
+msgstr "Bytt ut blokkredigeringsverktøyet med med det klassisk redigeringsverktøyet"
+
+#: tadv_admin.php:557
+msgid "This makes the Block Editor more familiar, easier to use, easier to get used to, and more compatible with your existing workflow."
+msgstr "Dette gjør blokkredigering mer gjenkjennelig, lettere å bruke, letter å bli vant til og mer kompatibelt med din eksisterende arbeidsflyt."
+
+#: tadv_admin.php:515
+msgid "This affects buttons that are added by other plugins. These buttons will be appended to the top toolbar row instead of forming second, third, and forth rows."
+msgstr "Dette påvirker knapper som er lagt til av andre utvidelser. Disse knappene vil bli føyd til toppraden av verktøylinjen i stedet for å utgjøre en andre, tredje og fjerde rad."
+
+#: tadv_admin.php:183
+msgid "Enable the editor menu (recommended)."
+msgstr "Aktiver redigeringsmeny (anbefalt)."
+
+#: tadv_admin.php:178
+msgid "The buttons will wrap around depending on the width of the toolbar."
+msgstr "Knappene vil bli brutt til neste linje avhengig av bredden på verktøylinjen."
+
+#: tadv_admin.php:177
+msgid "For best results enable the menu and add only essential buttons."
+msgstr "For beste resultater, aktiver menyen og legg til bare viktige knapper."
+
+#: tadv_admin.php:293 tadv_admin.php:461
+msgid "Drop buttons in the toolbars, or drag the buttons to rearrange them."
+msgstr "Slipp knapper på verktøylinjene eller dra knappene for å endre rekkefølgen av dem."
+
+#: tadv_admin.php:541
+msgid "Replace the size setting available for fonts with: %s."
+msgstr "Bytt ut størrelsesinnstilingen tilgjengelig for skrifttyper med: %s"
+
+#: tadv_admin.php:638
+msgid "A stylesheet file named editor-style.css was not added by your theme."
+msgstr "En stilark-fil kalt editor-style.css er ikke lagt til av ditt tema."
+
+#: tinymce-advanced.php:1169
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: tadv_admin.php:718
+msgid "The Classic Editor (Add New and Edit posts and pages)"
+msgstr "Det klassiske redigeringsverktøyet (Legg til ny og Rediger innlegg og sider)"
+
+#: tadv_admin.php:703
+msgid "Settings import and export"
+msgstr "Import og eksport av innstillinger"
+
+#: tadv_admin.php:628
+msgid "Create CSS classes menu"
+msgstr "Lag en meny med CSS-klasser"
+
+#: tadv_admin.php:540
+msgid "Font sizes"
+msgstr "Skriftstørrelser"
+
+#: tadv_admin.php:535
+msgid "Open the TinyMCE link dialog when using the link button on the toolbar or the link menu item."
+msgstr "Åpne TinyMCE-dialogen for lenke når lenkeknappen brukes på verktøylinjen eller menypunktet for lenke."
+
+#: tadv_admin.php:534
+msgid "Alternative link dialog"
+msgstr "Alternativ lenkedialog"
+
+#: tadv_admin.php:529
+msgid "Replace the browser context (right-click) menu."
+msgstr "Bytt ut (høyreklikks-) kontekstmenyen i nettleseren."
+
+#: tadv_admin.php:522
+msgid "Enable more list options: upper or lower case letters for ordered lists, disk or square for unordered lists, etc."
+msgstr "Aktiver flere listealternativer: Store og små bokstaver for ordnede lister, skiver eller kvadrater for uordnede lister osv."
+
+#: tadv_admin.php:510
+msgid "Options"
+msgstr "Alternativer"
+
+#: tinymce-advanced.php:340
+msgid "Please upgrade your WordPress installation or download an <a href=\"%s\">older version of the plugin</a>."
+msgstr "Vennligst oppgrader din WordPress-installasjon eller last ned en <a href=\"%s\">eldre versjon av utvidelsen</a>."
+
+#: tinymce-advanced.php:332
+msgid "Advanced Editor Tools requires WordPress version %1$s or newer. It appears that you are running %2$s. This can make the editor unstable."
+msgstr "TinyMCE redigeringsverktøy krever WordPress-versjon %1$s eller nyere. Det ser ut til at du kjører %2$s. Dette kan gjøre redigeringsverktøyet ustabilt."
+
+#: tadv_admin.php:752
+msgid "The [Toolbar toggle] button shows or hides the second, third, and forth button rows. It will only work when it is in the first row and there are buttons in the second row."
+msgstr "[Veksle verktøylinje]-knappen viser eller skjuler den andre, tredje og fjerde knapperaden. Den vil bare virke når den er på første rad og det er knapper på den andre raden."
+
+#: tadv_admin.php:746
+msgid "Restore Default Settings"
+msgstr "Sett tilbake til standardinnstillinger"
+
+#: tadv_admin.php:711
+msgid "Import Settings"
+msgstr "Importer innstillinger"
+
+#: tadv_admin.php:710
+msgid "Export Settings"
+msgstr "Eksporter innstillinger"
+
+#: tadv_admin.php:701
+msgid "Administration"
+msgstr "Administrasjon"
+
+#: tadv_admin.php:608
+msgid "Line breaks in the Text tab in the Classic Editor would still affect the output, in particular do not use empty lines, line breaks inside HTML tags or multiple &lt;br&gt; tags."
+msgstr "Linjeskift i tekst-redigeringen ville fortsatt påvirke resultatet, og spesielt - ikke bruk tomme linjer, linjeskift inne i HTML-elementer eller flere &lt;br&gt;-elementer."
+
+#: tadv_admin.php:607
+msgid "However it may behave unexpectedly in rare cases, so test it thoroughly before enabling it permanently."
+msgstr "Men det kan oppføre seg uventet i spesielle tilfeller, så test det nøye før du aktiverer det permanent."
+
+#: tadv_admin.php:606
+msgid "This will make it possible to use more advanced coding in the Text tab without the back-end filtering affecting it much."
+msgstr "Dette vil gjøre det mulig å bruke mer avansert koding i tekstredigering uten at filtreringen i systemet påvirker det så mye."
+
+#: tadv_admin.php:630
+msgid "Load the CSS classes used in editor-style.css and replace the Formats menu."
+msgstr "Last CSS-klasser brukt i editor-style.css og bytt ut menyen med formater."
+
+#: tadv_admin.php:549
+msgid "Advanced Options"
+msgstr "Avanserte alternativer"
+
+#: tadv_admin.php:528
+msgid "Context Menu"
+msgstr "Kontekst-meny"
+
+#: tadv_admin.php:520
+msgid "List Style Options"
+msgstr "Stilalternativer for lister"
+
+#: tadv_admin.php:464
+msgid "Unused Buttons"
+msgstr "Ubrukte knapper"
+
+#: tadv_admin.php:347
+msgid "Enable the editor menu."
+msgstr "Aktiver menyen i redigeringsverktøyet."
+
+#: tadv_admin.php:136 tadv_admin.php:747
+msgid "Save Changes"
+msgstr "Lagre endringer"
+
+#: tadv_admin.php:124
+msgid "Settings saved."
+msgstr "Innstillinger lagret."
+
+#: tadv_admin.php:106
+msgid "ERROR: All toolbars are empty. Default settings loaded."
+msgstr "FEIL: Alle verktøylinjer er tomme. Standardinnstilinger er lagt inn."
+
+#: tadv_admin.php:76
+msgid "Importing of settings failed."
+msgstr "Import av innstillinger mislyktes."
+
+#: tadv_admin.php:57
+msgid "Verify"
+msgstr "Godkjenn"
+
+#: tadv_admin.php:54
+msgid "Alternatively the settings can be imported from a JSON encoded string. Please paste the exported string in the text area below."
+msgstr "Alternativt kan innstillingene importeres fra en JSON-kodet streng. Vennligst lim inn den eksporterte strengen i tekstområdet nedenfor."
+
+#: tadv_admin.php:63
+msgid "Back to Editor Settings"
+msgstr "Tilbake til innstillinger for redigeringsverktøyet"
+
+#: tadv_admin.php:705
+msgid "The settings are exported as a JSON encoded file."
+msgstr "Innstillingene er eksportert som JSON-kodet fil."
+
+#: tadv_admin.php:36
+msgid "Default settings restored."
+msgstr "Standardinnstillinger lagt tilbake."
