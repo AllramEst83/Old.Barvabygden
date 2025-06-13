@@ -56,8 +56,8 @@ function stopSpeech() {
   }
 }
 
-// Hide toggle button if speechSynthesis unsupported
 window.addEventListener("DOMContentLoaded", () => {
+  // Hide toggle button if speechSynthesis unsupported
   if (!("speechSynthesis" in window)) {
     const toggle = document.querySelector(".speech-toggle");
     if (toggle) {
@@ -67,6 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("beforeunload", () => {
+  // Stop speech if page is reloaded or tab/browser is closed
   if ("speechSynthesis" in window) {
     speechSynthesis.cancel();
   }
