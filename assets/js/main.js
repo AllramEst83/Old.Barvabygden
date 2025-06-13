@@ -40,6 +40,11 @@ function speakMidsommar() {
   utterance.lang = "sv-SE";
   utterance.rate = 0.95;
 
+  const volumeSlider = document.getElementById("volumeControl");
+  if (volumeSlider) {
+    utterance.volume = parseFloat(volumeSlider.value);
+  }
+
   speechSynthesis.cancel();
   speechSynthesis.speak(utterance);
 }
@@ -58,5 +63,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (toggle) {
       toggle.style.display = "none";
     }
+  }
+});
+
+window.addEventListener("beforeunload", () => {
+  if ("speechSynthesis" in window) {
+    speechSynthesis.cancel();
   }
 });
