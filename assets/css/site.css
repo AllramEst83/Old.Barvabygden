@@ -1,0 +1,117 @@
+.pane {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 2px solid #7c9a3d;
+  border-radius: 12px;
+  background-color: #fffce5;
+  font-family: sans-serif;
+  color: #000000;
+}
+
+.pane h2 {
+  color: #044202;
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pane h3 {
+  color: #000000;
+}
+
+.pane h3 {
+  margin-top: 1.5rem;
+}
+
+.pane p {
+  margin: 1rem 0;
+}
+
+.pane .highlight {
+  color: #7c9a3d;
+  font-weight: bold;
+}
+
+.pane .thumbnail-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.pane .thumbnail-container a.preview-link {
+  display: inline-block;
+  border: 2px solid #7c9a3d;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.pane .thumbnail-container img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+.pane .thumbnail-container .download-link {
+  display: inline-block;
+  color: #7c9a3d;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.pane .thumbnail-container .speech-toggle {
+  margin-top: 1rem;
+}
+
+.pane .thumbnail-container .toggle-button {
+  background-color: transparent;
+  color: #7c9a3d;
+  border: 2px solid #7c9a3d;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+
+.pane .thumbnail-container .toggle-button:hover {
+  background-color: #f0f5e5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pane .thumbnail-container .toggle-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pane .thumbnail-container .speech-buttons {
+  margin-top: 0.5rem;
+}
+
+.pane .thumbnail-container .speech-buttons button {
+  background-color: #7c9a3d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.25rem;
+  transition: background-color 0.3s ease, transform 0.1s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pane .thumbnail-container .speech-buttons button:hover {
+  background-color: #65832d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pane .thumbnail-container .speech-buttons button:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
