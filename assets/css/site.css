@@ -131,3 +131,97 @@
 .title-main-wrapper {
   text-align: center;
 }
+
+/* Hembygdsförening och Museet */
+.pane.section-info {
+  max-width: 650px;
+  font-family: "Liberation Serif", serif;
+  line-height: 1.6;
+  background-color: #fff8dc;
+  color: #1a1a1a;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.pane.section-info h2 {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #1c1c1c;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3rem;
+}
+
+.pane.section-info h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #2a2a2a;
+  text-align: center;
+}
+
+.pane.section-info p {
+  margin: 0.5rem auto 1rem auto;
+  text-align: center;
+  font-size: 1.05rem;
+  max-width: 90%;
+}
+
+.pane.section-info hr {
+  width: 60%;
+  border: none;
+  border-top: 2px dashed #888;
+  margin: 0 auto 1.5rem auto;
+}
+
+.pane.section-info a {
+  color: #003366;
+  text-decoration: underline;
+}
+
+.pane.section-info a:focus,
+.pane.section-info a:hover {
+  background-color: #e0ecf6;
+  outline: 2px solid #003366;
+  outline-offset: 2px;
+}
+
+.pane.section-info :focus-visible {
+  outline: 3px dashed #003366;
+  outline-offset: 4px;
+}
+
+/* Hembygdsförening och Museet */
+/* WEBMASTER INFO */
+.update-info {
+  text-align: center;
+  font-family: "Liberation Serif", serif;
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-top: 2rem;
+}
+
+.rainbow-glow {
+  font-weight: bold;
+  background: linear-gradient(90deg, #be3737, #9c7815, #128583);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: subtle-glow 6s ease-in-out infinite alternate;
+  display: inline-block;
+}
+
+@keyframes subtle-glow {
+  0% {
+    text-shadow: 0 0 2px #be3737;
+  }
+  50% {
+    text-shadow: 0 0 2px #9c7815;
+  }
+  100% {
+    text-shadow: 0 0 2px #128583;
+  }
+}
+/* WEBMASTER INFO */
