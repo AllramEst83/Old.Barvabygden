@@ -7,6 +7,7 @@
   background-color: #fffce5;
   font-family: sans-serif;
   color: #000000;
+  line-height: 1.4;
 }
 
 .pane h2 {
@@ -114,6 +115,12 @@
 .pane .thumbnail-container .speech-buttons button:active {
   transform: scale(0.96);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.teams {
+  font-weight: bold;
+  color: #134577;
+  letter-spacing: 0.5px;
 }
 
 .title-main {
@@ -225,3 +232,63 @@
   }
 }
 /* WEBMASTER INFO */
+
+/* FOTBOLLSMATCH - 2025*/
+.pane.match-schedule {
+  border: 2px solid #5c7b2c;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffce5;
+}
+
+.pane.match-schedule table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.pane.match-schedule caption {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: #2f3f17;
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+}
+
+.pane.match-schedule caption a {
+  color: #ecd6f3;
+}
+
+.pane.match-schedule th {
+  background-color: #506920;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.pane.match-schedule td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ccc;
+  color: #000000;
+}
+
+.pane.match-schedule tbody tr:nth-child(even) {
+  background-color: #f7fbe5;
+}
+
+.pane.match-schedule .teams {
+  font-weight: bold;
+  color: #000000;
+}
+
+.match-info {
+  background-color: #506920;
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 200;
+  border-radius: 0 0 12px 12px;
+  font-size: 20px;
+}
+/* FOTBOLLSMATCH - 2025*/
