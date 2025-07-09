@@ -204,7 +204,7 @@ section {
   border-bottom: 1vw solid yellow;
   border-left: 1vw solid green;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 0.9s linear infinite;
 }
 
 @media (max-width: 600px) {
