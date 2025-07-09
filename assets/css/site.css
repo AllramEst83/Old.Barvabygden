@@ -227,3 +227,8 @@ section {
     transform: rotate(360deg);
   }
 }
+
+.swish-donation-img {
+  max-width: 150px;
+  cursor: pointer;
+}

@@ -34,6 +34,7 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/site.css" />
+    <link rel="stylesheet" href="./assets/css/lightbox.css" />
   </head>
   <body>
     <!-- NEW STYLE -->
@@ -489,6 +490,72 @@
             </div>
             <!-- Lilla Barvaloppet 2025 -->
 
+            <!-- Insamling för ny värmeanläggning -->
+            <div class="col-lg-6 col-xl-4">
+              <article class="event-card h-100 p-4">
+                <header class="event-header mb-3">
+                  <h3 class="event-title h5 mb-2">
+                    Hjälp oss med ny värmeanläggning
+                  </h3>
+                  <div class="event-category badge bg-danger mb-2">
+                    Insamling
+                  </div>
+                </header>
+
+                <div class="event-details">
+                  <div class="event-description mb-3">
+                    <p class="mb-3">
+                      Bygdegården måste byta till en ny energisparande
+                      värmeanläggning.
+                    </p>
+                    <p class="mb-3">
+                      <strong
+                        >Vi tar tacksamt emot alla bidrag stora som små, för att
+                        kunna klara av detta!</strong
+                      >
+                    </p>
+
+                    <div class="donation-options mb-3">
+                      <h6 class="fw-bold mb-2">Sätt in ditt bidrag:</h6>
+
+                      <div class="mb-3">
+                        <strong>📱 Swish:</strong> 123 079 72 25<br />
+                        <small class="text-muted">Meddelande: värme</small>
+                      </div>
+
+                      <div class="mb-3">
+                        <strong>🏦 Bankgiro:</strong> 5086-6961<br />
+                        <small class="text-muted">Meddelande: värme</small
+                        ><br />
+                        <small class="text-muted"
+                          >Mottagare: Barva framtid</small
+                        >
+                      </div>
+                    </div>
+
+                    <div class="gallery text-center">
+                      <img
+                        src="./assets/images/donations/swish.png"
+                        data-full="./assets/images/donations/swish.png"
+                        alt="Swish QR-kod för donation"
+                        class="img-fluid rounded swish-donation-img"
+                      />
+                      <div class="small mt-2 text-muted">
+                        Klicka för att förstora QR-koden
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <footer class="event-footer mt-auto pt-3 border-top">
+                  <div class="contact-info text-center">
+                    <strong>Tack för ditt stöd! 💚</strong>
+                  </div>
+                </footer>
+              </article>
+            </div>
+            <!-- Insamling för ny värmeanläggning -->
+
             <!-- Add more event cards here following the same structure -->
           </div>
         </div>
@@ -841,6 +908,7 @@
     <!-- Bootstrap 5 JS -->
     <!-- Custom style -->
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/lightbox.js"></script>
     <!-- Custom style -->
 
     <!-- Spinner Overlay -->
@@ -848,7 +916,14 @@
       <div class="spinner"></div>
     </div>
     <!-- Spinner Overlay -->
-
+    <!-- Lightbox controls -->
+    <div id="lightbox" class="lightbox hidden">
+      <span id="close-btn">&times;</span>
+      <img id="lightbox-img" src="" alt="" />
+      <div id="prev-btn">&#10094;</div>
+      <div id="next-btn">&#10095;</div>
+    </div>
+    <!-- Lightbox controls -->
     <script></script>
   </body>
 </html>
