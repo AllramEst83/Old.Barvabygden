@@ -191,31 +191,55 @@ section {
   visibility: hidden;
 }
 
+.spinner-wrapper {
+  position: relative;
+  /* Default (larger screens) */
+  width: clamp(60px, 10vw, 160px);
+  height: clamp(60px, 10vw, 160px);
+}
+
 .spinner {
-  width: 10vw;
-  height: 10vw;
-  min-width: 60px;
-  min-height: 60px;
-  max-width: 160px;
-  max-height: 160px;
-  border: 1vw solid transparent;
-  border-top: 1vw solid red;
-  border-right: 1vw solid orange;
-  border-bottom: 1vw solid yellow;
-  border-left: 1vw solid green;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Default border width */
+  border-width: clamp(6px, 1vw, 16px);
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: red;
+  border-right-color: orange;
+  border-bottom-color: yellow;
+  border-left-color: green;
   border-radius: 50%;
   animation: spin 0.9s linear infinite;
 }
 
+.spinner-logo {
+  width: 50%; /* Adjust as needed */
+  height: auto;
+  padding: 5px; /* Your chosen padding */
+  box-sizing: border-box;
+}
+
+/* Adjustments for smaller screens (e.g., max-width: 600px) */
 @media (max-width: 600px) {
+  .spinner-wrapper {
+    /* Make the spinner and logo wrapper bigger on small screens */
+    /* Original: clamp(40px, 18vw, 80px) */
+    /* New: Increased min-width and preferred vw for a larger size */
+    width: clamp(
+      60px,
+      25vw,
+      100px
+    ); /* Increased min from 40 to 60, vw from 18 to 25, max from 80 to 100 */
+    height: clamp(60px, 25vw, 100px); /* Same as width */
+  }
   .spinner {
-    width: 18vw;
-    height: 18vw;
-    min-width: 40px;
-    min-height: 40px;
-    max-width: 80px;
-    max-height: 80px;
-    border-width: 2vw;
+    /* Adjust border-width for the new size */
+    /* Original: clamp(4px, 2vw, 8px) */
+    border-width: clamp(6px, 3vw, 10px); /* Increased values */
   }
 }
 
