@@ -1,14 +1,72 @@
 window.addEventListener("DOMContentLoaded", () => {
-  // Show the spinner overlay on page load
-  window.addEventListener("load", () => {
+  // Function to show spinner
+  function showSpinner() {
     const spinnerOverlay = document.getElementById("spinner-overlay");
-    setTimeout(() => {
+    if (spinnerOverlay) {
+      spinnerOverlay.classList.remove("hide");
+      spinnerOverlay.style.display = "flex";
+    }
+  }
+
+  // Function to hide spinner
+  function hideSpinner() {
+    const spinnerOverlay = document.getElementById("spinner-overlay");
+    if (spinnerOverlay) {
       spinnerOverlay.classList.add("hide");
       setTimeout(() => {
         spinnerOverlay.style.display = "none";
       }, 500);
-    }, 1000);
-  });
+    }
+  }
+
+  // Function to load events with improved error handling
+  async function loadEvents() {
+    const eventsContainer = document.getElementById("events-container");
+    if (!eventsContainer) {
+      console.warn("Events container not found");
+      return;
+    }
+
+    showSpinner();
+
+    try {
+      const response = await fetch("./assets/pages/events.html");
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.text();
+
+      // Insert the events content
+      eventsContainer.innerHTML = data;
+
+      // Reinitialize lightbox functionality for all galleries on the page
+      if (window.LightboxManager) {
+        // First ensure lightbox is initialized
+        window.LightboxManager.init();
+        // Then attach listeners to all galleries on the entire page
+        window.LightboxManager.attachListeners(document);
+      }
+
+      console.log("Events loaded successfully");
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      eventsContainer.innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-warning text-center" role="alert">
+        <h4 class="alert-heading">Det gick inte att ladda evenemang</h4>
+        <p class="mb-0">Vänligen uppdatera sidan för att försöka igen.</p>
+          </div>
+        </div>
+      `;
+    } finally {
+      hideSpinner();
+    }
+  }
+
+  // Load events after the page has fully loaded
+  window.addEventListener("load", loadEvents);
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -20,7 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       if (targetElement) {
         const headerHeight =
-          document.querySelector(".site-header").offsetHeight;
+          document.querySelector(".site-header")?.offsetHeight || 0;
         const targetPosition = targetElement.offsetTop - headerHeight;
 
         window.scrollTo({
