@@ -11,6 +11,19 @@
   --color-earth: #f5f5dc;
   --color-pink: #f1c6f1;
   --color-green: #bfe9bf;
+
+  /* Extracted colors from coat-of-arms and hero-banner */
+  --color-wheat-gold: #f4d03f;
+  --color-forest-green: #27ae60;
+  --color-sky-blue: #85c1e9;
+  --color-barn-red: #cb4335;
+  --color-meadow-green: #a9dfbf;
+  --color-lavender: #d2b4de;
+  --color-sunset-orange: #f8c471;
+  --color-morning-mist: #f8f9fa;
+  --color-deep-forest: #1e8449;
+  --color-autumn-gold: #f39c12;
+
   --transition: all 0.3s ease;
   --border-radius: 0.375rem;
   --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -48,28 +61,73 @@ section {
   padding: 3rem 0;
 }
 
+/* Hero section - Morning mist and soft cream */
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-morning-mist) 0%,
+    var(--color-cream) 100%
+  );
+}
+
+/* Events section - Sky blue like clear Swedish summer skies */
 .events-section {
-  background: linear-gradient(135deg, var(--color-blue-light) 0%, #bbdefb 100%);
+  background: linear-gradient(135deg, var(--color-sky-blue) 0%, #aed6f1 100%);
 }
 
+/* Barva IF section - Meadow green for sports and activities */
 .barvaif-section {
-  background: linear-gradient(135deg, var(--color-pink) 0%, #f1c6f1 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-meadow-green) 0%,
+    #d5f4e6 100%
+  );
 }
 
+/* Museum section - Wheat gold representing heritage and history */
 .museum-section {
-  background: linear-gradient(135deg, var(--color-earth) 0%, #f0e68c 100%);
+  background: linear-gradient(135deg, var(--color-wheat-gold) 0%, #fdeaa7 100%);
 }
 
+/* Archive section - Lavender for knowledge and wisdom */
 .archive-section {
-  background: linear-gradient(135deg, var(--color-green) 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--color-lavender) 0%, #e8daef 100%);
 }
 
-.books-section {
-  background: linear-gradient(135deg, var(--color-green) 0%, #e9ecef 100%);
+/* Services section - Sunset orange for warmth and community service */
+.services-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-sunset-orange) 0%,
+    #fad7a0 100%
+  );
 }
 
+/* Community section - Forest green representing the natural community */
+.community-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-forest-green) 0%,
+    #82e0aa 100%
+  );
+}
+
+/* Publications section - Autumn gold for culture and learning */
+.publications-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-autumn-gold) 0%,
+    #f7dc6f 100%
+  );
+}
+
+/* Contact section - Deep forest for grounding and connection */
 .contact-section {
-  background: linear-gradient(135deg, var(--color-secondary) 0%, #4a5568 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-deep-forest) 0%,
+    #239b56 100%
+  );
   color: white;
 }
 
@@ -108,7 +166,11 @@ section {
 }
 /* ===== HERO (Bootstrap Enhancement) ===== */
 .hero-background-color {
-  background: linear-gradient(135deg, var(--color-cream) 0%, #f3f0ff 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-morning-mist) 0%,
+    var(--color-cream) 100%
+  );
 }
 
 .img-container {
