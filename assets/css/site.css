@@ -16,7 +16,7 @@
   --color-wheat-gold: #f4d03f;
   --color-forest-green: #27ae60;
   --color-sky-blue: #85c1e9;
-  --color-barn-red: #cb4335;
+  --color-barn-red: #c77067;
   --color-meadow-green: #a9dfbf;
   --color-lavender: #d2b4de;
   --color-sunset-orange: #f8c471;
@@ -68,6 +68,11 @@ section {
     var(--color-morning-mist) 0%,
     var(--color-cream) 100%
   );
+}
+
+/* About section - Barn red representing tradition and heritage */
+.about-section {
+  background: linear-gradient(135deg, var(--color-barn-red) 0%, #f1948a 100%);
 }
 
 /* Events section - Sky blue like clear Swedish summer skies */

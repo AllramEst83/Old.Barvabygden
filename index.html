@@ -70,35 +70,8 @@
               <li class="nav-item">
                 <a class="nav-link text-dark" href="#events">Evenemang</a>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle text-dark"
-                  href="#about"
-                  id="subgroupDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Om Barva
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="subgroupDropdown">
-                  <li>
-                    <a class="dropdown-item" href="#barva-school"
-                      >Barva skola</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#barva-church"
-                      >Barva kyrka</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#cooper-mine"
-                      >Om koppargruvan</a
-                    >
-                  </li>
-                  <!-- Lägg till fler undermenyer här vid behov -->
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="#about">Om Barva</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-dark" href="#barvaif">Barva IF</a>
@@ -171,6 +144,451 @@
         </div>
       </section>
       <!-- EVENTS -->
+      <!-- ABOUT BARVA SECTION -->
+      <section id="about" class="about-section py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="display-6 text-center mb-5">Om Barva</h2>
+              <p class="lead text-center mb-5">
+                Upptäck Barvas rika historia och lär dig mer om vår bygd genom
+                dessa sidor och berättelser.
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <!-- About Accordion -->
+              <div class="accordion" id="aboutAccordion">
+                <!-- Föreningar & Organisationer -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingOrganizations">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOrganizations"
+                      aria-expanded="true"
+                      aria-controls="collapseOrganizations"
+                    >
+                      <span class="badge bg-primary me-3">🏛️</span>
+                      Föreningar & Organisationer
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseOrganizations"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOrganizations"
+                    data-bs-parent="#aboutAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="#barvaif"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">⚽</span>
+                              <div>
+                                <h6 class="mb-1">Barva IF</h6>
+                                <small class="text-muted"
+                                  >Idrottsförening med luftgevär, pingis, dart
+                                  och boule</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="#museum"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏛️</span>
+                              <div>
+                                <h6 class="mb-1">Barva Hembygdsförening</h6>
+                                <small class="text-muted"
+                                  >Driver museet och bevarar
+                                  lokalhistoria</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="#services"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏢</span>
+                              <div>
+                                <h6 class="mb-1">Barva Bygdegård</h6>
+                                <small class="text-muted"
+                                  >Lokaluthyrning och samlingsplats</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="./pages/rordrommen.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🐦</span>
+                              <div>
+                                <h6 class="mb-1">Fältstationen Rördrommen</h6>
+                                <small class="text-muted"
+                                  >Fågelstation och naturcentrum</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/kafjarden-parish.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">⛪</span>
+                              <div>
+                                <h6 class="mb-1">Kafjärdens församling</h6>
+                                <small class="text-muted"
+                                  >Vår lokala församling</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Byggnader & Platser -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingBuildings">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseBuildings"
+                      aria-expanded="false"
+                      aria-controls="collapseBuildings"
+                    >
+                      <span class="badge bg-success me-3">🏛️</span>
+                      Byggnader & Platser
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseBuildings"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingBuildings"
+                    data-bs-parent="#aboutAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="./pages/barva-school.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏫</span>
+                              <div>
+                                <h6 class="mb-1">Barva Skola</h6>
+                                <small class="text-muted"
+                                  >Vår gamla skola och dess historia</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/barva-church.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">⛪</span>
+                              <div>
+                                <h6 class="mb-1">Barva Kyrka</h6>
+                                <small class="text-muted"
+                                  >Kyrkans historia och arkitektur</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/prostokna-school.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏫</span>
+                              <div>
+                                <h6 class="mb-1">Prostökna f.d. Skola</h6>
+                                <small class="text-muted"
+                                  >Den gamla skolans minnen</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="./pages/hagaborg.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏰</span>
+                              <div>
+                                <h6 class="mb-1">Om Hagaborg</h6>
+                                <small class="text-muted"
+                                  >Historisk plats i Barva</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/spackel-factory.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏭</span>
+                              <div>
+                                <h6 class="mb-1">F.d. Spackelfabriken</h6>
+                                <small class="text-muted"
+                                  >Industrihistoria i Barva</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/strandsbro.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🌉</span>
+                              <div>
+                                <h6 class="mb-1">Strandsbro</h6>
+                                <small class="text-muted"
+                                  >Brons historia och betydelse</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Historia & Kultur -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingHistory">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseHistory"
+                      aria-expanded="false"
+                      aria-controls="collapseHistory"
+                    >
+                      <span class="badge bg-warning me-3">📚</span>
+                      Historia & Kultur
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseHistory"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingHistory"
+                    data-bs-parent="#aboutAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="./pages/copper-mine.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">⛏️</span>
+                              <div>
+                                <h6 class="mb-1">Om koppargruvan</h6>
+                                <small class="text-muted"
+                                  >Barvas industriella arv</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/ancient-heritage.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏺</span>
+                              <div>
+                                <h6 class="mb-1">Forntida arv i Barva</h6>
+                                <small class="text-muted"
+                                  >Arkeologiska fynd och historia</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/church-bench-length.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">📜</span>
+                              <div>
+                                <h6 class="mb-1">Bänklängden i kyrkan 1804</h6>
+                                <small class="text-muted"
+                                  >Historiskt dokument</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="./pages/malardal-costume.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">👗</span>
+                              <div>
+                                <h6 class="mb-1">Mälardalsdräkten</h6>
+                                <small class="text-muted"
+                                  >Traditionell folkdräkt</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/lecture-institute.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🎓</span>
+                              <div>
+                                <h6 class="mb-1">Föreläsningsanstalten</h6>
+                                <small class="text-muted"
+                                  >Utbildning och upplysning</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/school-memories.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">📖</span>
+                              <div>
+                                <h6 class="mb-1">Skolminnen</h6>
+                                <small class="text-muted"
+                                  >Berättelser från skoltiden</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Traditioner & Händelser -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="headingTraditions">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTraditions"
+                      aria-expanded="false"
+                      aria-controls="collapseTraditions"
+                    >
+                      <span class="badge bg-info me-3">🎭</span>
+                      Traditioner & Händelser
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseTraditions"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTraditions"
+                    data-bs-parent="#aboutAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="./pages/lucia-barva.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🕯️</span>
+                              <div>
+                                <h6 class="mb-1">Lucia i Barva</h6>
+                                <small class="text-muted"
+                                  >Luciafirande i bygden</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/barva-horn.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🎺</span>
+                              <div>
+                                <h6 class="mb-1">Barva-luren</h6>
+                                <small class="text-muted"
+                                  >Vårt traditionella horn</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/tornado.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🌪️</span>
+                              <div>
+                                <h6 class="mb-1">Tromben</h6>
+                                <small class="text-muted"
+                                  >Dramatisk väderhistoria</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="list-group">
+                            <a
+                              href="./pages/fence-building.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🪵</span>
+                              <div>
+                                <h6 class="mb-1">Att bygga gärdsgård</h6>
+                                <small class="text-muted"
+                                  >Traditionellt hantverk</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/barva-gas-station.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">⛽</span>
+                              <div>
+                                <h6 class="mb-1">Barvamacken Barvamackan</h6>
+                                <small class="text-muted"
+                                  >Lokal service och historia</small
+                                >
+                              </div>
+                            </a>
+                            <a
+                              href="./pages/living-in-barva.html"
+                              class="list-group-item list-group-item-action d-flex align-items-center"
+                            >
+                              <span class="me-3">🏡</span>
+                              <div>
+                                <h6 class="mb-1">Vill du bo i Barva?</h6>
+                                <small class="text-muted"
+                                  >Information för nya invånare</small
+                                >
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End About Accordion -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END ABOUT BARVA SECTION -->
       <!-- BARVA IF -->
       <section id="barvaif" class="barvaif-section py-5">
         <div class="container">
