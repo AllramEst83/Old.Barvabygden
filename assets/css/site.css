@@ -64,6 +64,10 @@ section {
   background: linear-gradient(135deg, var(--color-green) 0%, #e9ecef 100%);
 }
 
+.books-section {
+  background: linear-gradient(135deg, var(--color-green) 0%, #e9ecef 100%);
+}
+
 .contact-section {
   background: linear-gradient(135deg, var(--color-secondary) 0%, #4a5568 100%);
   color: white;
