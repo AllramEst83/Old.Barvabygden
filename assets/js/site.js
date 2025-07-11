@@ -65,6 +65,31 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Function to auto-close mobile navbar when link is clicked
+  function setupMobileNavbarAutoClose() {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector("#mainNavbar");
+    const navLinks = document.querySelectorAll("#mainNavbar .nav-link");
+
+    if (!navbarToggler || !navbarCollapse || !navLinks.length) {
+      return;
+    }
+
+    // Add click event to all navigation links
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        // Only close if navbar is currently open (visible on mobile)
+        if (navbarCollapse.classList.contains("show")) {
+          // Use Bootstrap's collapse method to close the navbar
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+            toggle: false,
+          });
+          bsCollapse.hide();
+        }
+      });
+    });
+  }
+
   // Load events after the page has fully loaded
   window.addEventListener("load", loadEvents);
 
@@ -91,4 +116,10 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Load events when the page loads
+  loadEvents();
+
+  // Setup mobile navbar auto-close
+  setupMobileNavbarAutoClose();
 });

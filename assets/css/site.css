@@ -126,26 +126,8 @@ section {
   background: linear-gradient(
     135deg,
     var(--color-deep-forest) 0%,
-    #239b56 100%
+    #82e0aa 100%
   );
-  color: white;
-}
-
-.contact-section h1,
-.contact-section h2,
-.contact-section h3,
-.contact-section h4,
-.contact-section h5,
-.contact-section h6 {
-  color: white;
-}
-
-.contact-section a {
-  color: #90cdf4;
-}
-
-.contact-section a:hover {
-  color: white;
 }
 
 /* ===== HEADER (Bootstrap Enhancement) ===== */
