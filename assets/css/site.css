@@ -46,13 +46,22 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== LINKS (Enhance Bootstrap defaults) ===== */
+a {
+  transition: var(--transition);
+}
+
+a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 h1,
 h2,
 h3 {
   font-family: "Crimson Text", "Georgia", serif;
 }
 
-/* Specific styling for different heading levels */
 h1 {
   font-weight: 700;
 }
@@ -65,14 +74,57 @@ h3 {
   font-weight: 500;
 }
 
+/* ===== BOOTSTRAP COMPONENT OVERRIDES ===== */
+/* Accordion button titles - maintain proper sizing */
+.accordion-button {
+  font-family: "Crimson Text", "Georgia", serif;
+  font-size: 1.125rem; /* Larger than default */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Accordion headers */
+.accordion-header h3 {
+  margin-bottom: 0;
+  font-size: 1.125rem;
+}
+
+/* List group items in accordions */
+.list-group-item h6 {
+  font-family: "Crimson Text", "Georgia", serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Badge elements in accordions */
+.accordion-button .badge {
+  font-size: 0.875rem;
+}
+
+/* Card titles and other component titles */
+.card-title,
+.card-header h3,
+.card-header h4,
+.card-header h5,
+.card-header h6 {
+  font-family: "Crimson Text", "Georgia", serif;
+  font-weight: 600;
+}
+
+/* Ensure display classes maintain their size */
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: "Crimson Text", "Georgia", serif;
+  /* font-weight: 200; */
+}
+
 /* ===== LINKS (Enhance Bootstrap defaults) ===== */
 a {
   transition: var(--transition);
-}
-
-a:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
 }
 
 /* ===== SECTIONS ===== */
