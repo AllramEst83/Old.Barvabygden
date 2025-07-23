@@ -219,7 +219,6 @@ section {
 
 .site-header-img {
   object-fit: cover;
-  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
 /* ===== HERO (Bootstrap Enhancement) ===== */
@@ -232,7 +231,7 @@ section {
 }
 
 .img-container {
-  border-radius: var(--border-radius);
+  /* border-radius: var(--border-radius); */
   overflow: hidden;
   box-shadow: var(--box-shadow);
 }
