@@ -130,6 +130,28 @@ a {
 /* ===== SECTIONS ===== */
 section {
   padding: 3rem 0;
+  position: relative;
+}
+
+/* Section dividers - decorative elements between sections */
+section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--color-wheat-gold) 0%,
+    var(--color-forest-green) 25%,
+    var(--color-sky-blue) 50%,
+    var(--color-barn-red) 75%,
+    var(--color-sunset-orange) 100%
+  );
+  border-radius: 3px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero section - Morning mist and soft cream */
