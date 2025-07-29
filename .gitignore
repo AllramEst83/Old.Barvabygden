@@ -1,1 +1,34 @@
-.vscode/settings.json
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Node dependencies (if you use npm for tooling, like Prettier or ESLint)
+node_modules/
+
+# Build / Dist folders (if you have a build step)
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+
+# Cache
+*.cache
+*.tmp
+
+# Coverage reports (if testing tools are used)
+coverage/
+
+# Misc
+*.bak
