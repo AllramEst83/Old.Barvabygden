@@ -222,15 +222,16 @@
 
 @keyframes subtle-glow {
   0% {
-    text-shadow: 0 0 2px #be3737;
+    text-shadow: 0 0 2px rgba(190, 55, 55, 0.6);
   }
   50% {
-    text-shadow: 0 0 2px #9c7815;
+    text-shadow: 0 0 2px rgba(156, 120, 21, 0.6);
   }
   100% {
-    text-shadow: 0 0 2px #128583;
+    text-shadow: 0 0 2px rgba(18, 133, 131, 0.6);
   }
 }
+
 /* WEBMASTER INFO */
 
 /* FOTBOLLSMATCH - 2025*/
