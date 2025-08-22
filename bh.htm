@@ -15,6 +15,21 @@
     <meta name="created" content="00:00:00" />
     <meta name="created" content="00:00:00" />
     <style type="text/css">
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .back-link {
+        font-size: 1.125rem;
+      }
+
+      @media (max-width: 768px) {
+        .back-link {
+          font-size: 1.9rem;
+        }
+      }
       td p {
         color: #000000;
       }
@@ -23,7 +38,10 @@
       }
     </style>
   </head>
-  <body lang="sv-SE" text="#000000" bgcolor="#fffaf0" dir="ltr">
+  <body style="background-color: rgb(255, 250, 240)">
+    <a href="javascript:history.back()" class="back-link">
+      ← Tillbaka till Barvabygden.se
+    </a>
     <p align="center">
       <img
         src="./assets/images/hero/hero-banner.jpg"
