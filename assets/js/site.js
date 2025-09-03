@@ -315,4 +315,79 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Setup mobile navbar auto-close
   setupMobileNavbarAutoClose();
+
+  // Setup navbar active highlighting based on scroll position
+  setupNavbarActiveHighlighting();
 });
+
+// Function to highlight navbar items based on scroll position
+function setupNavbarActiveHighlighting() {
+  const navLinks = document.querySelectorAll("#mainNavbar .nav-link");
+  const sections = [];
+
+  // Build sections array from nav links
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href && href.startsWith("#")) {
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        sections.push({
+          id: targetId,
+          element: targetElement,
+          navLink: link,
+        });
+      }
+    }
+  });
+
+  if (sections.length === 0) return;
+
+  function updateActiveNavLink() {
+    const headerHeight =
+      document.querySelector(".site-header")?.offsetHeight || 0;
+    const scrollPosition = window.scrollY + headerHeight + 100; // Add some offset
+
+    let activeSection = null;
+
+    // Find the current section
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = sections[i];
+      if (scrollPosition >= section.element.offsetTop) {
+        activeSection = section;
+        break;
+      }
+    }
+
+    // Update active states
+    sections.forEach((section) => {
+      if (section === activeSection) {
+        section.navLink.classList.add("active");
+      } else {
+        section.navLink.classList.remove("active");
+      }
+    });
+  }
+
+  // Initial update
+  updateActiveNavLink();
+
+  // Update on scroll with throttling
+  let scrollTimeout;
+  window.addEventListener("scroll", () => {
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(updateActiveNavLink, 10);
+  });
+
+  // Update active state when clicking nav links
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // Remove active from all links
+      navLinks.forEach((navLink) => navLink.classList.remove("active"));
+      // Add active to clicked link
+      link.classList.add("active");
+    });
+  });
+}

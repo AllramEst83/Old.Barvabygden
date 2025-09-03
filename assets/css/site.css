@@ -243,6 +243,34 @@ section:not(:last-child)::after {
   object-fit: cover;
   box-shadow: var(--box-shadow);
 }
+
+/* ===== NAVBAR ACTIVE/SELECTED ITEM HIGHLIGHTING ===== */
+.navbar-nav .nav-link {
+  position: relative;
+  transition: var(--transition);
+  border-radius: var(--border-radius);
+  margin: 0 0.25rem;
+  /* padding: 0.5rem 1rem !important; */
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(6, 68, 32, 0.1);
+  color: var(--color-primary) !important;
+  transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active {
+  background-color: var(--color-primary);
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(6, 68, 32, 0.2);
+}
+
+.navbar-nav .nav-link.active:hover {
+  background-color: var(--color-deep-forest);
+  color: white !important;
+  transform: translateY(-1px);
+}
 /* ===== HERO (Bootstrap Enhancement) ===== */
 .hero-background-color {
   background: linear-gradient(
@@ -397,8 +425,14 @@ section:not(:last-child)::after {
   }
 }
 
-/* ===== Swish donation image ===== */
-.swish-donation-img {
+#events-container img {
   max-width: 150px;
   cursor: pointer;
+  border: 1px solid #d3d3d3;
+  transition: border-color 0.3s ease;
+  margin-bottom: 0.8rem;
+}
+
+#events-container img:hover {
+  border-color: #b0b0b0;
 }
