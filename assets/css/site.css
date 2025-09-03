@@ -1,295 +1,517 @@
-.pane {
-  max-width: 650px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border: 2px solid #7c9a3d;
-  border-radius: 12px;
-  background-color: #fffce5;
-  font-family: sans-serif;
-  color: #000000;
-  line-height: 1.4;
+/* ===== CSS CUSTOM PROPERTIES (VARIABLES) ===== */
+:root {
+  --color-primary: #064420;
+  --color-secondary: #2d3748;
+  --color-accent: #0066cc;
+  --color-text: #333333;
+  --color-text-light: #6c757d;
+  --color-background: #ffffff;
+  --color-cream: #e9e1f5;
+  --color-blue-light: #e3fdfc;
+  --color-earth: #f5f5dc;
+  --color-pink: #f1c6f1;
+  --color-green: #bfe9bf;
+
+  /* Extracted colors from coat-of-arms and hero-banner */
+  --color-wheat-gold: #f4d03f;
+  --color-forest-green: #27ae60;
+  --color-sky-blue: #85c1e9;
+  --color-barn-red: #c77067;
+  --color-meadow-green: #a9dfbf;
+  --color-lavender: #d2b4de;
+  --color-sunset-orange: #f8c471;
+  --color-morning-mist: #f8f9fa;
+  --color-deep-forest: #1e8449;
+  --color-autumn-gold: #f39c12;
+
+  --transition: all 0.3s ease;
+  --border-radius: 0.375rem;
+  --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
-.pane h2 {
-  color: #044202;
-  text-align: left;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+/* ===== BASE STYLES (Bootstrap Compatible) ===== */
+html {
+  scroll-behavior: smooth;
 }
 
-.pane h3 {
-  color: #000000;
+body {
+  font-family: var(
+    --bs-font-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  overflow-x: hidden;
 }
 
-.pane h3 {
-  margin-top: 1.5rem;
+/* ===== LINKS (Enhance Bootstrap defaults) ===== */
+a {
+  transition: var(--transition);
 }
 
-.pane p {
-  margin: 1rem 0;
-}
-
-.pane .highlight {
-  color: #7c9a3d;
-  font-weight: bold;
-}
-
-.pane .thumbnail-container {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-.pane .thumbnail-container a.preview-link {
-  display: inline-block;
-  border: 2px solid #7c9a3d;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-}
-
-.pane .thumbnail-container img {
-  width: 120px;
-  height: auto;
-  display: block;
-}
-
-.pane .thumbnail-container .download-link {
-  display: inline-block;
-  color: #7c9a3d;
-  font-weight: bold;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-}
-
-.pane .thumbnail-container .speech-toggle {
-  margin-top: 1rem;
-}
-
-.pane .thumbnail-container .toggle-button {
-  background-color: transparent;
-  color: #7c9a3d;
-  border: 2px solid #7c9a3d;
-  border-radius: 6px;
-  padding: 0.4rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.1s ease,
-    box-shadow 0.2s ease;
-}
-
-.pane .thumbnail-container .toggle-button:hover {
-  background-color: #f0f5e5;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.pane .thumbnail-container .toggle-button:active {
-  transform: scale(0.96);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.pane .thumbnail-container .speech-buttons {
-  margin-top: 0.5rem;
-}
-
-.pane .thumbnail-container .speech-buttons button {
-  background-color: #7c9a3d;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1rem;
-  margin: 0.25rem;
-  transition: background-color 0.3s ease, transform 0.1s ease,
-    box-shadow 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.pane .thumbnail-container .speech-buttons button:hover {
-  background-color: #65832d;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.pane .thumbnail-container .speech-buttons button:active {
-  transform: scale(0.96);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.teams {
-  font-weight: bold;
-  color: #134577;
-  letter-spacing: 0.5px;
-}
-
-.title-main {
-  text-align: center;
-  font-weight: bold;
-  font-size: 2rem;
-  color: #000000;
-  margin: 1rem auto;
-  border-bottom: 2px solid #7c9a3d;
-  display: inline-block;
-  padding-bottom: 0.3rem;
-  line-height: 1.2;
-}
-
-.title-main-wrapper {
-  text-align: center;
-}
-
-/* Hembygdsförening och Museet */
-.pane.section-info {
-  max-width: 650px;
-  font-family: "Liberation Serif", serif;
-  line-height: 1.6;
-  background-color: #fff8dc;
-  color: #1a1a1a;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
-}
-
-.pane.section-info h2 {
-  text-align: center;
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  color: #1c1c1c;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.3rem;
-}
-
-.pane.section-info h3 {
-  font-size: 1.4rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  color: #2a2a2a;
-  text-align: center;
-}
-
-.pane.section-info p {
-  margin: 0.5rem auto 1rem auto;
-  text-align: center;
-  font-size: 1.05rem;
-  max-width: 90%;
-}
-
-.pane.section-info hr {
-  width: 60%;
-  border: none;
-  border-top: 2px dashed #888;
-  margin: 0 auto 1.5rem auto;
-}
-
-.pane.section-info a {
-  color: #003366;
-  text-decoration: underline;
-}
-
-.pane.section-info a:focus,
-.pane.section-info a:hover {
-  background-color: #e0ecf6;
-  outline: 2px solid #003366;
+a:focus {
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
-.pane.section-info :focus-visible {
-  outline: 3px dashed #003366;
-  outline-offset: 4px;
+h1,
+h2,
+h3 {
+  font-family: "Crimson Text", "Georgia", serif;
 }
 
-/* Hembygdsförening och Museet */
-/* WEBMASTER INFO */
-.update-info {
-  text-align: center;
-  font-family: "Liberation Serif", serif;
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+/* ===== BOOTSTRAP COMPONENT OVERRIDES ===== */
+/* Accordion button titles - maintain proper sizing */
+.accordion-button {
+  font-family: "Crimson Text", "Georgia", serif;
+  font-size: 1.125rem; /* Larger than default */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Accordion headers */
+.accordion-header h3 {
+  margin-bottom: 0;
+  font-size: 1.125rem;
+}
+
+/* List group items in accordions */
+.list-group-item h6 {
+  font-family: "Crimson Text", "Georgia", serif;
   font-size: 1rem;
-  color: #1a1a1a;
-  margin-top: 2rem;
+  font-weight: 600;
 }
 
-.rainbow-glow {
-  font-weight: bold;
-  background: linear-gradient(90deg, #be3737, #9c7815, #128583);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: subtle-glow 6s ease-in-out infinite alternate;
-  display: inline-block;
+/* Badge elements in accordions */
+.accordion-button .badge {
+  font-size: 0.875rem;
 }
 
-@keyframes subtle-glow {
-  0% {
-    text-shadow: 0 0 2px rgba(190, 55, 55, 0.6);
+/* Card titles and other component titles */
+.card-title,
+.card-header h3,
+.card-header h4,
+.card-header h5,
+.card-header h6 {
+  font-family: "Crimson Text", "Georgia", serif;
+  font-weight: 600;
+}
+
+/* Ensure display classes maintain their size */
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: "Crimson Text", "Georgia", serif;
+  /* font-weight: 200; */
+}
+
+/* ===== LINKS (Enhance Bootstrap defaults) ===== */
+a {
+  transition: var(--transition);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 3rem 0;
+  position: relative;
+}
+
+/* Section dividers - decorative elements between sections */
+section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--color-wheat-gold) 0%,
+    var(--color-forest-green) 25%,
+    var(--color-sky-blue) 50%,
+    var(--color-barn-red) 75%,
+    var(--color-sunset-orange) 100%
+  );
+  border-radius: 3px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero section - Morning mist and soft cream */
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-morning-mist) 0%,
+    var(--color-cream) 100%
+  );
+}
+
+/* About section - Barn red representing tradition and heritage */
+.about-section {
+  background: linear-gradient(135deg, var(--color-barn-red) 0%, #f1948a 100%);
+}
+
+/* Events section - Sky blue like clear Swedish summer skies */
+.events-section {
+  background: linear-gradient(135deg, var(--color-sky-blue) 0%, #aed6f1 100%);
+}
+
+/* Barva IF section - Meadow green for sports and activities */
+.barvaif-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-meadow-green) 0%,
+    #d5f4e6 100%
+  );
+}
+
+/* Museum section - Wheat gold representing heritage and history */
+.museum-section {
+  background: linear-gradient(135deg, var(--color-wheat-gold) 0%, #fdeaa7 100%);
+}
+
+/* Archive section - Lavender for knowledge and wisdom */
+.archive-section {
+  background: linear-gradient(135deg, var(--color-lavender) 0%, #e8daef 100%);
+}
+
+/* Services section - Sunset orange for warmth and community service */
+.services-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-sunset-orange) 0%,
+    #fad7a0 100%
+  );
+}
+
+/* Community section - Forest green representing the natural community */
+.community-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-forest-green) 0%,
+    #82e0aa 100%
+  );
+}
+
+/* Publications section - Autumn gold for culture and learning */
+.publications-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-autumn-gold) 0%,
+    #f7dc6f 100%
+  );
+}
+
+/* Contact section - Deep forest for grounding and connection */
+.contact-section {
+  background: linear-gradient(
+    135deg,
+    var(--color-deep-forest) 0%,
+    #82e0aa 100%
+  );
+}
+
+/* ===== HEADER (Bootstrap Enhancement) ===== */
+.site-header {
+  background-color: #cee1f3;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.site-header-title {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.site-header-img {
+  object-fit: cover;
+  box-shadow: var(--box-shadow);
+}
+
+/* ===== NAVBAR ACTIVE/SELECTED ITEM HIGHLIGHTING ===== */
+.navbar-nav .nav-link {
+  position: relative;
+  transition: var(--transition);
+  border-radius: var(--border-radius);
+  margin: 0 0.25rem;
+  padding: 0.5rem 1rem !important;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(6, 68, 32, 0.1);
+  color: var(--color-primary) !important;
+  transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active {
+  background-color: var(--color-primary);
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(6, 68, 32, 0.2);
+}
+
+.navbar-nav .nav-link.active:hover {
+  background-color: var(--color-deep-forest);
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+/* ===== NAVBAR RESPONSIVE IMPROVEMENTS ===== */
+/* Prevent navbar items from being cut off at medium screen sizes */
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.7rem !important;
+    margin: 0 0.1rem;
+    font-size: 0.9rem;
   }
-  50% {
-    text-shadow: 0 0 2px rgba(156, 120, 21, 0.6);
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.6rem !important;
+    margin: 0 0.05rem;
+    font-size: 0.85rem;
+  }
+
+  .site-header-title {
+    font-size: 1.1rem;
+  }
+
+  .navbar-brand img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* For very tight spaces before mobile breakpoint */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-nav .nav-link {
+    padding: 0.4rem 0.5rem !important;
+    margin: 0 0.05rem;
+    font-size: 0.8rem;
+  }
+
+  .site-header-title {
+    font-size: 1rem;
+  }
+
+  .navbar-brand img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Ensure container has proper padding to prevent edge cutoff */
+.navbar .container-fluid {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ===== MOBILE NAVIGATION SPACING ===== */
+/* Add spacing between hamburger icon and brand */
+.navbar-toggler {
+  margin-left: 1rem !important;
+}
+
+/* Add spacing for collapsed navigation menu */
+.navbar-collapse {
+  margin-top: 0.2rem;
+}
+
+/* Add spacing to the first nav item in mobile menu */
+@media (max-width: 1199.98px) {
+  .navbar-nav {
+    margin-top: 0.5rem;
+  }
+
+  .navbar-nav .nav-item:first-child {
+    margin-top: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem !important;
+    margin: 0.25rem 0;
+  }
+}
+/* ===== HERO (Bootstrap Enhancement) ===== */
+.hero-background-color {
+  background: linear-gradient(
+    135deg,
+    var(--color-morning-mist) 0%,
+    var(--color-cream) 100%
+  );
+}
+
+.img-container {
+  /* border-radius: var(--border-radius); */
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.welcome-text {
+  color: var(--color-primary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== CUSTOM COMPONENTS ===== */
+.event-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.archive-category {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.donation-appeal {
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+.donation-appeal h3 {
+  color: white;
+}
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (max-width: 767.98px) {
+  section {
+    padding: 2rem 0;
+  }
+}
+
+/* ===== SPINNER ===== */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.spinner-overlay.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner-wrapper {
+  position: relative;
+  /* Default (larger screens) */
+  width: clamp(60px, 10vw, 160px);
+  height: clamp(60px, 10vw, 160px);
+}
+
+.spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Default border width */
+  border-width: clamp(6px, 1vw, 16px);
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: red;
+  border-right-color: orange;
+  border-bottom-color: yellow;
+  border-left-color: green;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+.spinner-logo {
+  width: 50%; /* Adjust as needed */
+  height: auto;
+  padding: 5px; /* Your chosen padding */
+  box-sizing: border-box;
+}
+
+/* Adjustments for smaller screens (e.g., max-width: 600px) */
+@media (max-width: 600px) {
+  .spinner-wrapper {
+    /* Make the spinner and logo wrapper bigger on small screens */
+    /* Original: clamp(40px, 18vw, 80px) */
+    /* New: Increased min-width and preferred vw for a larger size */
+    width: clamp(
+      60px,
+      25vw,
+      100px
+    ); /* Increased min from 40 to 60, vw from 18 to 25, max from 80 to 100 */
+    height: clamp(60px, 25vw, 100px); /* Same as width */
+  }
+  .spinner {
+    /* Adjust border-width for the new size */
+    /* Original: clamp(4px, 2vw, 8px) */
+    border-width: clamp(6px, 3vw, 10px); /* Increased values */
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
   100% {
-    text-shadow: 0 0 2px rgba(18, 133, 131, 0.6);
+    transform: rotate(360deg);
   }
 }
 
-/* WEBMASTER INFO */
-
-/* FOTBOLLSMATCH - 2025*/
-.pane.match-schedule {
-  border: 2px solid #5c7b2c;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fffce5;
+#events-container img {
+  max-width: 150px;
+  cursor: pointer;
+  border: 1px solid #d3d3d3;
+  transition: border-color 0.3s ease;
+  margin-bottom: 0.8rem;
 }
 
-.pane.match-schedule table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
+#events-container img:hover {
+  border-color: #b0b0b0;
 }
-
-.pane.match-schedule caption {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 1rem;
-  background-color: #2f3f17;
-  color: #fff;
-  border-radius: 12px 12px 0 0;
-}
-
-.pane.match-schedule caption a {
-  color: #ecd6f3;
-}
-
-.pane.match-schedule th {
-  background-color: #506920;
-  color: #fff;
-  padding: 0.75rem 1rem;
-  text-align: left;
-}
-
-.pane.match-schedule td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #ccc;
-  color: #000000;
-}
-
-.pane.match-schedule tbody tr:nth-child(even) {
-  background-color: #f7fbe5;
-}
-
-.pane.match-schedule .teams {
-  font-weight: bold;
-  color: #000000;
-}
-
-.match-info {
-  background-color: #506920;
-  color: #ffffff;
-  padding: 1rem;
-  text-align: center;
-  font-weight: 200;
-  border-radius: 0 0 12px 12px;
-  font-size: 20px;
-}
-/* FOTBOLLSMATCH - 2025*/
