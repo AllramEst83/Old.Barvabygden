@@ -251,6 +251,7 @@ section:not(:last-child)::after {
   border-radius: var(--border-radius);
   margin: 0 0.25rem;
   padding: 0.5rem 1rem !important;
+  white-space: nowrap;
 }
 
 .navbar-nav .nav-link:hover {
@@ -270,6 +271,84 @@ section:not(:last-child)::after {
   background-color: var(--color-deep-forest);
   color: white !important;
   transform: translateY(-1px);
+}
+
+/* ===== NAVBAR RESPONSIVE IMPROVEMENTS ===== */
+/* Prevent navbar items from being cut off at medium screen sizes */
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.7rem !important;
+    margin: 0 0.1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.6rem !important;
+    margin: 0 0.05rem;
+    font-size: 0.85rem;
+  }
+
+  .site-header-title {
+    font-size: 1.1rem;
+  }
+
+  .navbar-brand img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* For very tight spaces before mobile breakpoint */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-nav .nav-link {
+    padding: 0.4rem 0.5rem !important;
+    margin: 0 0.05rem;
+    font-size: 0.8rem;
+  }
+
+  .site-header-title {
+    font-size: 1rem;
+  }
+
+  .navbar-brand img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Ensure container has proper padding to prevent edge cutoff */
+.navbar .container-fluid {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ===== MOBILE NAVIGATION SPACING ===== */
+/* Add spacing between hamburger icon and brand */
+.navbar-toggler {
+  margin-left: 1rem !important;
+}
+
+/* Add spacing for collapsed navigation menu */
+.navbar-collapse {
+  margin-top: 0.2rem;
+}
+
+/* Add spacing to the first nav item in mobile menu */
+@media (max-width: 1199.98px) {
+  .navbar-nav {
+    margin-top: 0.5rem;
+  }
+
+  .navbar-nav .nav-item:first-child {
+    margin-top: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem !important;
+    margin: 0.25rem 0;
+  }
 }
 /* ===== HERO (Bootstrap Enhancement) ===== */
 .hero-background-color {
