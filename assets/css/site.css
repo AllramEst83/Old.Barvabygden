@@ -250,7 +250,7 @@ section:not(:last-child)::after {
   transition: var(--transition);
   border-radius: var(--border-radius);
   margin: 0 0.25rem;
-  /* padding: 0.5rem 1rem !important; */
+  padding: 0.5rem 1rem !important;
 }
 
 .navbar-nav .nav-link:hover {
