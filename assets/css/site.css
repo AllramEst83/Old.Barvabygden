@@ -515,3 +515,194 @@ section:not(:last-child)::after {
 #events-container img:hover {
   border-color: #b0b0b0;
 }
+
+/* ===== EVENT COUNTDOWN STYLES ===== */
+.js-event-countdown {
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  display: inline-block;
+  min-height: 1.5rem;
+}
+
+/* Default countdown state */
+.js-event-countdown:not(.countdown-today):not(.countdown-soon):not(
+    .countdown-passed
+  ) {
+  background: linear-gradient(
+    135deg,
+    var(--color-meadow-green),
+    var(--color-forest-green)
+  );
+  color: white;
+  border: 1px solid var(--color-forest-green);
+}
+
+/* Event happening today */
+.js-event-countdown.countdown-today {
+  background: linear-gradient(
+    135deg,
+    var(--color-sunset-orange),
+    var(--color-autumn-gold)
+  );
+  color: white;
+  border: 1px solid var(--color-autumn-gold);
+  animation: countdown-pulse 2s ease-in-out infinite;
+}
+
+/* Event happening soon (within a week) */
+.js-event-countdown.countdown-soon {
+  background: linear-gradient(135deg, var(--color-wheat-gold), #f39c12);
+  color: var(--color-deep-forest);
+  border: 1px solid #f39c12;
+}
+
+/* Event has passed */
+.js-event-countdown.countdown-passed {
+  background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+  color: #2c3e50;
+  border: 1px solid #95a5a6;
+  opacity: 0.8;
+}
+
+/* Countdown pulse animation for urgent events */
+@keyframes countdown-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(243, 156, 18, 0);
+  }
+}
+
+/* Loading state for countdowns */
+.js-event-countdown[data-loading="true"] {
+  background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+  color: var(--color-text-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.js-event-countdown[data-loading="true"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: countdown-loading 1.5s infinite;
+}
+
+@keyframes countdown-loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive countdown styles */
+@media (max-width: 576px) {
+  .js-event-countdown {
+    font-size: 0.875rem;
+    padding: 0.125rem 0.375rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .js-event-countdown {
+    border-width: 2px;
+    font-weight: 700;
+  }
+
+  .js-event-countdown.countdown-today {
+    background: #ff6b35;
+    color: #000;
+    border-color: #000;
+  }
+
+  .js-event-countdown.countdown-soon {
+    background: #ffd23f;
+    color: #000;
+    border-color: #000;
+  }
+
+  .js-event-countdown.countdown-passed {
+    background: #6c757d;
+    color: #fff;
+    border-color: #000;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .js-event-countdown:not(.countdown-today):not(.countdown-soon):not(
+      .countdown-passed
+    ) {
+    background: linear-gradient(135deg, var(--color-deep-forest), #1e8449);
+    color: #e8f5e8;
+  }
+
+  .js-event-countdown.countdown-soon {
+    background: linear-gradient(135deg, #b7950b, #d68910);
+    color: #1c1c1c;
+  }
+
+  .js-event-countdown.countdown-passed {
+    background: linear-gradient(135deg, #566573, #5d6d7e);
+    color: #d5dbdb;
+  }
+}
+
+/* Print styles */
+@media print {
+  .js-event-countdown {
+    background: none !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+}
+
+/* TEMPORARY CSS FOR BARVADAGEN 2025 SPECIAL EVENT CARD */
+/* REMOVE THIS AFTER THE EVENT */
+.event-card.barvadagen-special {
+  background: url("../images/patterns/background_pattern_1.png"),
+    rgb(232 251 229 / 85%);
+  background-size: cover, auto;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: overlay;
+  border: 8px solid;
+  border-image: repeating-linear-gradient(
+      45deg,
+      #ff6b6b 0px,
+      #ff6b6b 10px,
+      #4ecdc4 10px,
+      #4ecdc4 20px,
+      #45b7d1 20px,
+      #45b7d1 30px,
+      #96ceb4 30px,
+      #96ceb4 40px,
+      #ffeaa7 40px,
+      #ffeaa7 50px,
+      #fd79a8 50px,
+      #fd79a8 60px
+    )
+    8;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+/* REMOVE THIS AFTER THE EVENT */

@@ -306,6 +306,10 @@ window.addEventListener("DOMContentLoaded", () => {
   //Subscibe to custom events
   window.addEventListener("eventsLoaded", (event) => {
     console.log("✅ - Events loaded successfully.");
+    // Reinitialize countdowns for dynamically loaded events
+    if (window.EventCountdown && event.detail?.container) {
+      window.EventCountdown.init(event.detail.container);
+    }
   });
 
   window.addEventListener("newsletterLoaded", (event) => {

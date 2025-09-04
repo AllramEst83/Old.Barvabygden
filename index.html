@@ -1950,6 +1950,9 @@
       // Feature detection and conditional loading
       if (window.fetch && window.Promise && Array.from) {
         // Modern browsers - load the regular script
+        document.write(
+          '<script src="./assets/js/event-countdown.js"><\/script>'
+        );
         document.write('<script src="./assets/js/site.js"><\/script>');
       } else {
         // Older browsers - load the legacy version

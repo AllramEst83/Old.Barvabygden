@@ -1,10 +1,21 @@
 <!-- Barvadagen 2025 -->
+<!-- REMOVE SPECIAL CSS AFTER EVENT (event-card.barvadagen-special) -->
 <div class="col-lg-6 col-xl-4">
-  <article class="event-card h-100 p-4">
+  <article class="event-card barvadagen-special h-100 p-4">
     <header class="event-header mb-3">
       <h3 class="event-title h5 mb-2">Barvadagen</h3>
       <div class="event-category badge bg-warning text-dark mb-2">
         Marknad & Hantverk
+      </div>
+      <div class="event-countdown mb-2">
+        <span
+          id="barvadagen-countdown"
+          data-event-date="2025-09-14T10:00"
+          data-countdown-format="detailed"
+          aria-live="polite"
+          class="small js-event-countdown"
+          >Beräknar tid kvar...</span
+        >
       </div>
     </header>
 
@@ -70,6 +81,7 @@
     </footer>
   </article>
 </div>
+<!-- REMOVE SPECIAL CSS AFTER EVENT (event-card.barvadagen-special) -->
 <!-- Barvadagen 2025 -->
 
 <!-- Barva Hembygdsmuseum – Sommaröppet 2025 -->
@@ -263,7 +275,6 @@
 <!-- Fotbollsmatcher 2025 -->
 
 <!-- Add more event cards here following the same structure -->
-
 <!-- 
 ===============================================================================
 EVENT TEMPLATE STRUCTURE - COPY AND MODIFY FOR NEW EVENTS
@@ -276,7 +287,18 @@ BASIC EVENT STRUCTURE:
       <h3 class="event-title h5 mb-2">
         [EVENT TITLE]
       </h3>
-      <div class="event-category badge bg-[COLOR] mb-2">[CATEGORY]</div>
+      <div class="event-category badge bg-[COLOR] mb-2">[CATEGORY]</div>     
+      COUNTDOWN SECTION (ONLY for events with ONE SPECIFIC DATE)
+      <div class="event-countdown mb-2">
+        <span
+          data-event-date="YYYY-MM-DDTHH:MM"
+          data-countdown-format="[days|hours|detailed]"
+          aria-live="polite"
+          class="small js-event-countdown">
+          Beräknar tid kvar...
+        </span>
+      </div>
+      END COUNTDOWN SECTION
     </header>
 
     <div class="event-details">
@@ -327,7 +349,7 @@ BASIC EVENT STRUCTURE:
         />
       </div>
 
-      // OPTIONAL: Table for schedules/matches
+      // OPTIONAL: Table for schedules/matches (NO COUNTDOWN for these)
       <div class="table-responsive mb-3">
         <table class="table table-sm table-striped table-bordered border-secondary">
           <thead class="table-dark">
@@ -372,6 +394,27 @@ BASIC EVENT STRUCTURE:
     </footer>
   </article>
 </div>
+
+===============================================================================
+COUNTDOWN FUNCTIONALITY GUIDELINES:
+===============================================================================
+
+WHEN TO ADD COUNTDOWN:
+✅ Single specific date/time events (e.g., Barvadagen on September 14)
+✅ One-time events or activities with a clear start date
+✅ Events where anticipation matters (festivals, openings, special occasions)
+
+WHEN NOT TO ADD COUNTDOWN:
+❌ Recurring events (e.g., "Every Saturday 12-15")
+❌ Date ranges (e.g., "July 5 - September 6") 
+❌ Multiple dates in tables (e.g., football match schedules)
+❌ Ongoing activities with flexible timing
+❌ Events that happen regularly throughout a period
+
+COUNTDOWN FORMAT OPTIONS:
+- "days" = "X dagar kvar" (default)
+- "hours" = "X timmar kvar" (for events within days)
+- "detailed" = "X dagar, X timmar, X minuter kvar" (for important events)
 
 ===============================================================================
 CATEGORY BADGE COLORS:
