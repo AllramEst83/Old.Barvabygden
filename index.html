@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
@@ -20,6 +20,15 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sv_SE" />
+
+    <!-- Cache Control -->
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link
       rel="icon"
       href="./assets/images/favicon/favicon.ico"
@@ -1917,7 +1926,7 @@
     </div>
 
     <!-- Polyfills for older browser support -->
-    <script src="./assets/js/polyfills.js"></script>
+    <script src="./assets/js/polyfills.js?v=2025.09.04.1016"></script>
 
     <!-- Browser compatibility detection -->
     <script>
@@ -1951,15 +1960,19 @@
       if (window.fetch && window.Promise && Array.from) {
         // Modern browsers - load the regular script
         document.write(
-          '<script src="./assets/js/event-countdown.js"><\/script>'
+          '<script src="./assets/js/event-countdown.js?v=2025.09.04.1016"><\/script>'
         );
-        document.write('<script src="./assets/js/site.js"><\/script>');
+        document.write(
+          '<script src="./assets/js/site.js?v=2025.09.04.1016"><\/script>'
+        );
       } else {
         // Older browsers - load the legacy version
-        document.write('<script src="./assets/js/site-legacy.js"><\/script>');
+        document.write(
+          '<script src="./assets/js/site-legacy.js?v=2025.09.04.1016"><\/script>'
+        );
       }
     </script>
-    <script src="./assets/js/lightbox.js"></script>
+    <script src="./assets/js/lightbox.js?v=2025.09.04.1016"></script>
     <!-- Custom scripts -->
   </body>
 </html>

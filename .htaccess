@@ -2,3 +2,46 @@
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Cache Control Headers
+<IfModule mod_headers.c>
+    # HTML files - no cache
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+    
+    # CSS and JS files - cache for 1 hour (since we use versioning)
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+    
+    # Images - cache for 1 week
+    <FilesMatch "\.(jpg|jpeg|png|gif|ico|svg|webp)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+    
+    # PDFs and other documents - cache for 1 day
+    <FilesMatch "\.(pdf|doc|docx)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+</IfModule>
+
+# Alternative using mod_expires
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # HTML files expire immediately
+    ExpiresByType text/html "access plus 0 seconds"
+    # CSS and JS files expire after 1 hour
+    ExpiresByType text/css "access plus 1 hour"
+    ExpiresByType application/javascript "access plus 1 hour"
+    # Images expire after 1 week
+    ExpiresByType image/jpg "access plus 1 week"
+    ExpiresByType image/jpeg "access plus 1 week"
+    ExpiresByType image/gif "access plus 1 week"
+    ExpiresByType image/png "access plus 1 week"
+    ExpiresByType image/svg+xml "access plus 1 week"
+    # Default expire after 1 day
+    ExpiresDefault "access plus 1 day"
+</IfModule>
