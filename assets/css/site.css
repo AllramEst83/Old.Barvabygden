@@ -27,6 +27,10 @@
   --transition: all 0.3s ease;
   --border-radius: 0.375rem;
   --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+  /* ================== Background images =======================*/
+  --barvadagen-bg: url("../images/patterns/background_pattern_1.png"),
+    rgb(232 251 229 / 85%);
 }
 
 /* ===== BASE STYLES (Bootstrap Compatible) ===== */
@@ -678,31 +682,53 @@ section:not(:last-child)::after {
 /* TEMPORARY CSS FOR BARVADAGEN 2025 SPECIAL EVENT CARD */
 /* REMOVE THIS AFTER THE EVENT */
 .event-card.barvadagen-special {
-  background: url("../images/patterns/background_pattern_1.png"),
-    rgb(232 251 229 / 85%);
+  position: relative;
+  border-radius: 15px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+}
+
+.event-card.barvadagen-special::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff6b6b 0px,
+    #ff6b6b 10px,
+    #4ecdc4 10px,
+    #4ecdc4 20px,
+    #45b7d1 20px,
+    #45b7d1 30px,
+    #96ceb4 30px,
+    #96ceb4 40px,
+    #ffeaa7 40px,
+    #ffeaa7 50px,
+    #fd79a8 50px,
+    #fd79a8 60px
+  );
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.event-card.barvadagen-special::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background: var(--barvadagen-bg);
   background-size: cover, auto;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   background-blend-mode: overlay;
-  border: 8px solid;
-  border-image: repeating-linear-gradient(
-      45deg,
-      #ff6b6b 0px,
-      #ff6b6b 10px,
-      #4ecdc4 10px,
-      #4ecdc4 20px,
-      #45b7d1 20px,
-      #45b7d1 30px,
-      #96ceb4 30px,
-      #96ceb4 40px,
-      #ffeaa7 40px,
-      #ffeaa7 50px,
-      #fd79a8 50px,
-      #fd79a8 60px
-    )
-    8;
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  z-index: -1;
 }
 /* REMOVE THIS AFTER THE EVENT */
