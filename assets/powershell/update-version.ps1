@@ -1,6 +1,6 @@
 # Deployment Helper Script for Cache Busting
 # This script updates version numbers in HTML files when deploying
-# Run from Root of project directory: PS C:\Users\kaywi\dev\Old.Barvabygden> .\update-version.ps1
+# Run from Root of project directory: PS C:\Users\kaywi\dev\Old.Barvabygden> ./assets/powershell/update-version.ps1
 
 param(
     [string]$Version = (Get-Date -Format "yyyy.MM.dd.HHmm"),
