@@ -681,7 +681,7 @@ section:not(:last-child)::after {
 
 /* TEMPORARY CSS FOR BARVADAGEN 2025 SPECIAL EVENT CARD */
 /* REMOVE THIS AFTER THE EVENT */
-.event-card.barvadagen-special {
+/* .event-card.barvadagen-special {
   position: relative;
   border-radius: 15px;
   border: none;
@@ -730,5 +730,5 @@ section:not(:last-child)::after {
   background-blend-mode: overlay;
   border-radius: 8px;
   z-index: -1;
-}
+} */
 /* REMOVE THIS AFTER THE EVENT */
