@@ -951,3 +951,154 @@ section:not(:last-child)::after {
     text-shadow: none !important;
   }
 }
+
+/* ===============================================================================
+   🎄 CHRISTMAS MARKET EVENT STYLES
+   =============================================================================== */
+
+/* Christmas market event card with festive border and background */
+.event-card.christmas-card {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: 4px solid #d4af37;
+  border-radius: 20px;
+  border-image: repeating-linear-gradient(
+      45deg,
+      #d4af37 0,
+      #d4af37 10px,
+      #228b22 10px,
+      #228b22 20px,
+      #dc143c 20px,
+      #dc143c 30px
+    )
+    4;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark overlay for better text contrast against bright background */
+.christmas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* Content wrapper with proper z-index */
+.christmas-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Christmas event title with strong visibility */
+.christmas-title {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+}
+
+/* Countdown timer styling */
+.christmas-countdown {
+  color: #ffd700 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  font-weight: bold;
+}
+
+/* Labels and form terms */
+.christmas-label {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Regular text content */
+.christmas-text {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Links with gold color */
+.christmas-link {
+  color: #ffd700 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  font-weight: bold;
+}
+
+/* Footer border */
+.christmas-footer {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Contact text in footer */
+.christmas-contact {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Phone number link */
+.christmas-phone {
+  color: #ffd700 !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  font-weight: bold;
+}
+
+/* Responsive adjustments for Christmas card */
+@media (max-width: 768px) {
+  .christmas-title {
+    font-size: 1rem;
+  }
+
+  .christmas-countdown {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+  }
+
+  .event-card.christmas-card {
+    border-width: 3px;
+  }
+}
+
+/* High contrast mode for Christmas card */
+@media (prefers-contrast: high) {
+  .event-card.christmas-card {
+    border-width: 4px;
+    border-color: #000;
+  }
+
+  .christmas-title {
+    color: #fff !important;
+    text-shadow: 2px 2px 0 #000;
+  }
+
+  .christmas-text {
+    color: #fff !important;
+    text-shadow: 1px 1px 0 #000;
+  }
+}
+
+/* Print styles for Christmas card */
+@media print {
+  .event-card.christmas-card {
+    background-image: none !important;
+    border: 2px solid #000 !important;
+    box-shadow: none !important;
+  }
+
+  .christmas-overlay {
+    display: none;
+  }
+
+  .christmas-title,
+  .christmas-text,
+  .christmas-label,
+  .christmas-link,
+  .christmas-contact,
+  .christmas-phone {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+}
