@@ -961,20 +961,32 @@ section:not(:last-child)::after {
   background-size: cover;
   background-position: center;
   position: relative;
-  border: 4px solid #d4af37;
+  border: none; /* Use pseudo-element border for proper rounding */
   border-radius: 20px;
-  border-image: repeating-linear-gradient(
-      45deg,
-      #d4af37 0,
-      #d4af37 10px,
-      #228b22 10px,
-      #228b22 20px,
-      #dc143c 20px,
-      #dc143c 30px
-    )
-    4;
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.6),
     inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Decorative rounded border that respects border-radius */
+.event-card.christmas-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 4px; /* Border thickness */
+  background: repeating-linear-gradient(
+    45deg,
+    #d4af37 0 10px,
+    #228b22 10px 20px,
+    #dc143c 20px 30px
+  );
+  /* Mask the center so only the 4px ring shows */
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3; /* Above dark overlay, below nothing interactive */
 }
 
 /* Dark overlay for better text contrast against bright background */
