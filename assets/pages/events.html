@@ -64,17 +64,18 @@
       </div>
 
       <div class="gallery text-center mb-3">
+        <div class="mt-2">
+          <small class="halloween-image-caption" style="cursor: pointer;" onclick="document.querySelector('.gallery img').click()">
+            📄 Klicka för att se affischen i full storlek
+          </small>
+        </div>
+        <!-- Hidden image for lightbox functionality -->
         <img
           src="./assets/images/events/halloween/halloween-disco.jpg"
           data-full="./assets/images/events/halloween/halloween-disco.jpg"
           alt="Halloween Disco 2025 - Affisch"
-          class="img-fluid rounded shadow-sm halloween-image"
-          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(255, 140, 0, 0.8)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(255, 140, 0, 0.6)';"
+          class="d-none"
         />
-        <div class="mt-2">
-          <small class="halloween-image-caption">📄 Klicka för att se affischen i full storlek</small>
-        </div>
       </div>
     </div>
 
@@ -148,8 +149,11 @@
           <p class="mb-2 christmas-text">
             🎁 Passa på och beställ bord/plats till vår mysiga julmarknad! Marknad i danshallen med julstämning och härliga produkter.
           </p>
-          <p class="mb-0 christmas-text">
+          <p class="mb-2 christmas-text">
             🛍️ Perfekt tillfälle att hitta unika julklappar och njuta av gemenskapen!
+          </p>
+          <p class="mb-0 christmas-text">
+            🏪 Loppis I bygdegården ring Gittan L 070 9759267
           </p>
         </div>
       </div>
