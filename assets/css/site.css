@@ -909,3 +909,24 @@ section:not(:last-child)::after {
     #ff6b6b 30px 40px
   );
 }
+
+/* Download button styling for Christmas lottery card */
+.christmas-download-btn {
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.christmas-download-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: #ffd700 !important;
+  color: #ffd700 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.christmas-download-btn:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.5);
+}
