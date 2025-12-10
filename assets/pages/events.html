@@ -386,16 +386,15 @@ TIPS:
   aria-labelledby="lotteryWinnersModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="lotteryWinnersModalLabel">
           🏆 Barvabygdens Digitala Jullotteri – Vinnare
         </h5>
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-2 flex-wrap">
           <a
             href="./assets/images/events/christmas/doc/vinnare-jullotteri-2025.pdf"
-            target="_blank"
             class="btn btn-outline-primary btn-sm"
             download="vinnare-jullotteri-2025.pdf"
           >
@@ -409,7 +408,7 @@ TIPS:
           ></button>
         </div>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
         <p class="mb-3">
           <strong>Dragning:</strong> Lördag 6 december 2025 kl. 13:00 på Julmarknaden<br />
           <strong>Sålt:</strong> 1 november – 4 december 2025
