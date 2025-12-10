@@ -739,27 +739,39 @@ section:not(:last-child)::after {
 /* Ensure modal fits on small screens */
 @media (max-width: 768px) {
   .modal-dialog {
-    margin: 0.5rem;
-    max-width: calc(100% - 1rem);
+    margin: 0.5rem !important;
+    max-width: calc(100% - 1rem) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: 90vh !important;
   }
-  
+
   .modal-content {
-    max-height: calc(100vh - 1rem);
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    max-height: 90vh !important;
   }
-  
+
   .modal-body {
-    max-height: calc(100vh - 250px) !important;
-    overflow-y: auto;
+    overflow-y: auto !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    -webkit-overflow-scrolling: touch;
   }
-  
+
   .modal-header {
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
   }
-  
+
   .modal-footer {
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
+  }
+
+  /* Remove centering on mobile to prevent overflow */
+  .modal-dialog-centered {
+    transform: none !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
   }
 }
-
