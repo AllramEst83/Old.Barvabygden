@@ -310,8 +310,6 @@ window.addEventListener("DOMContentLoaded", () => {
     if (window.EventCountdown && event.detail?.container) {
       window.EventCountdown.init(event.detail.container);
     }
-    // Setup modal height fix after modal HTML is loaded
-    setupModalHeightFix();
   });
 
   window.addEventListener("newsletterLoaded", (event) => {
@@ -325,51 +323,6 @@ window.addEventListener("DOMContentLoaded", () => {
   // Setup navbar active highlighting based on scroll position
   setupNavbarActiveHighlighting();
 });
-
-// Function to fix modal height on mobile devices
-function setupModalHeightFix() {
-  const lotteryModal = document.getElementById("lotteryWinnersModal");
-  if (!lotteryModal) return;
-
-  // Check if we're on a mobile device
-  const isMobile = window.innerWidth <= 768;
-
-  if (isMobile) {
-    // Listen for modal show event
-    lotteryModal.addEventListener("show.bs.modal", function () {
-      const modalDialog = this.querySelector(".modal-dialog");
-      const modalContent = this.querySelector(".modal-content");
-      
-      if (modalDialog && modalContent) {
-        // Use actual window height minus safe margins
-        const maxHeight = window.innerHeight - 20; // 20px total margin (10px top + 10px bottom)
-        
-        modalDialog.style.maxHeight = `${maxHeight}px`;
-        modalContent.style.maxHeight = `${maxHeight}px`;
-        modalDialog.style.marginTop = "10px";
-        modalDialog.style.marginBottom = "10px";
-      }
-    });
-
-    // Also handle resize events
-    let resizeTimeout;
-    window.addEventListener("resize", function () {
-      if (resizeTimeout) clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(function () {
-        if (lotteryModal.classList.contains("show")) {
-          const modalDialog = lotteryModal.querySelector(".modal-dialog");
-          const modalContent = lotteryModal.querySelector(".modal-content");
-          
-          if (modalDialog && modalContent) {
-            const maxHeight = window.innerHeight - 20;
-            modalDialog.style.maxHeight = `${maxHeight}px`;
-            modalContent.style.maxHeight = `${maxHeight}px`;
-          }
-        }
-      }, 100);
-    });
-  }
-}
 
 // Function to highlight navbar items based on scroll position
 function setupNavbarActiveHighlighting() {
