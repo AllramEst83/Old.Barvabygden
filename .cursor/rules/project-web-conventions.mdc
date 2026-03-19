@@ -1,0 +1,41 @@
+---
+description: Bootstrap-first conventions and structure for Old.Barvabygden
+alwaysApply: true
+---
+
+# Old.Barvabygden Agent Conventions
+
+## Core priorities
+- Prefer Bootstrap utilities/components before writing custom CSS or JS.
+- Keep a playful, friendly visual tone where appropriate, but preserve readability and accessibility.
+- Use vanilla HTML/CSS/JS patterns; do not introduce frameworks or build tools unless explicitly requested.
+
+## Project structure and refactor direction
+- Place all new non-root assets under `assets/` (pages, images, scripts, styles, data).
+- Do not create new loose top-level files unless explicitly requested.
+- When editing older root files, prefer incremental refactors: improve touched sections without large rewrites.
+- Reuse existing `assets/` folder patterns and naming conventions before creating new ones.
+
+## HTML conventions
+- Use semantic structure first (`header`, `main`, `section`, `article`, `footer`).
+- Prefer Bootstrap grid/layout and spacing utilities over custom layout classes.
+- Keep markup clean and component-like; avoid deep nesting when possible.
+- Use descriptive `alt` text and meaningful labels for interactive elements.
+
+## CSS conventions
+- Only add custom CSS when Bootstrap cannot solve the need cleanly.
+- Keep custom selectors scoped and specific to the page/feature.
+- Avoid `!important` unless overriding legacy code is unavoidable.
+- Keep visual style consistent with existing typography, spacing, and color choices.
+
+## JavaScript conventions
+- Keep scripts modular and simple: small functions, clear naming, minimal global scope.
+- Use event delegation for repeated interactive elements when practical.
+- Do not add heavy dependencies for behavior solvable in vanilla JS.
+- Fail gracefully: guard DOM queries and avoid runtime errors on missing elements.
+
+## Editing behavior for agents
+- Preserve existing behavior unless the task explicitly asks for changes.
+- Keep diffs focused: modify only files relevant to the request.
+- For legacy sections, improve clarity and consistency as you touch them; avoid broad unrelated refactors.
+- If a structural convention is unclear, follow existing local patterns in the nearest related file.

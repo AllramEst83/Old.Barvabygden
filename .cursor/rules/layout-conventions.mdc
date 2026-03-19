@@ -1,0 +1,41 @@
+---
+description: Bootstrap layout patterns and section structure
+alwaysApply: true
+---
+
+# Layout Conventions (HTML + Bootstrap, vanilla site)
+
+## Default page architecture
+- Use semantic tags: `header` (navbar), `main` (page content), `section` (content blocks), `footer`.
+- Each major content block should be a `<section id="...">` with a Bootstrap `container` and a `row/col` heading wrapper.
+
+## Layout pattern choices (pick based on intent)
+- Single-Column: default for top-level messages, “About” intros, and simple pages.
+- Grid (main default): listings, multi-block sections, and responsive alignment.
+- Card-Based: any repeatable item (e.g. events) should be rendered as cards inside a grid.
+- F-Pattern: dense/long-read content; prefer accordions/list-groups to break scanning.
+- Z-Pattern: landing/hero emphasis; image/branding first, then headline/subtext, then primary CTA (if present).
+- Asymmetrical: use sparingly for “fun” sections (event highlights, decorative moments), keeping text readable.
+
+## Bootstrap implementation rules
+- Prefer `container` for centered content; use `container-fluid` only for full-bleed areas (like navbar backgrounds).
+- Use `row` + `col-12` for section headers, then switch to `col-*` for content.
+- For card grids: `row g-4` (or `g-3`) + `col-lg-* col-xl-*` (match existing `events.html` style) + `h-100` for equal height cards.
+
+## Reusable markup shape (copy the idea)
+```html
+<section id="your-section">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="display-6 text-center mb-5">Section title</h2>
+      </div>
+    </div>
+    <!-- content goes here: grid rows/cols or cards -->
+  </div>
+</section>
+```
+
+## Content density guidance
+- If there are many categories/items, use `accordion` or `list-group` (F-pattern) instead of huge walls of text.
+- When mixing image + text, keep the primary message in a readable column and place decorative elements with Bootstrap spacing utilities.
