@@ -1,0 +1,18 @@
+---
+description: Manifest of project Agent Skills for Barvabygden
+alwaysApply: true
+---
+
+# Project Agent Skills (Barvabygden)
+
+Use **project skills** under `.cursor/skills/<skill-name>/SKILL.md` when the task matches. Project **rules** in `.cursor/rules/` always apply; skills add deeper, task-specific steps.
+
+| Skill | Use when |
+|-------|----------|
+| `bootstrap-barvabygden` | Building or changing layout/UI with Bootstrap (grid, utilities, components). |
+| `assets-and-paths` | Adding or moving files under `assets/`, or fixing image/link paths from root vs `assets/pages/`. |
+| `site-layout-sections` | New sections/pages: header/main/footer, section shells, hero vs grid vs cards. |
+| `swedish-a11y-content` | Swedish copy, dates, contact links, headings, and basic accessibility. |
+| `vanilla-js-static` | Small DOM scripts, event handlers, guards, no new dependencies. |
+
+**Do not** put Cursor’s built-in skills here; those live in your user `skills-cursor` folder. This file only indexes **this repo’s** skills.
