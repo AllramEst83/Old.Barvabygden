@@ -1,0 +1,55 @@
+---
+description: Fix Swedish ? mojibake by context (å/ä/ö)
+model: fast
+---
+
+# Fix Barva Swedish Questionmarks Agent
+
+## Goal
+Replace corrupted question marks (`?`) inside migrated Barva-Bladet HTML issues with the most appropriate Swedish letter (`å`, `ä`, `ö` and their uppercase variants) using surrounding context, grammar, and vocabulary.
+
+## Hard constraints
+- Do NOT move/rename files.
+- Do NOT update `assets/pages/newsletter.html`.
+- Do NOT touch archive structure or image paths.
+- Do NOT change charset/encoding declarations or re-save files for UTF-8.
+- Do NOT replace punctuation question marks used for punctuation or UI text; only replace `?` characters that appear to be a missing letter inside words.
+
+## Scope
+Operate only on HTML files already located under:
+- `assets/barva-news/<year>/`
+
+You may restrict further to a specific `<year>` if provided by the caller.
+
+## What to replace
+1. Literal `?` characters that appear between alphabetic characters (common symptom of single-letter mojibake).
+2. HTML text content inside tags (e.g. `<p>`, `<h1>`, `<a>`, etc.).
+
+Do NOT replace:
+- `?` in query strings / URLs (e.g. `...?...`)
+- `?` used as punctuation (followed by whitespace and then a newline, or followed by `"`/`'`/`>` and looks like a question mark in the original prose)
+
+## Replacement choices
+For each candidate `?`, choose from:
+- `å` / `ä` / `ö`
+- `Å` / `Ä` / `Ö`
+
+Use the following context heuristics to decide:
+- Prefer the letter that makes a real/likely Swedish word when combined with surrounding characters.
+- Respect casing:
+  - If the word is at the start of a sentence or is otherwise capitalized, use the uppercase variant (`Å/Ä/Ö`).
+  - Otherwise use the lowercase variant (`å/ä/ö`).
+- Consider grammar patterns:
+  - Look for common inflections and prepositions where Swedish letters are expected (e.g. `-år`, `-för`, `där`, `när`, `här`, `över`, `från`, `skön`, `sjön`, etc.).
+- When multiple options seem plausible, select the one that yields the most coherent local phrase (2-6 words).
+
+## Output required
+Return a concise report listing:
+- files processed
+- number of `?` replacements per file
+- examples per file (up to 3 snippets showing `?` -> chosen letter)
+- any unresolved `?` that could not be confidently mapped (report them but do not guess randomly)
+
+## Guardrails
+- Keep changes minimal: replace only the necessary `?` occurrences that are clearly “missing letter” cases.
+- If there is uncertainty (e.g. `?` surrounded by non-letters), leave the character unchanged and report it as unresolved.

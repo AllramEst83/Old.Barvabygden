@@ -17,7 +17,7 @@ Migrate old Barva-Bladet issues into the modern archive structure used by `asset
    - unresolved year mappings
    - image fixes applied per issue
    - back-link insertion status per issue
-   - encoding/mojibake fixes per issue
+   - UTF-8 charset declaration status per issue
 
 ## Archive contract (must follow)
 - `index.html` only hosts `#archive` container and loads content dynamically.
@@ -59,11 +59,13 @@ Migrate old Barva-Bladet issues into the modern archive structure used by `asset
      ← Tillbaka till Barvabygden.se
    </a>
    ```
-5. Normalize text encoding and fix mojibake in moved issue HTML:
-   - **Save the file as UTF-8** and declare it correctly: use a well-formed `<meta charset="UTF-8">` (or `Content-Type` with `charset=UTF-8` including closing quote on the attribute). A broken or missing declaration often turns Swedish letters into garbage.
-   - **Corrupted Swedish letters** often show as Unicode replacement (`�`), odd two-character mojibake, or sometimes a single **`?`** where a letter was lost in conversion. When fixing, **infer `å`, `ä`, `ö` (and uppercase `Å`, `Ä`, `Ö`) from Swedish context** so words and sentences read naturally (e.g. *Välkommen*, *för*, *år*, *bygdegård*, *öppet*). Prefer the actual Unicode characters in the file; use named entities only if needed for compatibility.
-   - After conversion, **scan for stray `?` or `�` inside Swedish words** and restore the letter that fits grammar and vocabulary, not only where the pattern is mechanically obvious from byte-repair.
-   - convert file content to valid UTF-8 on disk; avoid saving as legacy Windows single-byte encoding while labeling UTF-8
+5. Ensure UTF-8 charset declaration only (do NOT replace Swedish letters/mojibake):
+   - **Save the file as UTF-8**.
+   - Ensure the HTML declares UTF-8 using either:
+     - `<meta charset="UTF-8">` (preferred), or
+     - `<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">`.
+   - If a charset declaration is missing or malformed, fix only the declaration/attributes so browsers interpret the file as UTF-8.
+   - Do not attempt to replace `?`, `�`, or other mojibake glyphs with letters; that will be handled by `fix-swedish-questionmarks-agent.mdc`.
 6. Keep source files only if needed for compatibility; otherwise prefer cleaned archive paths.
 7. Update year accordion in `assets/pages/newsletter.html`:
    - add missing issue cards in numeric order
@@ -74,7 +76,7 @@ Migrate old Barva-Bladet issues into the modern archive structure used by `asset
    - all `href` links in `newsletter.html` point to existing local files
    - all `<img src>` links in moved issue HTML files point to existing local files
    - moved issue HTML files contain the back-link markup
-   - no obvious mojibake remains (especially `�`, `?` inside Swedish words, or wrong charset meta)
+   - charset declaration is present and points to UTF-8
 
 ## Guardrails
 - Do not rewrite `index.html` archive structure unless loading is broken.
