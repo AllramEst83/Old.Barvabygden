@@ -508,7 +508,8 @@ section:not(:last-child)::after {
   }
 }
 
-#events-container img {
+/* Logos / thumbnails in event cards — not full-width hero banners */
+#events-container img:not(.event-card-hero) {
   max-width: 150px;
   cursor: pointer;
   border: 1px solid #d3d3d3;
@@ -516,7 +517,7 @@ section:not(:last-child)::after {
   margin-bottom: 0.8rem;
 }
 
-#events-container img:hover {
+#events-container img:not(.event-card-hero):hover {
   border-color: #b0b0b0;
 }
 
