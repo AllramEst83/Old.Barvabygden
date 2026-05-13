@@ -306,9 +306,52 @@ window.addEventListener("DOMContentLoaded", () => {
   //Subscibe to custom events
   window.addEventListener("eventsLoaded", (event) => {
     console.log("✅ - Events loaded successfully.");
+
     // Reinitialize countdowns for dynamically loaded events
     if (window.EventCountdown && event.detail?.container) {
       window.EventCountdown.init(event.detail.container);
+    }
+
+    // Skeleton shimmer for images while they load
+    const container = event.detail?.container;
+    if (container) {
+      container.querySelectorAll("img").forEach((img) => {
+        // Skip already-cached images
+        if (img.complete && img.naturalWidth > 0) return;
+
+        const isHero = img.classList.contains("event-card-hero");
+        const wrapper = document.createElement(isHero ? "div" : "span");
+        wrapper.classList.add(
+          "event-img-skeleton",
+          isHero ? "event-img-skeleton--hero" : "event-img-skeleton--thumb"
+        );
+
+        // Hero lives inside a flex column — preserve its flex-item classes
+        if (isHero) {
+          ["flex-shrink-0", "d-block", "w-100"].forEach((cls) => {
+            if (img.classList.contains(cls)) wrapper.classList.add(cls);
+          });
+        }
+
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+        img.style.opacity = "0";
+        img.style.transition = "opacity 0.3s ease";
+
+        const reveal = () => {
+          img.style.opacity = "1";
+          setTimeout(() => {
+            wrapper.classList.remove(
+              "event-img-skeleton",
+              "event-img-skeleton--hero",
+              "event-img-skeleton--thumb"
+            );
+          }, 320);
+        };
+
+        img.addEventListener("load", reveal, { once: true });
+        img.addEventListener("error", reveal, { once: true });
+      });
     }
   });
 

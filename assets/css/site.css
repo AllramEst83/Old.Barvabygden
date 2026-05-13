@@ -508,6 +508,62 @@ section:not(:last-child)::after {
   }
 }
 
+/* ===== IMAGE SKELETON SHIMMER ===== */
+.event-img-skeleton {
+  position: relative;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    #b8d4e8 0%,
+    #d6eaf8 20%,
+    #aed6f1 40%,
+    #f0f8ff 55%,
+    #aed6f1 70%,
+    #d6eaf8 85%,
+    #b8d4e8 100%
+  );
+  background-size: 300% 100%;
+  animation: img-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.event-img-skeleton--hero {
+  display: block;
+  width: 100%;
+  flex-shrink: 0;
+  min-height: 200px;
+}
+
+.event-img-skeleton--thumb {
+  display: inline-block;
+  min-height: 50px;
+  min-width: 50px;
+}
+
+@keyframes img-skeleton-shimmer {
+  0%   { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+
+/* ===== EVENTS MASONRY GRID ===== */
+#events-container {
+  columns: 3 280px;
+  column-gap: 1.5rem;
+}
+
+#events-container > div {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  vertical-align: top;
+}
+
+#events-container > .events-loading {
+  column-span: all;
+  display: block;
+  text-align: center;
+}
+
 /* Logos / thumbnails in event cards — not full-width hero banners */
 #events-container img:not(.event-card-hero) {
   max-width: 150px;
