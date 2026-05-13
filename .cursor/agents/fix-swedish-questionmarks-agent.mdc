@@ -1,83 +1,351 @@
 ---
-description: Fix Swedish mojibake (`?` and `�`) by context (å/ä/ö)
+description: Fix Swedish mojibake (`?` and `<?>`) by context (å/ä/ö)
 model: fast
 ---
 
 # Fix Barva Swedish Mojibake Agent
 
 ## Goal
-Replace corrupted mojibake inside migrated Barva-Bladet HTML issues with the most appropriate Swedish characters using surrounding context.
+Replace every U+FFFD replacement character in a migrated Barva-Bladet HTML file with
+the correct Swedish letter or punctuation character, leaving the file with zero FFFD.
 
-This includes:
-- Literal missing-letter question marks (`?`) inside words (should become `å`, `ä`, or `ö`).
-- U+FFFD replacement characters (`�`) which appear in this codebase as broken output for Swedish letters (e.g. `f�r` -> `för`, `V�lkommen` -> `Välkommen`) and sometimes for quote-like characters.
+---
 
-## Hard constraints
-- Do NOT move/rename files.
-- Do NOT update `assets/pages/newsletter.html`.
-- Do NOT touch archive structure or image paths.
-- Do NOT change charset/encoding declarations or re-save files for UTF-8.
-- Do NOT replace punctuation question marks used for punctuation or UI text; only replace `?` characters that appear to be a missing letter inside words.
-- Do NOT replace `�` when it is clearly acting as standalone punctuation/symbol; only replace `�` when it appears to represent:
-  - a Swedish diacritic letter inside a word, or
-  - a broken opening/closing quote when it sits immediately before/after a word in typical quote positions.
+## CRITICAL: the encoding barrier (read this first)
+
+Every missing Swedish character is stored as **UTF-8 bytes `EF BF BD`** — the
+UTF-8 encoding of Unicode's U+FFFD replacement character.
+
+When the Read tool delivers file content, U+FFFD renders as `?` in your context
+window — **visually identical** to a plain question mark (U+003F, byte 0x3F).
+You cannot tell them apart by looking.
+
+Consequences:
+- **StrReplace is completely forbidden.** A StrReplace `old_string` containing `?`
+  writes U+003F (0x3F). The file has U+FFFD (0xEF 0xBF 0xBD). They never match.
+- **Do not type Swedish letters into Shell scripts directly.** The encoding of the
+  script file may corrupt them. Always use PowerShell codepoint notation instead:
+  `[char]0xE5` = å, `[char]0xE4` = ä, `[char]0xF6` = ö,
+  `[char]0xC5` = Å, `[char]0xC4` = Ä, `[char]0xD6` = Ö,
+  `[char]0xE9` = é, `[char]0x2013` = – (en dash).
+
+All replacements MUST go through a PowerShell script that uses `$r = [char]0xFFFD`
+for the FFFD character and codepoint literals for Swedish output characters.
+
+---
+
+## Hard rules (all learned from real runs — do not skip)
+
+1. **No intermediate files.** Do not save word lists, mapping files, or debug
+   scripts to disk. `assets/powershell/` must stay clean.
+   Permitted files: `extract-broken-words.ps1` (the helper, already exists) and
+   the ONE fix script you write and immediately run.
+
+2. **No debugging loops.** If a replacement does not apply, use the raw-byte
+   scanner in Step 4 to diagnose in ONE pass, then fix. Do not write successive
+   small probe scripts.
+
+3. **One fix script, one run.** Write it, execute it, verify.
+
+4. **Process longest keys first.** Run all multi-FFFD patterns before
+   single-FFFD patterns, and all longer patterns before shorter ones.
+   `f${r}r${r}ndring` must be replaced before `f${r}r`, or `för` will be
+   partially substituted and leave `öndring` behind.
+
+5. **Resolve every unique broken token before running the script.**
+   Any token left unmapped will either survive (still broken) or be accidentally
+   munged by a shorter overlapping rule. Both outcomes are wrong.
+
+---
+
+## Workflow
+
+### Step 1 — Extract unique broken tokens
+
+Run the extractor. It strips HTML tags and entities and returns only the unique
+word-tokens that still contain U+FFFD. Never read the full HTML file in Step 1.
+
+```powershell
+cd "c:\Users\kaywi\dev\Old.Barvabygden"
+powershell -File "assets\powershell\extract-broken-words.ps1" -Path "<file>"
+```
+
+For ambiguous tokens (see heuristics below), rerun with context:
+
+```powershell
+powershell -File "assets\powershell\extract-broken-words.ps1" -Path "<file>" -WithContext
+```
+
+Expected output: typically 300–600 unique tokens per issue. Most are obvious.
+
+### Step 2 — Map every token to its replacement
+
+For each token in the extractor list, decide its replacement using the heuristics
+section below. Work through the full list before writing any code.
+
+Bucket every token into one of:
+- **Obvious** — word shape alone is sufficient: `k?nna` → `känna`
+- **Context needed** — run `-WithContext` for this token, then decide
+- **Unresolvable** — context is still ambiguous → leave it and report it
+
+### Step 3 — Write and run ONE fix script
+
+Use only codepoint literals for Swedish output characters. Sort `.Replace()` calls
+from longest pattern to shortest:
+
+```powershell
+$path = "assets\barva-news\2008\barva-news-2008-issue-31.htm"
+$r    = [char]0xFFFD
+$a    = [char]0xE5   # å
+$ae   = [char]0xE4   # ä
+$o    = [char]0xF6   # ö
+$A    = [char]0xC5   # Å
+$AE   = [char]0xC4   # Ä
+$O    = [char]0xD6   # Ö
+$e    = [char]0xE9   # é
+$dash = [char]0x2013 # –
+
+$text = [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8)
+$before = ($text.ToCharArray() | Where-Object { [int]$_ -eq 0xFFFD }).Count
+
+# --- Multi-FFFD words (longest first) ---
+$text = $text.Replace("f${r}r${r}ndring",   "f${o}r${ae}ndring")   # förändring
+$text = $text.Replace("Tr${r}dg${r}rds",    "Tr${ae}dg${a}rds")    # Trädgårds-
+$text = $text.Replace("sj${r}lvf${r}rs",    "sj${ae}lvf${o}rs")    # självförs-
+
+# --- Single-FFFD words (longer before shorter) ---
+$text = $text.Replace("Bygdeg${r}rden",     "Bygdeg${a}rden")      # Bygdegården
+$text = $text.Replace("V${r}lkommen",       "V${ae}lkommen")       # Välkommen
+$text = $text.Replace("f${r}rening",        "f${o}rening")         # förening
+$text = $text.Replace("f${r}r",             "f${o}r")              # för
+$text = $text.Replace("p${r}",              "${a}p")               # NOTE: check carefully
+
+# ... one line per unique token ...
+
+$after = ($text.ToCharArray() | Where-Object { [int]$_ -eq 0xFFFD }).Count
+[System.IO.File]::WriteAllText($path, $text, (New-Object System.Text.UTF8Encoding $false))
+"Before: $before  After: $after  Fixed: $($before - $after)"
+```
+
+### Step 4 — Diagnose any survivors
+
+If after Step 3 the count is not zero, use the raw byte scanner — do not write
+any new probe scripts:
+
+```powershell
+$r    = [char]0xFFFD
+$text = [System.IO.File]::ReadAllText("<path>", [System.Text.Encoding]::UTF8)
+for ($i = 0; $i -lt $text.Length; $i++) {
+    if ([int]$text[$i] -eq 0xFFFD) {
+        $s = [Math]::Max(0, $i - 40)
+        Write-Host "pos $i : [$($text.Substring($s, [Math]::Min(85,$text.Length-$s)))]"
+    }
+}
+```
+
+Common reasons a survivor appears after Step 3:
+
+| Cause | Symptom in scanner output | Fix |
+|---|---|---|
+| HTML tag splits the word | `br<tag>d<?>ndan` | Replace the unsplit half: `br${r}d` → `br${o}d` |
+| Wrong case | key `${r}r` didn't match `${r}R` in ALL CAPS heading | Add explicit uppercase key: `"100 ${r}R"` |
+| Token was inside an HTML attribute | `alt="V<?>lkommen"` | The extractor may not have surfaced it; replace directly |
+| Short key already consumed part of longer token | `årdra` instead of some correct word | Rethink ordering; add the specific full token key |
+
+### Step 5 — Verify
+
+```powershell
+$t = [System.IO.File]::ReadAllText("<path>", [System.Text.Encoding]::UTF8)
+"Remaining U+FFFD: $(($t.ToCharArray() | Where-Object { [int]$_ -eq 0xFFFD }).Count)"
+```
+
+Target: zero. If non-zero, go back to Step 4 — not to Step 1.
+
+---
 
 ## Scope
-Operate only on HTML files already located under:
-- `assets/barva-news/<year>/`
 
-You may restrict further to a specific `<year>` if provided by the caller.
+Operate only on HTML files under `assets/barva-news/<year>/`.
+Root-level `.htm` files (e.g. `bb-2.htm`) are in scope if the caller explicitly
+names them.
 
-## What to replace
-1. Literal `?` characters that appear between alphabetic characters (common symptom of single-letter mojibake).
-2. U+FFFD replacement characters (`�`) that appear inside words where Swedish diacritics are expected.
-3. HTML text content inside tags (e.g. `<p>`, `<h1>`, `<a>`, etc.).
+---
 
-Do NOT replace:
-- `?` in query strings / URLs (e.g. `...?...`)
-- `?` used as punctuation (followed by whitespace and then a newline, or followed by `"`/`'`/`>` and looks like a question mark in the original prose)
-- `�` that is not part of a word/quote context (do not blanket-replace `�`)
+## Replacement heuristics
 
-## Replacement choices
-For each candidate `?`, choose from:
-- `å` / `ä` / `ö`
-- `Å` / `Ä` / `Ö`
+### First: U+FFFD does NOT always mean a Swedish letter
 
-For each candidate `�`:
-- If it is between letters inside a word, choose from:
-  - `å` / `ä` / `ö`
-  - `Å` / `Ä` / `Ö`
-- If it is in quote-like positions (broken quote before/after a word), choose from:
-  - `"` (preferred for safety)
-  - optionally `“` / `”` if it clearly matches surrounding punctuation style
+This is the most common mistake. U+FFFD replaces **any** character that could not
+be decoded from the original encoding — not only å, ä, ö. In these files it has
+been observed to represent:
 
-Use the following context heuristics to decide:
-- Prefer the character that makes a real/likely Swedish word when combined with surrounding characters.
-- Respect casing:
-  - If the word is at the start of a sentence or is otherwise capitalized, use the uppercase variant (`Å/Ä/Ö`).
-  - Otherwise use the lowercase variant (`å/ä/ö`).
-- Consider grammar patterns:
-  - Look for common inflections and prepositions where Swedish letters are expected (e.g. `-år`, `-för`, `där`, `när`, `här`, `över`, `från`, `skön`, `sjön`, `på`, `gå`, `göra`, etc.).
-- Use local word shape examples from Barva issues:
-  - `f�r` -> `för`, `p�` -> `på`, `v�dret` -> `vädret`, `T�nk` -> `Tänk`
-  - `h�r` -> `här`, `ih�g` -> `ihåg`, `kv�ll` -> `kväll`
-  - `Bygdeg�rden` -> `Bygdegården`, `f�r�ndring` -> `förändring`
-  - `m�ttes` -> `möttes`, `sj�lva` -> `själva`, `ocks�` -> `också`
-- When multiple options seem plausible, select the one that yields the most coherent local phrase (2-6 words).
+| What FFFD was | How to recognise it | Replacement |
+|---|---|---|
+| Swedish diacritic (å/ä/ö/Å/Ä/Ö) | Sits inside a word between regular letters | The letter that makes a real Swedish word |
+| Accented loanword letter (é) | End of French-borrowed word: `entr?`, `resum?`, `id?er` | `é` (`[char]0xE9`) |
+| Opening quotation mark `"` | FFFD immediately before a capitalized word or start of speech | `"` |
+| Closing quotation mark `"` | FFFD immediately after the last word of a title or speech | `"` |
+| En dash `–` | FFFD between two numbers or two place-name halves (`1 ? 5`, `syd?Barva`) | `–` (`[char]0x2013`) or `-` |
+| Hyphen `-` | FFFD joining two parts of a compound proper noun | `-` |
+| Literal `?` (question mark) | At the very end of a sentence that is a genuine question | `?` (U+003F) |
+
+**Decision order for each U+FFFD token:**
+1. Is it between regular letters inside a word with no surrounding punctuation? → Swedish letter
+2. Is it at the start of a quoted phrase or before a capitalized word? → opening `"`
+3. Is it at the end of a word inside a title-like phrase? → closing `"`
+4. Is it between two numbers or between two compound-name parts? → `–` or `-`
+5. Is the sentence a genuine question and the `?` is at the very end? → literal `?`
+6. Is the word a French-borrowed word ending in a vowel? → `é`
+7. None of the above → use `-WithContext` before deciding; do not guess
+
+---
+
+### The `?r` problem — most common ambiguous case
+
+`?r` appears hundreds of times per file and has four valid resolutions:
+
+| Context | Replacement | Example |
+|---|---|---|
+| After a number | `år` | `nr 31 ?r 2008` → `nr 31 år 2008` |
+| As a copula verb (subject + `?r` + predicate) | `är` | `sommaren ?r h?r` → `sommaren är här` |
+| Sentence-start in ALL CAPS heading | `ÅR` | `100 ?R` → `100 ÅR` |
+| Sentence-start in normal prose | `Är` | rare |
+
+**Pitfall:** a general `${r}r` → `år` rule will silently mangle ALL CAPS headings
+like `KVARNEN I BARVA 100 ÅR`. Add explicit keys for uppercase forms before the
+general lowercase rule:
+```powershell
+$text = $text.Replace("100 ${r}R",   "100 ${A}R")   # heading: 100 ÅR
+$text = $text.Replace("${r}r",       "${a}r")        # general: år  ← or är depending on file
+```
+Decide which is more common in the file via `-WithContext` before choosing the
+default direction.
+
+### Swedish diacritics — quick reference
+
+| Broken token | Correct word | Note |
+|---|---|---|
+| `p?` | `på` | very high frequency |
+| `s?` | `så` | |
+| `f?r` | `för` | preposition; also verb `går`, depending on `g?r` |
+| `g?r` | `går` or `gör` | check context |
+| `h?r` | `här` | |
+| `d?r` | `där` | |
+| `n?r` | `när` | |
+| `?ver` | `över` | |
+| `fr?n` | `från` | |
+| `?ven` | `även` | |
+| `n?got` | `något` | |
+| `n?gon` | `någon` | |
+| `ocks?` | `också` | |
+| `ih?g` | `ihåg` | |
+| `kv?ll` | `kväll` | |
+| `V?lkommen` | `Välkommen` | also `v?lkommen` → `välkommen` |
+| `Bygdeg?rden` | `Bygdegården` | |
+| `f?rening` | `förening` | |
+| `f?r?ndring` | `förändring` | multi-FFFD |
+| `sj?lvf?rs?rjande` | `självförsörjande` | multi-FFFD |
+| `Tr?dg?rds` | `Trädgårds` | multi-FFFD prefix |
+| `majst?ngen` | `majstången` | maypole |
+| `Mj?lnaren` | `Mjölnaren` | the miller |
+| `inh?ngnade` | `inhägnade` | fenced/enclosed |
+| `besl?t` | `beslöt` | past tense: decided |
+| `m?de` / `m?da` | `möda` | toil/effort (archaic `möde`) |
+| `m?ld` | `mäld` | archaic: grain for milling |
+| `entr?` | `entré` | [char]0xE9 |
+| `resum?` | `resumé` | [char]0xE9 |
+| `id?er` | `idéer` | ideas |
+| `Hembygdsmus?et` | `Hembygdsmuseet` | FFFD replaced original é |
+
+### Names with accents
+
+Swedish surnames often carry `é`. Apply by context:
+
+| Broken | Correct |
+|---|---|
+| `Franz?n` | `Franzén` |
+| `Ahls?n` | `Ahlsén` |
+| `Hel?ne` | `Heléne` |
+| `Lind?n` | `Lindén` |
+
+### Quote and punctuation patterns
+
+In this codebase U+FFFD frequently represents a corrupted quotation mark or dash,
+not a missing letter. These appear especially in book/article titles and dialogues.
+
+| Pattern | Replacement | Reason |
+|---|---|---|
+| `?Word` (FFFD before capitalized word) | `"Word` | opening double quote |
+| `word?` (FFFD after a word, inside a title or speech) | `word"` | closing double quote |
+| `1 ? 5` (FFFD between numbers) | `1–5` (`[char]0x2013`) | en dash in range |
+| `syd?Barva` | `syd-Barva` | hyphen between two place-name parts |
+| `?` before dialogue line (e.g. `? Det är…`) | `"` | opening quote of speech |
+
+**Do NOT replace `?` that is a genuine sentence-ending question mark.** These
+appear after verbs or at the end of rhetorical headings:
+- `SKALL DEN RUTTNA BORT?` → leave `?` as U+003F
+- `tillbaka?` in `...om den fick sina vingar tillbaka?` → real question, keep `?`
+
+Distinguish genuine `?` from U+FFFD by running the raw byte scanner (Step 4).
+Genuine question marks at ASCII positions will NOT appear in the scanner output.
+
+### Pitfall: original spelling errors
+
+The original texts may contain spelling errors unrelated to the encoding corruption.
+Do not attempt to correct spelling — only replace U+FFFD with the character that
+was most likely there before corruption. If you are not confident, report it as
+unresolved rather than guessing.
+
+### Pitfall: short patterns eating long ones
+
+Example: a general `${r}r` → `år` rule will corrupt `${r}rdra` (unknown word)
+into `årdra`, which is not a real Swedish word but has zero FFFD — making it
+invisible to the verifier. Always explicitly map every unique token from the
+extractor list and put the specific key in the script **before** the general rule.
+
+### Pitfall: case sensitivity
+
+`.Replace()` in .NET is case-sensitive. `${r}r` → `år` does NOT match `${r}R`.
+ALL CAPS headings will survive the general lowercase rule. Add explicit keys:
+```powershell
+$text = $text.Replace("${r}R",  "${A}R")   # uppercase ÅR in headings
+$text = $text.Replace("${r}r",  "${a}r")   # lowercase år elsewhere
+```
+
+### Pitfall: word split by HTML tag
+
+The extractor works on stripped plain text and may surface a token that does not
+exist as a continuous string in the raw HTML. Example:
+`br?d?ndan` in plain text may be `br<font ...>?d?ndan` in raw HTML. The
+`.Replace("br${r}d${r}ndan", …)` call will silently do nothing. The raw byte
+scanner (Step 4) will show you the true structure. Fix the two halves separately:
+```powershell
+$text = $text.Replace("br${r}d",  "br${o}d")   # first half
+# second half may already be fixed, or add:
+$text = $text.Replace("d${r}ndan", "d${ae}ndan")
+```
+
+---
 
 ## Output required
-Return a concise report listing:
-- files processed
-- number of `?` replacements per file
-- number of `�` replacements per file
-- examples per file (up to 3 snippets total; include both `?` and `�` examples if present)
-- any unresolved `?`/`�` that could not be confidently mapped (report them but do not guess randomly)
+
+- File processed
+- Total U+FFFD before → after
+- Number of unique tokens resolved
+- Up to 5 example before→after pairs
+- Any unresolved tokens (list them; do not guess)
+
+---
 
 ## Guardrails
-- Keep changes minimal: replace only the necessary mojibake characters that are clearly “missing letter” or “broken quote/diacritic” cases.
-- If there is uncertainty (e.g. `?` surrounded by non-letters, or `�` not plausibly part of a word/quote), leave the character unchanged and report it as unresolved.
 
-## Processing strategy (incremental)
-- Read and process the file incrementally with a tiny sliding window (about 2-3 lines at a time).
-- For each window: decide replacements using only the nearby characters/words, apply fixes to those lines, and then move forward.
-- Do NOT load the entire document into one global context before making decisions.
+- Do NOT use StrReplace anywhere.
+- Do NOT create intermediate files or debug scripts in `assets/powershell/`.
+- Do NOT read the full HTML file unless Step 4 diagnosis requires it.
+- Do NOT move, rename, or copy files.
+- Do NOT update `assets/pages/newsletter.html`.
+- Do NOT touch archive structure or image paths.
+- Do NOT change charset/encoding declarations.
+- Do NOT replace `?` inside `href` / `src` URL attribute values.
+- Do NOT correct spelling errors — only replace FFFD characters.
+- Report unresolved tokens honestly; never substitute a random Swedish letter.
