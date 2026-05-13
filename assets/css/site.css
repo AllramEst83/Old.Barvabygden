@@ -736,6 +736,90 @@ section:not(:last-child)::after {
   }
 }
 
+/* =============================================================================
+   Legacy Barva-Bladet issues (readability helpers)
+   - Scopes to old issue pages using body.bb-legacy + .bb-issue wrapper
+   - Designed to require minimal HTML changes per issue
+   ============================================================================= */
+body.bb-legacy {
+  /* Old issues sometimes use bgcolor + inline fonts; ensure readable baseline */
+  color: var(--color-text, #333);
+}
+
+.bb-issue {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.06);
+  padding: 1.25rem;
+}
+
+@media (min-width: 992px) {
+  .bb-issue {
+    padding: 2rem;
+  }
+}
+
+body.bb-legacy p,
+body.bb-legacy .MsoNormal {
+  /* Undo Word's "tight" look and improve scanning */
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+  text-align: left !important; /* many are justify; left is more readable on web */
+}
+
+body.bb-legacy h1,
+body.bb-legacy h2,
+body.bb-legacy h3 {
+  text-align: center;
+  margin: 1.75rem 0 1rem;
+  color: var(--color-secondary, #2d3748);
+}
+
+body.bb-legacy img {
+  max-width: 100%;
+  height: auto;
+}
+
+body.bb-legacy table {
+  max-width: 100%;
+}
+
+body.bb-legacy .bb-topbar {
+  margin-top: 1rem;
+}
+
+body.bb-legacy .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  color: var(--color-primary, #064420);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+body.bb-legacy .back-link:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+}
+
+body.bb-legacy .back-link:focus {
+  outline: 2px solid var(--color-accent, #0066cc);
+  outline-offset: 2px;
+}
+
+/* Let layout tables scroll on small screens instead of blowing out the viewport */
+@media (max-width: 576px) {
+  body.bb-legacy table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* TEMPORARY CSS FOR BARVADAGEN 2025 SPECIAL EVENT CARD */
 /* REMOVE THIS AFTER THE EVENT */
 /* .event-card.barvadagen-special {
