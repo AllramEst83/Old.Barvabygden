@@ -1,0 +1,425 @@
+/* =============================================================================
+   Reader Mode  (reader-mode.css)
+   Full-screen reading overlay for Barva-Bladet legacy issue pages.
+   Drop this file + reader-mode.js on any page; add data-reader-mode-trigger
+   to a button to activate.
+   ============================================================================= */
+
+/* ── Body lock ─────────────────────────────────────────────────────────────── */
+body.reader-mode-open {
+  overflow: hidden;
+}
+
+/* ── Overlay shell ──────────────────────────────────────────────────────────── */
+.reader-mode-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.reader-mode-overlay.is-visible {
+  opacity: 1;
+}
+
+/* ── Themes (CSS custom properties scoped per theme) ────────────────────────── */
+.reader-mode-overlay[data-theme="paper-white"] {
+  --rm-bg:          #f8f5f0;
+  --rm-bg-toolbar:  #edeae4;
+  --rm-text:        #2c2c2c;
+  --rm-border:      rgba(0, 0, 0, 0.12);
+  background-color: var(--rm-bg);
+  color:            var(--rm-text);
+}
+
+.reader-mode-overlay[data-theme="wheat"] {
+  --rm-bg:          #f5deb3;
+  --rm-bg-toolbar:  #e8ca97;
+  --rm-text:        #3c2a1e;
+  --rm-border:      rgba(60, 42, 30, 0.18);
+  background-color: var(--rm-bg);
+  color:            var(--rm-text);
+}
+
+.reader-mode-overlay[data-theme="satin-black"] {
+  --rm-bg:          #1a1a1a;
+  --rm-bg-toolbar:  #111111;
+  --rm-text:        #d4d4d4;
+  --rm-border:      rgba(255, 255, 255, 0.1);
+  background-color: var(--rm-bg);
+  color:            var(--rm-text);
+}
+
+/* ── Toolbar ────────────────────────────────────────────────────────────────── */
+.reader-mode-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--rm-bg-toolbar, rgba(0, 0, 0, 0.06));
+  border-bottom: 1px solid var(--rm-border, rgba(0, 0, 0, 0.1));
+}
+
+.reader-mode-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-right: auto;
+  white-space: nowrap;
+}
+
+/* ── Settings toggle (visible only on small screens) ────────────────────────── */
+.reader-mode-settings-toggle {
+  display: none; /* shown via media query below */
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--rm-text, #333);
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.reader-mode-settings-toggle:hover {
+  background: var(--rm-border, rgba(0, 0, 0, 0.08));
+}
+
+.reader-mode-settings-toggle:focus-visible {
+  outline: 2px solid var(--rm-text);
+  outline-offset: 2px;
+}
+
+/* ── Controls panel (font + theme) ──────────────────────────────────────────── */
+.reader-mode-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive: collapse controls on small screens ─────────────────────────── */
+@media (max-width: 599px) {
+  .reader-mode-settings-toggle {
+    display: inline-flex;
+  }
+
+  .reader-mode-controls {
+    /* Hidden by default on mobile; expands to full toolbar width when open */
+    display: none;
+    width: 100%;
+    padding: 0.5rem 0 0.25rem;
+    border-top: 1px solid var(--rm-border, rgba(0, 0, 0, 0.08));
+    gap: 1rem 1.5rem;
+  }
+
+  .reader-mode-toolbar.controls-open .reader-mode-controls {
+    display: flex;
+  }
+
+  /* Rotate the toggle icon when open */
+  .reader-mode-toolbar.controls-open .reader-mode-settings-toggle svg {
+    transform: rotate(90deg);
+    transition: transform 0.2s ease;
+  }
+
+  .reader-mode-settings-toggle svg {
+    transition: transform 0.2s ease;
+  }
+}
+
+/* ── Font-size control ──────────────────────────────────────────────────────── */
+.reader-mode-font-control {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  user-select: none;
+}
+
+.reader-mode-font-control .rm-a-small {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.reader-mode-font-control .rm-a-large {
+  font-size: 1.15rem;
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.reader-mode-font-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 130px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--rm-border, rgba(0, 0, 0, 0.2));
+  outline: none;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .reader-mode-font-slider { width: 150px; }
+}
+
+.reader-mode-font-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--rm-text, #333);
+  cursor: pointer;
+}
+
+.reader-mode-font-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  background: var(--rm-text, #333);
+  cursor: pointer;
+}
+
+/* ── Theme picker ───────────────────────────────────────────────────────────── */
+.reader-mode-theme-group {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.reader-mode-theme-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  outline: none;
+  transition: opacity 0.15s ease;
+}
+
+.reader-mode-theme-btn:hover {
+  opacity: 0.8;
+}
+
+.reader-mode-theme-btn:focus-visible {
+  outline: 2px solid var(--rm-text);
+  outline-offset: 3px;
+}
+
+/*
+ * Active indicator: hard-coded gap ring per swatch so it never depends on
+ * --rm-text being resolved. Inner layer = gap in swatch's own colour,
+ * outer layer = contrasting ring, inset layer = subtle edge for pale swatches.
+ */
+.reader-mode-theme-btn[data-theme="paper-white"] {
+  background: #f8f5f0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.16);
+}
+.reader-mode-theme-btn[data-theme="wheat"] {
+  background: #f5deb3;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.13);
+}
+.reader-mode-theme-btn[data-theme="satin-black"] {
+  background: #1a1a1a;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16);
+}
+
+.reader-mode-theme-btn.is-active[data-theme="paper-white"] {
+  box-shadow: 0 0 0 2.5px #f8f5f0, 0 0 0 4.5px #2c2c2c;
+}
+.reader-mode-theme-btn.is-active[data-theme="wheat"] {
+  box-shadow: 0 0 0 2.5px #f5deb3, 0 0 0 4.5px #3c2a1e;
+}
+.reader-mode-theme-btn.is-active[data-theme="satin-black"] {
+  box-shadow: 0 0 0 2.5px #1a1a1a, 0 0 0 4.5px #d4d4d4;
+}
+
+/* ── Close button ───────────────────────────────────────────────────────────── */
+.reader-mode-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--rm-text, #333);
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.reader-mode-close:hover {
+  background: var(--rm-border, rgba(0, 0, 0, 0.08));
+}
+
+.reader-mode-close:focus-visible {
+  outline: 2px solid var(--rm-text);
+  outline-offset: 2px;
+}
+
+/* ── Scrollable content area ────────────────────────────────────────────────── */
+.reader-mode-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden; /* prevent horizontal scroll when font size is large */
+  padding: 2rem 1.25rem 4rem;
+  /* Comfortable reading width, centered */
+  max-width: 72ch;
+  width: 100%;
+  margin: 0 auto;
+  /* Serif for long-form reading */
+  font-family: "Crimson Text", Georgia, "Times New Roman", serif;
+  line-height: 1.8;
+  /* Ensure text always wraps at any font size */
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .reader-mode-content { padding: 2.5rem 2rem 4rem; }
+}
+
+@media (min-width: 1024px) {
+  .reader-mode-content { padding: 3rem 2rem 4rem; }
+}
+
+/* Typography inside reader */
+.reader-mode-content h1,
+.reader-mode-content h2,
+.reader-mode-content h3,
+.reader-mode-content h4 {
+  font-family: "Crimson Text", Georgia, serif;
+  font-weight: 700;
+  margin: 1.75em 0 0.6em;
+  line-height: 1.25;
+  color: inherit;
+  text-align: inherit;
+}
+
+.reader-mode-content h1 { font-size: 1.75em; }
+.reader-mode-content h2 { font-size: 1.45em; }
+.reader-mode-content h3 { font-size: 1.2em; }
+.reader-mode-content h4 { font-size: 1.05em; }
+
+.reader-mode-content p,
+.reader-mode-content .MsoNormal {
+  margin-bottom: 0.9em;
+  text-align: left !important;
+}
+
+.reader-mode-content img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 4px;
+}
+
+.reader-mode-content table {
+  border-collapse: collapse;
+  width: 100% !important;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+/*
+ * Linearize all table cells into stacked blocks so images and text each
+ * get the full reading column width instead of cramped side-by-side columns.
+ */
+.reader-mode-content tr {
+  display: block;
+  width: 100%;
+}
+
+.reader-mode-content td,
+.reader-mode-content th {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  padding: 0.35em 0;
+  border: none;
+  vertical-align: top;
+}
+
+.reader-mode-content a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--rm-border);
+}
+
+.reader-mode-content a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ── Page-level trigger button ──────────────────────────────────────────────── */
+.reader-mode-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.6rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #2c2c2c;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+}
+
+.reader-mode-trigger:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: #2c2c2c;
+  text-decoration: none;
+}
+
+.reader-mode-trigger:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.reader-mode-trigger svg {
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+/* Make the topbar flex so back link and trigger sit side-by-side */
+.bb-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Print: hide reader mode chrome ────────────────────────────────────────── */
+@media print {
+  .reader-mode-overlay,
+  .reader-mode-trigger { display: none !important; }
+}
