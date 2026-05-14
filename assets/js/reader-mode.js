@@ -23,7 +23,7 @@ const ReaderMode = (() => {
   const LS_THEME     = 'rm-theme';
   const LS_FONT_SIZE = 'rm-font-size';
   const MIN_SIZE     = 13;
-  const MAX_SIZE     = 24;
+  const MAX_SIZE     = 32;
   const DEFAULT_SIZE = 17;
 
   const THEMES = {

@@ -777,7 +777,9 @@ body.bb-legacy h3 {
 
 body.bb-legacy img {
   max-width: 100%;
-  height: auto;
+  /* Legacy inline height + max-width shrink used width → fixed height distorts.
+     Let height track the image aspect ratio at the used width. */
+  height: auto !important;
 }
 
 body.bb-legacy table {
