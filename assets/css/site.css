@@ -789,6 +789,8 @@ body.bb-legacy .bb-topbar {
 }
 
 body.bb-legacy .back-link {
+  /* Wins over per-issue `.back-link` rules in legacy <style> (higher specificity). */
+  font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1.0625rem);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
