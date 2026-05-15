@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barva Bygdegård – Stiftelsen Barva Bygdegård</title>
+    <meta
+      name="description"
+      content="Stiftelsen Barva Bygdegård – hyra lokal för fester, konferenser och möten i Barva, Sörmland."
+    />
+    <meta
+      name="keywords"
+      content="Barva bygdegård, hyra lokal, festlokal, Barvagården, Barva, Sörmland"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cookie&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="../../assets/css/site.css" />
+    <link rel="stylesheet" href="../../assets/css/lightbox.css" />
+    <link rel="stylesheet" href="../../assets/css/barvagarden.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="site-header sticky-top shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex align-items-center" href="/">
+            <img
+              src="../../assets/images/branding/coat-of-arms.png"
+              alt="Barva Logo"
+              width="40"
+              height="40"
+              class="me-4"
+            />
+            <span class="site-header-title fw-bold">Barvabygden</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#pageNav"
+            aria-controls="pageNav"
+            aria-expanded="false"
+            aria-label="Öppna navigering"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="pageNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-back-link"
+                  href="/"
+                  onclick="sessionStorage.setItem('scrollTarget','stiftelsen-barvagarden')"
+                >
+                  &#8592; Tillbaka till Barvabygden.se
+                </a>
+              </li>
+              <li class="nav-item d-none d-lg-flex">
+                <div class="nav-divider" aria-hidden="true"></div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="#stiftelsen">Stiftelsen</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="#lokaler">Lokaler</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="#bilder">Bilder</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="#kontakt">Kontakt</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section id="hero" class="hero-section text-center p-0">
+        <div class="w-100 img-container">
+          <img
+            src="../../assets/images/hero/hero-banner.jpg"
+            alt="Barvabygden"
+            class="img-fluid w-100 site-header-img"
+          />
+        </div>
+        <div class="container py-4">
+          <h1 class="display-5 fw-bold mt-4 welcome-text">
+            Välkommen till Barva Bygdegård
+          </h1>
+          <img
+            src="../images/barvagarden/bgrden.gif"
+            alt="Barva Bygdegård logotyp"
+            class="img-fluid my-3"
+            style="max-height: 112px;"
+          />
+          <p class="lead mt-2 mb-0 fs-5 fw-semibold text-black fst-italic">
+            En festlokal för alla tillfällen – mitt i Barva, Sörmland
+          </p>
+        </div>
+      </section>
+
+      <!-- PHOTO CAROUSEL -->
+      <section id="bilder" class="py-5 bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="display-6 text-center mb-2">Barva Bygdegård i bilder</h2>
+              <p class="text-center text-muted mb-4">
+                Klicka på en bild för att förstora
+              </p>
+            </div>
+          </div>
+
+          <!-- .gallery wrapper enables lightbox.js to find and bind all images -->
+          <div class="gallery">
+            <div
+              id="barvagarden-carousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+              data-bs-interval="5000"
+            >
+              <!-- Indicators -->
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="0"  class="active" aria-current="true" aria-label="Bild 1"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="1"  aria-label="Bild 2"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="2"  aria-label="Bild 3"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="3"  aria-label="Bild 4"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="4"  aria-label="Bild 5"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="5"  aria-label="Bild 6"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="6"  aria-label="Bild 7"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="7"  aria-label="Bild 8"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="8"  aria-label="Bild 9"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="9"  aria-label="Bild 10"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="10" aria-label="Bild 11"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="11" aria-label="Bild 12"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="12" aria-label="Bild 13"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="13" aria-label="Bild 14"></button>
+                <button type="button" data-bs-target="#barvagarden-carousel" data-bs-slide-to="14" aria-label="Bild 15"></button>
+              </div>
+
+              <!-- Slides -->
+              <div class="carousel-inner rounded shadow">
+
+                <div class="carousel-item active position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/bygdegfs.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/bygdegfs.jpg"
+                    alt="Framsidan med entrén"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Framsidan med entrén</p>
+                  </div>
+                  <div class="carousel-click-hint">Klicka för att förstora</div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/bygdegbs.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/bygdegbs.jpg"
+                    alt="Mot gården"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Mot gården</p>
+                  </div>
+                </div>
+
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-entre.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-entre.jpg"
+                    alt="Entrén till bygdegården"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Entrén till bygdegården</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/danshall.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/danshall.jpg"
+                    alt="Barva-hallen"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Barva-hallen</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-danshall.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-danshall.jpg"
+                    alt="Barva-hallen, interiör"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Barva-hallen, interiör</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-dans2.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-dans2.jpg"
+                    alt="Barva-hallen"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Barva-hallen</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-stora-sal.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-stora-sal.jpg"
+                    alt="Stora salen i Barva Bygdegård"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Stora salen</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-stora-salen-m.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-stora-salen-m.jpg"
+                    alt="Stora salen i Barva Bygdegård"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Stora salen</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-stora-salen1.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-stora-salen1.jpg"
+                    alt="Stora salen i Barva Bygdegård"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Stora salen</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-stora-salen2-.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-stora-salen2-.jpg"
+                    alt="Stora salen i Barva Bygdegård"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Stora salen</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-koket-m.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-koket-m.jpg"
+                    alt="Köket"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Köket</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-foreningslokal-m.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-foreningslokal-m.jpg"
+                    alt="Föreningslokalen, 1 trappa ned"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Föreningslokalen, 1 trappa ned</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/aa-foreningslokal2.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/aa-foreningslokal2.jpg"
+                    alt="Föreningslokalen, 1 trappa ned"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Föreningslokalen, 1 trappa ned</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/bygdegam.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/bygdegam.jpg"
+                    alt="Barva bygdegård efter gamla vykort"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Barva bygdegård efter gamla vykort</p>
+                  </div>
+                </div>
+
+                <div class="carousel-item position-relative">
+                  <div class="carousel-img-wrap"><img
+                    src="../images/barvagarden/bygdegam2.jpg"
+                    class="carousel-img"
+                    data-full="../images/barvagarden/bygdegam2.jpg"
+                    alt="Barva bygdegård efter gamla vykort"
+                  /></div>
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="mb-0 fw-semibold">Barva bygdegård efter gamla vykort</p>
+                  </div>
+                </div>
+
+              </div><!-- /.carousel-inner -->
+
+              <!-- Controls -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#barvagarden-carousel"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Föregående</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#barvagarden-carousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Nästa</span>
+              </button>
+
+            </div><!-- /#barvagarden-carousel -->
+          </div><!-- /.gallery -->
+        </div>
+      </section>
+
+      <!-- STIFTELSEN -->
+      <section id="stiftelsen" class="stiftelsen-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <h2 class="display-6 text-center mb-5">Stiftelsen</h2>
+            </div>
+            <div class="col-lg-8">
+              <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-md-5" style="background-color: #fff3db;">
+                  <h3
+                    class="h5 fw-bold mb-3"
+                    style="color: #804000;"
+                  >Stiftelsen Barva Bygdegård</h3>
+                  <p style="color: #800000;">
+                    Stiftelsen Barva Bygdegård är den Stiftelse som förvaltar
+                    Barva Bygdegård.<br />
+                    Alla ledamöterna i stiftelsen måste vara bosatta i Barva
+                    socken.
+                  </p>
+                  <p style="color: #800000;"><strong>Stiftelsens uppgifter:</strong></p>
+                  <ul style="color: #800000;">
+                    <li>
+                      Att bibehålla och förvalta bygdegården som samlingslokal.
+                    </li>
+                    <li>
+                      Att hyra ut bygdegården för skäliga hyror till enskilda
+                      och föreningar.
+                    </li>
+                  </ul>
+                  <p class="mb-0" style="color: #800000;">
+                    Stiftelsen Barvagårdens ordförande är
+                    <a
+                      href="mailto:bertil.zentio@swipnet.se"
+                      style="color: #800000;"
+                    >Bertil Zentio</a>
+                    tel: 016-92007, 016-122549
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOKALER -->
+      <section id="lokaler" class="lokaler-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="display-6 text-center mb-2">
+                Barva bygdegård erbjuder till uthyrning
+              </h2>
+            </div>
+          </div>
+          <div class="row g-4 mt-2">
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card h-100 border-0 shadow-sm room-card">
+                <div class="card-body p-4">
+                  <h3 class="h5 card-title fw-bold mb-1">Barva-hallen</h3>
+                  <p class="capacity-badge mb-3">max 750 personer</p>
+                  <p class="card-text text-muted small">
+                    Stor festsal för dans, konserter och evenemang av större
+                    slag.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card h-100 border-0 shadow-sm room-card">
+                <div class="card-body p-4">
+                  <h3 class="h5 card-title fw-bold mb-1">Stora salen</h3>
+                  <p class="capacity-badge mb-3">max 150 personer</p>
+                  <p class="card-text text-muted small">
+                    Rymlig sal för bröllop, middagar, högtidsdagar och
+                    konferenser.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card h-100 border-0 shadow-sm room-card">
+                <div class="card-body p-4">
+                  <h3 class="h5 card-title fw-bold mb-1">Lilla salen</h3>
+                  <p class="capacity-badge mb-3">max 50 personer</p>
+                  <p class="card-text text-muted small">
+                    Intim sal, perfekt för möten, teaterföreställningar och
+                    mindre sällskap.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-3">
+              <div class="card h-100 border-0 shadow-sm room-card">
+                <div class="card-body p-4">
+                  <h3 class="h5 card-title fw-bold mb-1">Rum i källaren</h3>
+                  <p class="capacity-badge mb-3">max 20 personer</p>
+                  <p class="card-text text-muted small">
+                    Föreningslokalen, 1 trappa ned. Lämplig för
+                    föreningsmöten och sammanträden.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- VAD KAN MAN ANVÄNDA LOKALERNA TILL -->
+      <section id="anvandning" class="anvandning-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h2 class="display-6 mb-4">Vad kan man använda lokalerna till?</h2>
+              <p class="lead mb-3" style="color: #800000;">
+                Fira in det nya året! Vill du hyra bygdegården på nyårsafton?
+              </p>
+              <p style="color: #800000;">
+                Danstillställningar, bröllop, högtidsdagar, konferenser,
+                utställningar, auktioner, möten och sammanträden, gymnastik och
+                motion, teater, spelmanssstämmor – och det är bara fantasin,
+                som sätter gränser!
+              </p>
+              <hr class="my-4" />
+              <p class="mb-0 text-muted">
+                Avstånd: Eskilstuna–Barva bygdegård 25&nbsp;km och
+                Strängnäs–Barva bygdegård 20&nbsp;km
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KONTAKT -->
+      <section id="kontakt" class="barvagarden-contact-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <h2 class="display-6 text-center text-white mb-5">Kontakt</h2>
+            </div>
+
+            <div class="col-md-6 col-lg-5 mb-4">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <h3 class="h5 fw-bold mb-3">Uthyrning &amp; bokningar</h3>
+                  <p class="mb-2">
+                    <strong>Telefon till bygdegården:</strong>
+                    <a href="tel:01693028" class="text-decoration-none">016-93028</a>
+                  </p>
+                  <p class="mb-2">
+                    <strong>Upplysningar:</strong>
+                    <a
+                      href="mailto:bo.bjorklund40@gmail.com"
+                      class="text-decoration-none"
+                    >Solveig och Bo Björklund</a>,
+                    <a href="tel:01693121" class="text-decoration-none">016-93121</a>
+                  </p>
+                  <p class="mb-0">
+                    <strong>E-post:</strong>
+                    <a
+                      href="mailto:bo.bjorklund40@gmail.com"
+                      class="text-decoration-none"
+                    >bo.bjorklund40@gmail.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-5 mb-4">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <h3 class="h5 fw-bold mb-3">Stiftelsen</h3>
+                  <p class="mb-2">
+                    <strong>Ordförande:</strong>
+                    <a
+                      href="mailto:bertil.zentio@swipnet.se"
+                      class="text-decoration-none"
+                    >Bertil Zentio</a>
+                  </p>
+                  <p class="mb-0">
+                    <strong>Telefon:</strong>
+                    <a href="tel:01692007" class="text-decoration-none">016-92007</a>,
+                    <a href="tel:016122549" class="text-decoration-none">016-122549</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="footer-contact mb-2">
+              <strong>Kontakta webbansvarig:</strong><br />
+              <a
+                href="mailto:utveckling@barvabygden.se?subject=Från%20hemsidan%20Barvabygden.se"
+                class="text-light text-decoration-none"
+              >utveckling@barvabygden.se</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-3 bg-light" />
+
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="d-flex flex-column flex-md-row justify-content-between align-items-center"
+            >
+              <div class="footer-links mb-2 mb-md-0">
+                <a href="/" onclick="sessionStorage.setItem('scrollTarget','stiftelsen-barvagarden')" class="text-light text-decoration-none me-3">&#8592; Barvabygden.se</a>
+                <a href="#stiftelsen" class="text-light text-decoration-none me-3">Stiftelsen</a>
+                <a href="#lokaler" class="text-light text-decoration-none me-3">Lokaler</a>
+                <a href="#bilder" class="text-light text-decoration-none me-3">Bilder</a>
+                <a href="#kontakt" class="text-light text-decoration-none">Kontakt</a>
+              </div>
+              <div class="footer-copyright text-center text-md-end">
+                <small class="text-light">
+                  © 2025 Barvabygden.se – Med kärlek för vår bygd 💚
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+      <span id="close-btn">&times;</span>
+      <img id="lightbox-img" src="" alt="" />
+      <div id="prev-btn">&#10094;</div>
+      <div id="next-btn">&#10095;</div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Lightbox JS -->
+    <script src="../../assets/js/lightbox.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var carouselEl = document.getElementById("barvagarden-carousel");
+        if (!carouselEl) return;
+
+        var bsCarousel =
+          bootstrap.Carousel.getInstance(carouselEl) ||
+          new bootstrap.Carousel(carouselEl);
+
+        // Pause carousel when lightbox opens; resume when it closes
+        carouselEl.querySelectorAll(".gallery img").forEach(function (img) {
+          img.addEventListener("click", function () {
+            bsCarousel.pause();
+          });
+        });
+
+        var lightboxEl = document.getElementById("lightbox");
+        var closeBtn = document.getElementById("close-btn");
+
+        function resumeCarousel(e) {
+          if (!lightboxEl || lightboxEl.classList.contains("hidden")) {
+            bsCarousel.cycle();
+          }
+        }
+
+        if (lightboxEl) {
+          lightboxEl.addEventListener("click", resumeCarousel);
+        }
+        if (closeBtn) {
+          closeBtn.addEventListener("click", resumeCarousel);
+        }
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") resumeCarousel();
+        });
+      });
+    </script>
+  </body>
+</html>

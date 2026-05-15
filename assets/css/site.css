@@ -34,7 +34,8 @@
 }
 
 /* ===== BASE STYLES (Bootstrap Compatible) ===== */
-html {
+html,
+body {
   scroll-behavior: smooth;
 }
 
