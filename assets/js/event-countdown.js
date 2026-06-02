@@ -54,6 +54,9 @@
       // Find all countdown elements
       const countdownElements = root.querySelectorAll(CONFIG.SELECTOR);
 
+      // Mark past table rows (e.g. match schedules without countdown spans)
+      this.markPastTableRows(root);
+
       if (countdownElements.length === 0) {
         this.log("No countdown elements found");
         return;
@@ -227,11 +230,34 @@
 
       if (timeDiff < 0) {
         element.classList.add("countdown-passed");
+        // Mark the nearest event card as past for strikethrough styling
+        const card = element.closest(".event-card");
+        if (card) card.classList.add("event-card-past");
       } else if (timeDiff < TIME_UNITS.DAY) {
         element.classList.add("countdown-today");
       } else if (timeDiff < TIME_UNITS.DAY * 7) {
         element.classList.add("countdown-soon");
       }
+    }
+
+    /**
+     * Mark table rows as past when their <time datetime> date has passed.
+     * Applies 'event-row-past' to <tr> elements inside event tables.
+     * @param {Element} root - Root element to search within (default: document)
+     */
+    markPastTableRows(root = document) {
+      const now = Date.now();
+      root.querySelectorAll("tr").forEach((row) => {
+        const timeEl = row.querySelector("time[datetime]");
+        if (!timeEl) return;
+        const dateStr = timeEl.getAttribute("datetime");
+        if (!dateStr) return;
+        const date = new Date(dateStr);
+        if (isNaN(date.getTime())) return;
+        if (date.getTime() < now) {
+          row.classList.add("event-row-past");
+        }
+      });
     }
 
     /**

@@ -316,8 +316,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const container = event.detail?.container;
     if (container) {
       container.querySelectorAll("img").forEach((img) => {
-        // Skip already-cached images
-        if (img.complete && img.naturalWidth > 0) return;
+        if (img.classList.contains("event-card-badge")) return;
 
         const isHero = img.classList.contains("event-card-hero");
         const wrapper = document.createElement(isHero ? "div" : "span");
@@ -351,6 +350,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
         img.addEventListener("load", reveal, { once: true });
         img.addEventListener("error", reveal, { once: true });
+
+        // If the image was already loaded from cache before the listener was
+        // attached, the load event will never fire — reveal it immediately.
+        if (img.complete) reveal();
       });
     }
   });

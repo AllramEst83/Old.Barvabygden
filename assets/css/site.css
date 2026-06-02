@@ -389,6 +389,22 @@ section:not(:last-child)::after {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+/* Hero + corner club logo (e.g. Barva IF) */
+.event-card-hero-wrap {
+  position: relative;
+}
+
+.event-card-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: -0.35rem;
+  z-index: 2;
+  width: clamp(3rem, 20%, 4.5rem);
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
 .archive-category {
   background: white;
   border-radius: var(--border-radius);
@@ -566,7 +582,7 @@ section:not(:last-child)::after {
 }
 
 /* Logos / thumbnails in event cards — not full-width hero banners */
-#events-container img:not(.event-card-hero) {
+#events-container img:not(.event-card-hero):not(.event-card-badge) {
   max-width: 150px;
   cursor: pointer;
   border: 1px solid #d3d3d3;
@@ -574,7 +590,7 @@ section:not(:last-child)::after {
   margin-bottom: 0.8rem;
 }
 
-#events-container img:not(.event-card-hero):hover {
+#events-container img:not(.event-card-hero):not(.event-card-badge):hover {
   border-color: #b0b0b0;
 }
 
@@ -626,6 +642,30 @@ section:not(:last-child)::after {
   color: #2c3e50;
   border: 1px solid #95a5a6;
   opacity: 0.8;
+}
+
+/* ===== PAST EVENT STYLES ===== */
+
+/* Table row: match/date has passed */
+.event-row-past td {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: #6c757d;
+}
+
+/* Whole event card: single-date event has passed */
+.event-card-past .event-title {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.event-card-past .event-details,
+.event-card-past .event-description {
+  opacity: 0.55;
+}
+
+.event-card-past {
+  filter: grayscale(35%);
 }
 
 /* Countdown pulse animation for urgent events */
