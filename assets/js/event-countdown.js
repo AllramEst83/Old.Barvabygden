@@ -126,7 +126,7 @@
         elementData.lastUpdate = now;
 
         // Add CSS class based on status
-        this.updateElementStatus(element, timeDiff);
+        this.updateElementStatus(element, timeDiff, targetDate);
       }
     }
 
@@ -220,7 +220,7 @@
     /**
      * Update element CSS classes based on countdown status
      */
-    updateElementStatus(element, timeDiff) {
+    updateElementStatus(element, timeDiff, targetDate) {
       // Remove existing status classes
       element.classList.remove(
         "countdown-today",
@@ -229,10 +229,20 @@
       );
 
       if (timeDiff < 0) {
-        element.classList.add("countdown-passed");
-        // Mark the nearest event card as past for strikethrough styling
-        const card = element.closest(".event-card");
-        if (card) card.classList.add("event-card-past");
+        // Only apply past styling the day after the event — not on the event day itself
+        const startOfToday = new Date();
+        startOfToday.setHours(0, 0, 0, 0);
+        const eventDay = new Date(targetDate);
+        eventDay.setHours(0, 0, 0, 0);
+
+        if (eventDay < startOfToday) {
+          element.classList.add("countdown-passed");
+          const card = element.closest(".event-card");
+          if (card) card.classList.add("event-card-past");
+        } else {
+          // Event time has passed but we're still on the event day
+          element.classList.add("countdown-today");
+        }
       } else if (timeDiff < TIME_UNITS.DAY) {
         element.classList.add("countdown-today");
       } else if (timeDiff < TIME_UNITS.DAY * 7) {
@@ -246,7 +256,8 @@
      * @param {Element} root - Root element to search within (default: document)
      */
     markPastTableRows(root = document) {
-      const now = Date.now();
+      const startOfToday = new Date();
+      startOfToday.setHours(0, 0, 0, 0);
       root.querySelectorAll("tr").forEach((row) => {
         const timeEl = row.querySelector("time[datetime]");
         if (!timeEl) return;
@@ -254,7 +265,9 @@
         if (!dateStr) return;
         const date = new Date(dateStr);
         if (isNaN(date.getTime())) return;
-        if (date.getTime() < now) {
+        const eventDay = new Date(date);
+        eventDay.setHours(0, 0, 0, 0);
+        if (eventDay < startOfToday) {
           row.classList.add("event-row-past");
         }
       });
