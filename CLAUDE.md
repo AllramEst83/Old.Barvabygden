@@ -42,8 +42,9 @@ Deeper, topic-specific instructions live under `.agents/` (shared across coding
 agents, formerly `.cursor/`):
 - `.agents/rules/` — always-apply conventions (Bootstrap-first, layout patterns).
 - `.agents/skills/` — task-triggered playbooks (asset placement, newsletter
-  archive migration, legacy page modernization, reader mode, Swedish
-  a11y/content, vanilla JS patterns, site layout sections).
+  archive migration, migrating the next newsletter issue end-to-end, legacy
+  page modernization, reader mode, Swedish a11y/content, vanilla JS patterns,
+  site layout sections).
 - `.agents/agents/` — specialized one-off agent instructions (e.g. fixing
   Swedish mojibake/encoding artifacts in migrated newsletter HTML).
 

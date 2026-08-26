@@ -176,6 +176,52 @@ $t = [System.IO.File]::ReadAllText("<path>", [System.Text.Encoding]::UTF8)
 
 Target: zero. If non-zero, go back to Step 4 — not to Step 1.
 
+### Step 6 — Case-boundary pass (word-initial vs. sentence-initial)
+
+Zero U+FFFD does not mean the casing is correct. When a token's *first*
+letter is the reconstructed one (e.g. `?ven` → `Även`, `?r` → `Är`), your
+Step 3 script has no way to know whether that word actually starts a
+sentence or merely sits at the start of a **mid-sentence word** — both look
+identical to a plain `.Replace()`. Left unchecked this produces text like
+`...landsbygdsbefolkningen Är något...` (should be `är`, lowercase, since
+it's mid-sentence) sitting right next to correctly-capitalized real sentence
+starts.
+
+Run this scan after Step 5 reaches zero:
+
+```powershell
+$t = [System.IO.File]::ReadAllText("<path>", [System.Text.Encoding]::UTF8)
+[regex]::Matches($t, "\b[A-ZÅÄÖ][a-zåäö]*\b") | Where-Object {
+    $_.Value[0] -in @('Å','Ä','Ö')
+} | ForEach-Object { $_.Value } | Sort-Object -Unique
+```
+
+For each match, look at the real preceding non-tag, non-`&nbsp;`, non-whitespace
+character:
+- Preceded by `.` `!` `?` `:`, or it's the very start of a paragraph/tag →
+  genuine sentence start. Leave capitalized.
+- Preceded by anything else (a comma, a word, a dash) → mid-sentence. Only a
+  true proper noun (a name, a place) stays capitalized; a common word
+  (`Även`, `Är`, `Över`, `Årets`, `Önskar`, …) must become lowercase
+  (`även`, `är`, `över`, …).
+
+**The short-word trap:** 2-letter words where the *first* letter is an
+already-correct, unambiguous uppercase consonant and the *second* letter is
+the one you reconstructed — `PÅ` (på), `DÅ` (då), `FÅ` (får/få), `SÅ` (så) —
+will look like a genuine ALL-CAPS heading to any "does this word contain a
+lowercase letter" heuristic, because there isn't a third letter available to
+disprove it. They are effectively never real 2-letter headings. Check these
+explicitly:
+
+```powershell
+$t = [System.IO.File]::ReadAllText("<path>", [System.Text.Encoding]::UTF8)
+[regex]::Matches($t, "\b[A-Z][ÅÄÖ]\b") | ForEach-Object { $_.Value } | Sort-Object -Unique
+```
+
+Apply the same sentence-boundary check to each hit. The one real exception is
+a 2-letter word sitting inside a longer genuine ALL-CAPS run (e.g. `PÅ` inside
+`RIKSTEATERN PÅ VISIT I BARVA`) — leave those alone.
+
 ---
 
 ## Scope
@@ -349,6 +395,9 @@ $text = $text.Replace("d${r}ndan", "d${ae}ndan")
 - Number of unique tokens resolved
 - Up to 5 example before→after pairs
 - Any unresolved tokens (list them; do not guess)
+- Result of the Step 6 case-boundary pass: how many mid-sentence capitals were
+  corrected, and confirmation that lowercase å/ä/ö counts now vastly outnumber
+  uppercase (report the counts)
 
 ---
 
