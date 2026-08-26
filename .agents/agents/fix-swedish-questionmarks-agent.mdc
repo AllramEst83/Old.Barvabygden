@@ -94,31 +94,31 @@ Use only codepoint literals for Swedish output characters. Sort `.Replace()` cal
 from longest pattern to shortest:
 
 ```powershell
-$path = "assets\barva-news\2008\barva-news-2008-issue-31.htm"
-$r    = [char]0xFFFD
-$a    = [char]0xE5   # å
-$ae   = [char]0xE4   # ä
-$o    = [char]0xF6   # ö
-$A    = [char]0xC5   # Å
-$AE   = [char]0xC4   # Ä
-$O    = [char]0xD6   # Ö
-$e    = [char]0xE9   # é
-$dash = [char]0x2013 # –
+$path  = "assets\barva-news\2008\barva-news-2008-issue-31.htm"
+$r     = [char]0xFFFD
+$lowA  = [char]0xE5   # å
+$lowAE = [char]0xE4   # ä
+$lowO  = [char]0xF6   # ö
+$upA   = [char]0xC5   # Å
+$upAE  = [char]0xC4   # Ä
+$upO   = [char]0xD6   # Ö
+$eAcute = [char]0xE9  # é
+$dash  = [char]0x2013 # –
 
 $text = [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8)
 $before = ($text.ToCharArray() | Where-Object { [int]$_ -eq 0xFFFD }).Count
 
 # --- Multi-FFFD words (longest first) ---
-$text = $text.Replace("f${r}r${r}ndring",   "f${o}r${ae}ndring")   # förändring
-$text = $text.Replace("Tr${r}dg${r}rds",    "Tr${ae}dg${a}rds")    # Trädgårds-
-$text = $text.Replace("sj${r}lvf${r}rs",    "sj${ae}lvf${o}rs")    # självförs-
+$text = $text.Replace("f${r}r${r}ndring",   "f${lowO}r${lowAE}ndring")   # förändring
+$text = $text.Replace("Tr${r}dg${r}rds",    "Tr${lowAE}dg${lowA}rds")    # Trädgårds-
+$text = $text.Replace("sj${r}lvf${r}rs",    "sj${lowAE}lvf${lowO}rs")    # självförs-
 
 # --- Single-FFFD words (longer before shorter) ---
-$text = $text.Replace("Bygdeg${r}rden",     "Bygdeg${a}rden")      # Bygdegården
-$text = $text.Replace("V${r}lkommen",       "V${ae}lkommen")       # Välkommen
-$text = $text.Replace("f${r}rening",        "f${o}rening")         # förening
-$text = $text.Replace("f${r}r",             "f${o}r")              # för
-$text = $text.Replace("p${r}",              "${a}p")               # NOTE: check carefully
+$text = $text.Replace("Bygdeg${r}rden",     "Bygdeg${lowA}rden")      # Bygdegården
+$text = $text.Replace("V${r}lkommen",       "V${lowAE}lkommen")       # Välkommen
+$text = $text.Replace("f${r}rening",        "f${lowO}rening")         # förening
+$text = $text.Replace("f${r}r",             "f${lowO}r")              # för
+$text = $text.Replace("p${r}",              "p${lowA}")               # NOTE: check carefully
 
 # ... one line per unique token ...
 
@@ -126,6 +126,21 @@ $after = ($text.ToCharArray() | Where-Object { [int]$_ -eq 0xFFFD }).Count
 [System.IO.File]::WriteAllText($path, $text, (New-Object System.Text.UTF8Encoding $false))
 "Before: $before  After: $after  Fixed: $($before - $after)"
 ```
+
+**CRITICAL — PowerShell variable names are case-insensitive.** `$a` and `$A` are
+the *same variable*; assigning one silently overwrites the other, and every
+`.Replace()` call that reads the "lowercase" variable will actually use
+whatever the last assignment (usually the uppercase one) set it to — this can
+silently invert the case of every single-FFFD replacement in the file (e.g.
+turning `för` into `FÖr`/`fÖr`-style corruption throughout). **Never name two
+variables that differ only by case in the same script.** Always use distinct
+names like `$lowA`/`$upA`, `$lowO`/`$upO` (as in the corrected example above),
+and sanity-check immediately after defining them:
+```powershell
+"lowA=$('{0:X4}' -f [int]$lowA)  upA=$('{0:X4}' -f [int]$upA)"   # must differ
+```
+If two of your "different" variables print the same hex code, they collided —
+rename and re-run before doing anything else.
 
 ### Step 4 — Diagnose any survivors
 
