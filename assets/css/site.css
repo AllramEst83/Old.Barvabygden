@@ -594,6 +594,20 @@ section:not(:last-child)::after {
   border-color: #b0b0b0;
 }
 
+/* ===== RENTAL SHOWCASE GALLERY ===== */
+.rental-gallery-scroll {
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rental-gallery-scroll .rental-gallery-img {
+  scroll-snap-align: start;
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+}
+
 /* ===== EVENT COUNTDOWN STYLES ===== */
 .js-event-countdown {
   font-weight: 600;
