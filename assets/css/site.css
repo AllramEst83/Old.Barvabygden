@@ -389,6 +389,30 @@ section:not(:last-child)::after {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+/* Newly added event (data-added on the column, see event-highlight in site.js) */
+.event-card.event-card-new,
+.event-card.event-card-new:hover {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 4px #f39c12, 0 0 24px 6px rgba(243, 156, 18, 0.55);
+  animation: event-new-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes event-new-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px #f39c12, 0 0 16px 3px rgba(243, 156, 18, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px #f39c12, 0 0 32px 10px rgba(243, 156, 18, 0.7);
+  }
+}
+
+.event-new-badge {
+  background-color: #f39c12;
+  color: #212529;
+  font-weight: 700;
+}
+
 /* Hero + corner club logo (e.g. Barva IF) */
 .event-card-hero-wrap {
   position: relative;

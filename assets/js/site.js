@@ -303,6 +303,52 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /**
+   * Highlight event cards added within the last NEW_EVENT_DAYS days.
+   * Columns opt in with data-added="YYYY-MM-DD"; while "new" they are moved to
+   * the top (newest first) and marked. After that they stay where they sit in
+   * events.html.
+   */
+  const NEW_EVENT_DAYS = 2;
+
+  function highlightNewEvents(container) {
+    const now = Date.now();
+    const newCols = [];
+
+    container.querySelectorAll("[data-added]").forEach((col) => {
+      const raw = col.dataset.added.trim();
+      // Date-only values are parsed as local time (not UTC)
+      const added = new Date(raw.length === 10 ? `${raw}T00:00` : raw);
+      if (isNaN(added.getTime())) return;
+
+      const expires = added.getTime() + NEW_EVENT_DAYS * 24 * 60 * 60 * 1000;
+      if (now < added.getTime() || now >= expires) return;
+
+      newCols.push({ col, added: added.getTime() });
+    });
+
+    if (newCols.length === 0) return;
+
+    // Newest first; Array.sort is stable so equal dates keep file order
+    newCols.sort((a, b) => b.added - a.added);
+
+    newCols.forEach(({ col }) => {
+      const card = col.querySelector(".event-card");
+      if (!card) return;
+      card.classList.add("event-card-new");
+
+      const category = card.querySelector(".event-category");
+      if (category) {
+        const badge = document.createElement("span");
+        badge.className = "badge event-new-badge ms-1 mb-2";
+        badge.textContent = "Nytt";
+        category.after(badge);
+      }
+    });
+
+    container.prepend(...newCols.map(({ col }) => col));
+  }
+
   //Subscibe to custom events
   window.addEventListener("eventsLoaded", (event) => {
     console.log("✅ - Events loaded successfully.");
@@ -312,8 +358,10 @@ window.addEventListener("DOMContentLoaded", () => {
       window.EventCountdown.init(event.detail.container);
     }
 
-    // Skeleton shimmer for images while they load
     const container = event.detail?.container;
+    if (container) highlightNewEvents(container);
+
+    // Skeleton shimmer for images while they load
     if (container) {
       container.querySelectorAll("img").forEach((img) => {
         if (img.classList.contains("event-card-badge")) return;
