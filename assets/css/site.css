@@ -429,6 +429,44 @@ section:not(:last-child)::after {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 
+/* Julmarknad 2026 – decorative background; padding keeps text inside the cream centre */
+.event-card.event-card-christmas {
+  background: #fffaf0 url("../images/events/christmas/2026/christmas-2026-background.jpg")
+    center top / cover no-repeat;
+  padding: 9.5rem 3.5rem 8rem !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.event-card-christmas .event-header {
+  text-align: center;
+}
+
+.event-card-christmas .event-title {
+  font-family: "Cookie", cursive;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: #b71c1c;
+  text-shadow: 0 1px 0 #fff, 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.event-card-christmas .event-info dt {
+  color: #1b5e20;
+}
+
+.event-card-christmas .js-event-countdown {
+  background-color: #b71c1c !important;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(183, 28, 28, 0.35);
+}
+
+/* Soft cream panel keeps the contact text readable over the pine branches */
+.event-card-christmas .event-footer {
+  background: rgba(255, 250, 240, 0.88);
+  border: 1px solid rgba(183, 28, 28, 0.25);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
 .archive-category {
   background: white;
   border-radius: var(--border-radius);
