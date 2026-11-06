@@ -433,8 +433,13 @@ section:not(:last-child)::after {
 .event-card.event-card-christmas {
   background: #fffaf0 url("../images/events/christmas/2026/christmas-2026-background.jpg")
     center top / cover no-repeat;
-  padding: 9.5rem 3.5rem 8rem !important;
+  padding: 11.5rem 3.5rem 8rem !important;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Longer title wraps to two lines, so give it more room below the branches */
+.event-card.event-card-christmas.event-card-lottery {
+  padding-top: 13rem !important;
 }
 
 .event-card-christmas .event-header {
