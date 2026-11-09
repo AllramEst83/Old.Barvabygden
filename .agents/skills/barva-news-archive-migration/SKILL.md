@@ -33,16 +33,16 @@ description: Migrate legacy Barva-Bladet issues into the modern archive by match
 ## Migration workflow
 1. Inventory existing archive entries from `fragments/newsletter.html`.
 2. Discover legacy candidates:
-   - `bb-*.htm` in repo root
-   - old pages with Barva-Bladet links (`old_index.htm`, `Välkommen till Barva och Barvabygden.htm`, `bladen.htm`)
+   - `bb-*.htm` in `migration-sources/barva-bladet/` (pending sources; their PDFs and images sit next to them, flat)
+   - old pages with Barva-Bladet links (`attic/pages/old_index.htm`, `pages/Välkommen till Barva och Barvabygden.htm`, `pages/bladen.htm`)
 3. Build per-issue record:
    - issue number
    - year
    - html source path (if found)
    - pdf source path (if found)
-4. Move/copy to canonical archive location and naming.
+4. Move/copy from `migration-sources/barva-bladet/` to the canonical archive location and naming. Title image links become `../title/barva-bladet-title.png`.
 5. For each moved HTML issue, collect and migrate image assets:
-   - parse every `<img src>` and resolve path from original file context
+   - parse every `<img src>` and resolve path from original file context (the sources folder; files moved earlier are listed in `scripts/path-manifest.csv`)
    - copy image file into `barva-bladet/<year>/images/issue-<issue>/`
    - update issue HTML `src` paths to `./images/issue-<issue>/<filename>`
    - if two files share same name, keep both with safe suffixes and update references
@@ -55,6 +55,7 @@ description: Migrate legacy Barva-Bladet issues into the modern archive by match
    - restore Swedish letters (`å`, `ä`, `ö`, `Å`, `Ä`, `Ö`) or safe entities
 8. Update year accordion and issue cards in `fragments/newsletter.html`.
 9. Validate every issue and image link points to an existing file.
+10. Remove the consumed sources from `migration-sources/barva-bladet/` and repoint the issue's redirects (manifest rows → `migrated`, then `./scripts/build-redirects.ps1`); see `barva-news-migrate-next-issue` Step 5.
 
 ## Year mapping rules
 - Reuse existing mappings already present in `fragments/newsletter.html`.
@@ -76,3 +77,6 @@ description: Migrate legacy Barva-Bladet issues into the modern archive by match
 - [ ] Each issue appears under exactly one year group.
 - [ ] No duplicate issue numbers in multiple years.
 - [ ] New files are under `barva-bladet/` only.
+- [ ] Consumed sources are gone from `migration-sources/barva-bladet/`; other issues' files are untouched.
+- [ ] `/bb-N.htm` and the issue's PDF redirects in `.htaccess` point at the migrated URLs (no longer `/`).
+- [ ] `./scripts/check-links.ps1` reports no new broken references.
