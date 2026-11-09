@@ -5,13 +5,13 @@ description: >-
   Bootstrap/site.css head baseline, set body.bb-legacy, insert a .bb-topbar
   backlink, and wrap the content in a readable container. Use when asked to
   modernize, update, or improve readability of a legacy Barva-Bladet issue page
-  under assets/barva-news/, or before applying the reader-mode skill.
+  under barva-bladet/, or before applying the reader-mode skill.
 disable-model-invocation: true
 ---
 
 # Modernize Legacy Barva‑Bladet Issue
 
-Minimal, repeatable edits for legacy issues under `assets/barva-news/<year>/`.
+Minimal, repeatable edits for legacy issues under `barva-bladet/<year>/`.
 
 ## Hard constraints
 
@@ -36,7 +36,7 @@ Ensure the document opens with:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap 5 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../assets/css/site.css">
+  <link rel="stylesheet" href="../../assets/css/site.css">
 ```
 
 Keep any tiny in-file legacy `<style>` blocks — do not expand them.
@@ -55,7 +55,7 @@ Keep any legacy `bgcolor` attribute if present.
 
 ```html
 <div class="container-lg bb-topbar">
-  <a href="../../../index.html" class="back-link">
+  <a href="../../index.html" class="back-link">
     ← Tillbaka till Barvabygden.se
   </a>
 </div>
@@ -93,7 +93,7 @@ If the block is missing, add it at the end of `site.css`.
 ## Sanity checks
 
 - Exactly one `<html>`, one `<head>`, one `<body>`.
-- Backlink path is `../../../index.html`.
+- Backlink path is `../../index.html`.
 - No image `src` paths were changed.
 
 ---

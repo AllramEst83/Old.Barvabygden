@@ -5,7 +5,7 @@ description: >-
   The overlay provides font-size control, three background themes (Pappershvit,
   Vete, Satinsvart), and a responsive toolbar that collapses on small screens.
   Use when asked to add läsläge, reader mode, reading view, or reading
-  experience to a page under assets/barva-news/. Requires the page to already
+  experience to a page under barva-bladet/. Requires the page to already
   be modernized (has .bb-topbar and <main class="container-lg bb-issue my-3">);
   run the modernize-legacy-barva-bladet skill first if not.
 ---
@@ -22,7 +22,7 @@ already exist — do **not** recreate them.
 
 ## Path prefix
 
-For `assets/barva-news/<year>/` files the prefix is `../../../assets/`.
+For `barva-bladet/<year>/` files the prefix is `../../assets/`.
 Calculate depth for other locations accordingly.
 
 ---
@@ -33,7 +33,7 @@ Calculate depth for other locations accordingly.
 
 ```html
 <!-- Reader Mode -->
-<link rel="stylesheet" href="../../../assets/css/reader-mode.css" />
+<link rel="stylesheet" href="../../assets/css/reader-mode.css" />
 ```
 
 ### 2 — `.bb-topbar`: add trigger button after the back-link `<a>`
@@ -60,7 +60,7 @@ Calculate depth for other locations accordingly.
 
 ```html
 <!-- Reader Mode -->
-<script src="../../../assets/js/reader-mode.js"></script>
+<script src="../../assets/js/reader-mode.js"></script>
 ```
 
 ---

@@ -74,7 +74,7 @@ window.addEventListener("DOMContentLoaded", () => {
       console.log("Starting newsletter loading...");
 
       const data = await retryRequest(async () => {
-        const response = await fetch("./assets/pages/newsletter.html");
+        const response = await fetch("./fragments/newsletter.html");
 
         if (!response.ok) {
           throw new Error(
@@ -155,7 +155,7 @@ window.addEventListener("DOMContentLoaded", () => {
       console.log("Starting events loading...");
 
       const data = await retryRequest(async () => {
-        const response = await fetch("./assets/pages/events.html");
+        const response = await fetch("./fragments/events.html");
 
         if (!response.ok) {
           throw new Error(

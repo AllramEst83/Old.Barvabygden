@@ -8,31 +8,33 @@ Content and UI copy are in Swedish.
 - Plain HTML5 / CSS3 / vanilla JS (ES6+) — no framework, no build tools.
 - Bootstrap 5.0.2 for layout and components.
 - Google Fonts: Cookie, Crimson Text, EB Garamond.
-- Deployment/versioning via PowerShell scripts in `assets/powershell/`.
+- Deployment/versioning via PowerShell scripts in `scripts/`.
 
 ## Structure
 - `index.html` — main landing page and entry point.
 - `assets/css/` — stylesheets (`site.css` main, plus `lightbox.css`, `fallbacks.css`).
 - `assets/js/` — scripts (`site.js` main, `event-countdown.js`, `lightbox.js`).
-- `assets/pages/` — HTML fragments fetched at runtime via `fetch()` (e.g. `events.html`, `newsletter.html`).
-- `assets/barva-news/<year>/` — digital archive of the Barva-Bladet newsletter.
-- `assets/images/` — organized image collections (branding, hero, events, museum, etc.).
-- `assets/powershell/` — deployment/versioning scripts.
-- `assets/docs/PROJECT_DOCUMENTATION.md` — deeper project documentation.
-- Repo root also holds a large collection of legacy historical photos/PDFs
-  (`1926.jpg`, `bb-*.htm`, etc.) — these are intentionally left in place; don't
-  reorganize them unless asked.
+- `fragments/` — HTML fragments fetched at runtime via `fetch()` (`events.html`, `newsletter.html`).
+- `pages/` — standalone HTML pages (flat; filenames kept), e.g. `kyrka.htm`, `skolan.htm`.
+- `barva-bladet/<year>/` — digital archive of the Barva-Bladet newsletter.
+- `assets/images/` — image collections grouped by topic (branding, hero, events, museum, kyrkan, folkdans, `shared/`, etc.).
+- `scripts/` — deployment/versioning/maintenance scripts (`update-version.ps1`, `check-links.ps1`, manifest and redirect builders). Not deployed.
+- `docs/` — project docs (`project-documentation.md`, `modernization-plan.md`, `deploy-runbook.md`). Not deployed.
+- `migration-sources/barva-bladet/` — pending newsletter issues (bb-37…46 with PDFs and images) waiting for the migration skill. Not deployed.
+- `attic/` — quarantined unreferenced media and stale pages (see `attic/README.md`). Not deployed; nothing live may reference it.
+- The repo root holds only `index.html`, `.htaccess`, `.gitignore` and the top-level docs (`README.md`, `CLAUDE.md`, `GEMINI.md`). `scripts/path-manifest.csv` records where every file moved from.
 - `web/` contains a vendored WordPress export (legacy reference) — not part of
   the active static site, do not edit it.
 
 ## Working conventions
 - Prefer Bootstrap utilities/components before writing custom CSS or JS.
 - Vanilla HTML/CSS/JS only — do not introduce frameworks or build tooling unless explicitly requested.
-- Put new non-root assets under `assets/`; don't add new loose top-level files.
+- New standalone pages go in `pages/`, fragments in `fragments/`, images in a topic folder under `assets/images/`; don't add new loose top-level files.
+- Run `scripts/check-links.ps1` after moving files or editing paths; it must stay at or under `scripts/link-baseline.txt`.
 - Keep diffs focused; when touching legacy files, improve only what you touch rather than rewriting broadly.
-- Events: add new cards to `assets/pages/events.html` following the existing card structure.
-- Newsletters: add new issues to `assets/barva-news/<year>/` and update `assets/pages/newsletter.html`.
-- Cache busting is handled by `assets/powershell/update-version.ps1`, run from the repo root.
+- Events: add new cards to `fragments/events.html` following the existing card structure.
+- Newsletters: add new issues to `barva-bladet/<year>/` and update `fragments/newsletter.html`.
+- Cache busting is handled by `scripts/update-version.ps1`, run from the repo root.
 
 ## Local development
 Open `index.html` directly, or serve the folder (e.g. `python -m http.server`, `npx serve`) for full `fetch()`-based fragment loading to work.

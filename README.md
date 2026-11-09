@@ -29,14 +29,17 @@ Barvabygden is a historic Swedish village community rich in culture, tradition, 
 ```
 Old.Barvabygden/
 ├── index.html                    # Main landing page
+├── pages/                        # Standalone legacy/content pages
+├── fragments/                    # HTML fragments loaded with fetch()
+├── barva-bladet/                 # Newsletter archive (<year>/ issues)
 ├── assets/
 │   ├── css/                     # Stylesheets
 │   ├── js/                      # JavaScript functionality
-│   ├── images/                  # Organized image collections
-│   ├── pages/                   # HTML content fragments
-│   ├── barva-news/             # Historical newsletter archives
-│   └── docs/                    # Project documentation
-├── [historical images]          # Root-level historical photos
+│   └── images/                  # Image collections grouped by topic
+├── docs/                         # Project documentation (not deployed)
+├── scripts/                      # PowerShell tooling (not deployed)
+├── migration-sources/            # Newsletter issues waiting to be migrated (not deployed)
+├── attic/                        # Quarantined, unreferenced files (not deployed)
 └── README.md                    # This file
 ```
 
@@ -85,13 +88,13 @@ Old.Barvabygden/
 
 ### Deployment
 
-Use the PowerShell deployment scripts in `assets/powershell/`
+Use the PowerShell deployment scripts in `scripts/`
 
 ## 📝 Contributing
 
 ### Adding Events
 
-Edit `assets/pages/events.html` with new event cards following the established structure.
+Edit `fragments/events.html` with new event cards following the established structure.
 
 ### Adding Images
 
@@ -101,13 +104,13 @@ Edit `assets/pages/events.html` with new event cards following the established s
 
 ### Newsletter Updates
 
-Add new newsletters to `assets/barva-news/[year]/` folders.
+Add new newsletters to `barva-bladet/[year]/` folders.
 
 ## 📚 Documentation
 
 Complete project documentation is available in:
 
-- `assets/docs/PROJECT_DOCUMENTATION.md` - Comprehensive development guide
+- `docs/project-documentation.md` - Comprehensive development guide
 - Inline code comments for implementation details
 
 ## 🤝 Community

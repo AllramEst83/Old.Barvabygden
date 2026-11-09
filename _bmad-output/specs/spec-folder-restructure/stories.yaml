@@ -1,0 +1,57 @@
+- id: "1"
+  title: Tooling, docs and junk cleanup with link-check baseline
+  description: >-
+    Phases 1–2 of migration-rules.md: add scripts/check-links.ps1 and record the pre-move broken-reference baseline,
+    move assets/powershell to scripts/ and assets docs to docs/, remove Thumbs.db/WS_FTP.LOG/provbilder/tools and gitignore them.
+  invoke_dev_with: &notes >-
+    Use git mv; one commit per story on feature/folder-restructure; run scripts/check-links.ps1 before committing and keep
+    it at or under baseline; never touch web/ or .ilosoft/.
+- id: "2"
+  title: Path manifest and page-topic map
+  description: >-
+    Build scripts/build-manifest.ps1 producing scripts/path-manifest.csv per the classification table and page-topic map (CAP-4);
+    no files move in this story.
+  spec_checkpoint: true
+  done_checkpoint: true
+  invoke_dev_with: *notes
+- id: "3"
+  title: Move fragments and newsletter archive
+  description: >-
+    Move assets/pages fragments to fragments/ and assets/barva-news to barva-bladet/ from the manifest, rewriting references in
+    index.html, site.js, site-legacy.js and issue pages (CAP-3).
+  invoke_dev_with: *notes
+- id: "4"
+  title: Move live pages and group images by topic
+  description: >-
+    Move live root pages to pages/ and referenced media to assets/images/<topic>/ or shared/ from the manifest, rewriting all
+    references (CAP-2, CAP-3).
+  spec_checkpoint: true
+  done_checkpoint: true
+  invoke_dev_with: *notes
+- id: "5"
+  title: Migration sources and quarantine
+  description: >-
+    Move pending bb-37…46 sources with their PDFs and images to migration-sources/barva-bladet/, and orphans, stale pages and
+    junk folders to attic/ with attic/README.md (CAP-5); root then matches the allowlist (CAP-1).
+  invoke_dev_with: *notes
+- id: "6"
+  title: htaccess protection and redirects
+  description: >-
+    Add the 404 rules for repo-only folders, dot-folders and file types, generate 301 redirects from the manifest with
+    scripts/build-redirects.ps1, and add scripts/check-live.ps1 for post-cutover verification (CAP-8).
+  invoke_dev_with: *notes
+- id: "7"
+  title: Docs, agent instructions and deploy runbook
+  description: >-
+    Update path references in CLAUDE.md, GEMINI.md, README.md, docs/ and .agents/ (excluding bmad-*) (CAP-6), write
+    docs/deploy-runbook.md (CAP-9), and run the CAP-7 workflow checks.
+  done_checkpoint: true
+  invoke_dev_with: *notes
+- id: "8"
+  title: Update migration skill and prove on issue 37
+  description: >-
+    Point barva-news-migrate-next-issue and barva-news-archive-migration at migration-sources/barva-bladet/, barva-bladet/ and
+    fragments/newsletter.html, including the redirect repoint, then migrate issue 37 end to end (CAP-10).
+  spec_checkpoint: true
+  done_checkpoint: true
+  invoke_dev_with: *notes
