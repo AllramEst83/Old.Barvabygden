@@ -11,7 +11,7 @@ alwaysApply: true
 - Use vanilla HTML/CSS/JS patterns; do not introduce frameworks or build tools unless explicitly requested.
 
 ## Project structure and refactor direction
-- Place all new non-root assets under `assets/` (pages, images, scripts, styles, data).
+- Place new files by purpose: images under `assets/images/<topic>/`, scripts/styles under `assets/js|css/`, standalone pages in `pages/`, fetched fragments in `fragments/`.
 - Do not create new loose top-level files unless explicitly requested.
 - When editing older root files, prefer incremental refactors: improve touched sections without large rewrites.
 - Reuse existing `assets/` folder patterns and naming conventions before creating new ones.

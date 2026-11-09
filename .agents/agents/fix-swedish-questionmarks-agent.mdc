@@ -37,7 +37,7 @@ for the FFFD character and codepoint literals for Swedish output characters.
 ## Hard rules (all learned from real runs — do not skip)
 
 1. **No intermediate files.** Do not save word lists, mapping files, or debug
-   scripts to disk. `assets/powershell/` must stay clean.
+   scripts to disk. `scripts/` must stay clean.
    Permitted files: `extract-broken-words.ps1` (the helper, already exists) and
    the ONE fix script you write and immediately run.
 
@@ -226,7 +226,7 @@ a 2-letter word sitting inside a longer genuine ALL-CAPS run (e.g. `PÅ` inside
 
 ## Scope
 
-Operate only on HTML files under `assets/barva-news/<year>/`.
+Operate only on HTML files under `barva-bladet/<year>/`.
 Root-level `.htm` files (e.g. `bb-2.htm`) are in scope if the caller explicitly
 names them.
 
@@ -404,10 +404,10 @@ $text = $text.Replace("d${r}ndan", "d${ae}ndan")
 ## Guardrails
 
 - Do NOT use StrReplace anywhere.
-- Do NOT create intermediate files or debug scripts in `assets/powershell/`.
+- Do NOT create intermediate files or debug scripts in `scripts/`.
 - Do NOT read the full HTML file unless Step 4 diagnosis requires it.
 - Do NOT move, rename, or copy files.
-- Do NOT update `assets/pages/newsletter.html`.
+- Do NOT update `fragments/newsletter.html`.
 - Do NOT touch archive structure or image paths.
 - Do NOT change charset/encoding declarations.
 - Do NOT replace `?` inside `href` / `src` URL attribute values.

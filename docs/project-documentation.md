@@ -21,6 +21,13 @@ This is a static website for Barvabygden (Barva village), a community in Sweden 
 ```
 Old.Barvabygden/
 ├── index.html                          # Main landing page
+├── pages/                              # Standalone legacy/content pages (flat)
+├── fragments/
+│   ├── events.html                    # Event cards HTML content
+│   └── newsletter.html                # Newsletter content
+├── barva-bladet/                      # Newsletter archive
+│   ├── 2010/, 2016/, 2017/, etc.      # Yearly folders
+│   └── title/                         # Newsletter title images
 ├── assets/
 │   ├── css/
 │   │   ├── site.css                   # Main stylesheet with CSS custom properties
@@ -40,19 +47,21 @@ Old.Barvabygden/
 │   │   ├── scenery/                   # Local scenery photos
 │   │   ├── personalities/             # Historical figures
 │   │   ├── patterns/                  # Background patterns
+│   │   ├── kyrkan/, folkdans/, ...    # Topic folders for legacy-page images
+│   │   ├── shared/                    # Images used by pages of 2+ topics
 │   │   └── [other categories]/
-│   ├── pages/
-│   │   ├── events.html                # Event cards HTML content
-│   │   └── newsletter.html            # Newsletter content
-│   ├── barva-news/                    # Historical newsletter archives
-│   │   ├── 2010/, 2016/, 2017/, etc.  # Yearly folders
-│   │   └── title/                     # Newsletter title images
-│   ├── docs/                          # Documentation (this file)
-│   ├── powershell/
-│   │   └── update-version.ps1         # Deployment helper script
-│   └── unused-images/                 # Archive of unused images
-├── [root images]                      # Historical photos and documents
-└── README.md (if exists)
+│   └── files/                         # Referenced non-image files (if any)
+├── docs/                              # Documentation (not deployed)
+├── scripts/                           # PowerShell tooling (not deployed)
+│   ├── update-version.ps1             # Cache-busting helper
+│   ├── check-links.ps1                # Broken-reference check against baseline
+│   ├── build-manifest.ps1             # Writes path-manifest.csv
+│   ├── rewrite-links.ps1              # Manifest-driven rewrite and move
+│   ├── build-redirects.ps1            # 301 block for .htaccess
+│   └── check-live.ps1                 # Post-cutover verification
+├── migration-sources/barva-bladet/    # Pending newsletter issues (not deployed)
+├── attic/                             # Quarantined files (not deployed)
+└── README.md
 ```
 
 ## Key Components & Sections
@@ -109,7 +118,7 @@ The JavaScript architecture includes:
 
 ### Adding New Events
 
-Events are managed in `assets/pages/events.html`. Each event follows this structure:
+Events are managed in `fragments/events.html`. Each event follows this structure:
 
 ```html
 <div class="col-lg-6 col-xl-4">
@@ -195,11 +204,11 @@ Events are managed in `assets/pages/events.html`. Each event follows this struct
 
 ### Newsletter Management
 
-Historical newsletters are organized in `assets/barva-news/`:
+Historical newsletters are organized in `barva-bladet/`:
 
 - Create yearly folders (e.g., `2025/`)
 - Store PDF files with descriptive names
-- Update navigation links in the main HTML
+- Update `fragments/newsletter.html` (the archive cards loaded into `index.html`)
 
 ### CSS Color Scheme
 
@@ -235,7 +244,7 @@ Use the PowerShell script for cache busting:
 
 ```powershell
 # From project root
-./assets/powershell/update-version.ps1
+./scripts/update-version.ps1
 ```
 
 This script:
@@ -309,7 +318,7 @@ This script:
 
 ### Updating Event Information
 
-1. Edit `assets/pages/events.html`
+1. Edit `fragments/events.html`
 2. Update event dates, descriptions, and details
 3. Add new event images to `assets/images/events/`
 4. Test countdown functionality

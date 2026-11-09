@@ -16,7 +16,7 @@ This document outlines the repeatable process for modernizing the legacy `.htm` 
 
 ### 1. Preparation & Backup
 
-- Identify the target `.htm` file (e.g., `utst.htm`).
+- Identify the target `.htm` file in `pages/` (e.g., `pages/utst.htm`).
 - Ensure the file is tracked in Git to allow easy reverts.
 
 ### 2. Encoding Conversion
@@ -28,7 +28,7 @@ This document outlines the repeatable process for modernizing the legacy `.htm` 
 
 ### 3. Apply Modern Shell (Template)
 
-- Replace the legacy `<head>` with the standard head from `index.html` (including Bootstrap 5, Google Fonts, and `site.css`).
+- Replace the legacy `<head>` with the standard head from `index.html` (including Bootstrap 5, Google Fonts, and `site.css`). Pages live in `pages/`, so shared paths take a `../` prefix (`../assets/css/site.css`, `../index.html`).
 - Add the `site-header` (Navbar) and `site-footer` to match the main page.
 - Wrap the main content area in a `<main class="container my-5">` block.
 
@@ -85,13 +85,13 @@ This document outlines the repeatable process for modernizing the legacy `.htm` 
 
 ### Secondary / Archives
 
-- [ ] `bb-*.htm` (Barva-Bladet archives - multiple files)
+- [ ] Barva-Bladet issues 37–46 (`migration-sources/barva-bladet/bb-*.htm`; migrated by the newsletter migration skill into `barva-bladet/`)
 - [ ] `barvaif_2011.htm` (Barva IF Archive)
 - [ ] `danser-*.htm` (Dance archives)
 
 ---
 
-## Step-by-Step Example: Modernizing `utst.htm`
+## Step-by-Step Example: Modernizing `pages/utst.htm`
 
 ### Phase 1: Encoding & Meta
 
@@ -132,7 +132,7 @@ Replace everything from `<html>` to `<body>` and the end of the file with the bo
 ```html
 <header class="page-hero text-center my-4">
   <img
-    src="./assets/images/hero/hero-banner.jpg"
+    src="../assets/images/hero/hero-banner.jpg"
     class="img-fluid rounded shadow-sm"
     alt="Barva Banner"
   />
@@ -152,5 +152,5 @@ Replace everything from `<html>` to `<body>` and the end of the file with the bo
 ## Technical Recommendations
 
 1. **Global Header/Footer**: Consider using a JavaScript "include" or a small build script to avoid duplicating the header/footer across 50+ files.
-2. **Asset Organization**: Gradually move images from the root directory to `assets/images/` and update references.
+2. **Asset Organization**: Images already sit in topic folders under `assets/images/<topic>/` (shared ones in `assets/images/shared/`). Keep new images there and run `scripts/check-links.ps1` after changes.
 3. **CSS Consolidation**: Use `site.css` for all common styles to keep the `.htm` files clean.

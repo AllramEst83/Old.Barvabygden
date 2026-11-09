@@ -29,7 +29,7 @@ If the user names an issue number, use it. Otherwise find "the next one":
    number (from the filename, or from the page's own "Barva-Bladet nr N" title
    if the filename is irregular, e.g. `bb-49x.htm`).
 2. Cross-reference against every issue number already present in
-   `assets/pages/newsletter.html`. A root file whose number is **already**
+   `fragments/newsletter.html`. A root file whose number is **already**
    listed there is a stale leftover source, not a migration candidate — leave
    it alone (it may be worth flagging to the user for cleanup, but don't touch
    or delete it as part of this skill).
@@ -50,7 +50,7 @@ Follow `barva-news-archive-migration` for canonical paths/naming, and use an
 already-migrated sibling issue from the same era as the literal template for
 the modern HTML shell (doctype, Bootstrap 5 head, `.bb-topbar` back-link,
 reader-mode button, `<main class="container-lg bb-issue my-3">` wrapper,
-closing scripts) — e.g. `assets/barva-news/2008/barva-news-2008-issue-32.htm`.
+closing scripts) — e.g. `barva-bladet/2008/barva-news-2008-issue-32.htm`.
 
 Watch for content that legacy files sometimes hide **inside the malformed
 `<head>`** (a logo `<table>` with the windmill/coat-of-arms images before
@@ -58,7 +58,7 @@ Watch for content that legacy files sometimes hide **inside the malformed
 not get silently dropped when you extract "the body."
 
 Rename any image with a space or URL-encoded character in its filename when
-copying it into `assets/barva-news/<year>/images/issue-<N>/` (e.g.
+copying it into `barva-bladet/<year>/images/issue-<N>/` (e.g.
 `33 1926.jpg` → `33-1926.jpg`), and update every reference to match. Swap the
 legacy `logan.gif`/`vapen.gif` references for the shared
 `assets/images/branding/wind-mill-colorful-text.png` /
@@ -114,13 +114,13 @@ Whichever path Step 2 took, check the result yourself before moving on:
    the one case to leave alone.
 4. **Links resolve.** Every `src`/`href` added or changed in this issue
    points to a file that actually exists on disk.
-5. **Back-link present**, pointing at `../../../index.html`.
+5. **Back-link present**, pointing at `../../index.html`.
 
 ---
 
 ## Step 4 — Update the newsletter page
 
-Add the issue to `assets/pages/newsletter.html` following
+Add the issue to `fragments/newsletter.html` following
 `barva-news-archive-migration`'s card-format rules exactly (new year
 accordion group if needed, `Format: HTML` / `PDF` / `HTML & PDF` as
 appropriate, issues sorted within their year group).
@@ -136,7 +136,7 @@ place, the root legacy source is fully superseded — remove it:
 - Delete the root `bb-N.htm` (and its `.pdf` companion, if any) — it's now
   duplicated by the canonical archive copy.
 - Delete every root image copied into
-  `assets/barva-news/<year>/images/issue-<N>/`, after checksumming each root
+  `barva-bladet/<year>/images/issue-<N>/`, after checksumming each root
   file against its archive copy to confirm it's an exact match (not just a
   same-named file).
 - Use `git rm` for anything tracked (check with `git ls-files` first).
