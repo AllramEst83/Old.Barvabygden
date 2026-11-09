@@ -2,7 +2,8 @@
 title: 'Optimize script, resize and convert to WebP'
 type: 'feature'
 created: '2026-11-09'
-status: 'draft'
+status: 'in-review'
+baseline_commit: '6f1b182294352bed3dafb1ffde51eb157a474947'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
@@ -68,3 +69,7 @@ context:
 **Commands:**
 - `powershell -File scripts/optimize-images.ps1` -- expected: exit 0, size report, none over 500 KB
 - `powershell -File scripts/check-links.ps1` -- expected: at or under 128
+
+- Added `scripts/optimize-images.ps1` (`npx -y sharp-cli@6.1.0`, which pins sharp 0.35.4). It groups images by folder, runs the encoder once per folder and format, applies EXIF orientation before stripping metadata, writes the fallback first and the `.webp` last (so a `.webp` marks an image as done), and fills `new_bytes` in `scripts/image-manifest.csv` with the fallback size.
+- Run on all 370 `convert` rows: originals 61.5 MB became fallbacks 12.9 MB plus WebP 11.1 MB. Every new or recompressed file is under 500 KB. A second run processes 0 images. `check-links.ps1` stays at 128. Spot check: `museum/fence-1.jpg` is 1920 px wide, upright, 432 KB (16.7 MB PNG before).
+- The 33 opaque PNGs now have a `.jpg` fallback beside the old `.png`, which stays tracked because pages still reference it. The picture-markup story (5) must repoint those references and then `git rm` the 33 superseded PNGs; only then does live weight drop to the target. Same-format files (JPG, transparent PNG) were recompressed in place only when the result was smaller.
