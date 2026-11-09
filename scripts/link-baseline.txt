@@ -1,4 +1,3 @@
-barva.htm -> Välkommen%20till%20Barva!-filer/barva.htm
 barva-bladet/1998/barva-news-1998-issue-2.htm -> tavlaec.jpg
 barva-bladet/2016/barva-news-2016-issue-47.htm -> vapen.gif
 barva-bladet/2016/barva-news-2016-issue-48.htm -> bif46.gif
@@ -90,12 +89,22 @@ barva-bladet/2018/barva-news-2018-issue-51.htm -> sl1900.jpg
 barva-bladet/2018/barva-news-2018-issue-51.htm -> vapen.gif
 barva-bladet/2018/barva-news-2018-issue-51.htm -> yoga50.jpg
 barvaf (2).htm -> ./assets/images/hero/hero-banner.jpg.jpg
+barvaf (2).htm -> bklstap.jpg
+barvaf (2).htm -> bygdeg.jpg
+barvaf (2).htm -> dopd.gif
+barvaf (2).htm -> dopfunt-s.jpg
+barvaf (2).htm -> ekstugan.jpg
+barvaf (2).htm -> horn.gif
+barvaf (2).htm -> kvarns.jpg
+barvaf (2).htm -> kyrkan.jpg
+barvaf (2).htm -> kyrk-sk.jpg
+barvaf (2).htm -> lh.jpg
 barvaf (2).htm -> logan.gif
+barvaf (2).htm -> prost-sk.jpg
+barvaf (2).htm -> utst.htm
 barvaf (2).htm -> vapen.gif
-barvaf.htm -> ./assets/images/hero/hero-banner.jpg.jpg
-barvaf.htm -> logan.gif
-barvaf.htm -> vapen.gif
 bb-31.htm -> bilder/logan.gif
+bb-31.htm -> bilder/vapen.gif
 bb-32.htm -> logan.gif
 bb-32.htm -> vapen.gif
 bb-33.htm -> 33%201926.jpg
@@ -128,7 +137,9 @@ bb-39.htm -> sm%F6rk%E4rna.gif
 bb-39.htm -> tv%E4ttvagga1.gif
 bb-39.htm -> vapen.gif
 bb-39.htm -> www.rordrommen.nu
+bb-40.htm -> ababok1.jpg
 bb-40.htm -> bif-1.gif
+bb-40.htm -> enket.htm
 bb-40.htm -> enketen.htm
 bb-40.htm -> vapen.gif
 bb-40.htm -> www.duger-du.se
@@ -164,39 +175,43 @@ bb-49x.htm -> bif.gif
 bb-49x.htm -> rord.gif
 bb-49x.htm -> Skolkort.jpg
 bb-49x.htm -> vapen.gif
-bdag-08.htm -> kart-08.gif
-bdag-08.htm -> logan.gif
-bf.htm -> logan.gif
-bh.htm -> post1920-30.jpg
-fnv-08.htm -> fnv-08-filer/colorschememapping.xml
-fnv-08.htm -> fnv-08-filer/editdata.mso
-fnv-08.htm -> fnv-08-filer/filelist.xml
-fnv-08.htm -> fnv-08-filer/themedata.thmx
-fnv-08.htm -> logan.gif
-fnv-08.htm -> odlargladjen.se
 fragments/events.html -> ./assets/images/events/[FILE_NAME]
 fragments/events.html -> ./assets/images/events/[HERO_IMAGE]
 fragments/events.html -> ./assets/images/events/[IMAGE_NAME]
 fragments/events.html -> [GOOGLE_MAPS_URL]
-gruv.htm -> index.htm
 old_index.htm -> nippe50.jpg
 öld_index.html -> nippe50.jpg
-prost-sk.htm -> vapen.gif
-skolan.htm -> skol99s.jpg
-skolan.htm -> skola.jpg
-skolan.htm -> skola2.jpg
-skolan.htm -> skolan1.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/./assets/images/hero/hero-banner.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/biet.gif
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/boken.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/diligens.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/gh-20.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/kvarn.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/logan.gif
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/nabbetorp%2520os.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/rekott.gif
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/rj.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/tp.jpg
-Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/vapen.gif
-vatten.htm -> logan.gif
-vatten.htm -> vapen.gif
+pages/barva.htm -> Välkommen%20till%20Barva!-filer/barva.htm
+pages/barvaf.htm -> ./assets/images/hero/hero-banner.jpg.jpg
+pages/barvaf.htm -> logan.gif
+pages/barvaf.htm -> vapen.gif
+pages/bdag-08.htm -> kart-08.gif
+pages/bdag-08.htm -> logan.gif
+pages/bf.htm -> logan.gif
+pages/bh.htm -> post1920-30.jpg
+pages/fnv-08.htm -> fnv-08-filer/colorschememapping.xml
+pages/fnv-08.htm -> fnv-08-filer/editdata.mso
+pages/fnv-08.htm -> fnv-08-filer/filelist.xml
+pages/fnv-08.htm -> fnv-08-filer/themedata.thmx
+pages/fnv-08.htm -> logan.gif
+pages/fnv-08.htm -> odlargladjen.se
+pages/gruv.htm -> index.htm
+pages/prost-sk.htm -> vapen.gif
+pages/skolan.htm -> skol99s.jpg
+pages/skolan.htm -> skola.jpg
+pages/skolan.htm -> skola2.jpg
+pages/skolan.htm -> skolan1.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/./assets/images/hero/hero-banner.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/biet.gif
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/boken.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/diligens.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/gh-20.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/kvarn.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/logan.gif
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/nabbetorp%2520os.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/rekott.gif
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/rj.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/tp.jpg
+pages/Välkommen till Barva och Barvabygden.htm -> V%C3%A4lkommen%20till%20Barva%20och%20Barvabygden-filer/vapen.gif
+pages/vatten.htm -> logan.gif
+pages/vatten.htm -> vapen.gif
