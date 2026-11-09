@@ -2,7 +2,7 @@
 title: 'Image manifest and unreferenced-image scan'
 type: 'feature'
 created: '2026-11-09'
-status: 'in-review'
+status: 'done'
 baseline_commit: '01618b5ff493c315359c1e8dc57eeb90df45ec26'
 route: 'dispatch'
 review_loop_iteration: 0
