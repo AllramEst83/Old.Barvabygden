@@ -12,6 +12,7 @@ item is decided later. The old → new path of every file is in `scripts/path-ma
 | `pages/` | `old_index.htm`, `öld_index.html`, `barvaf (2).htm`, `bfa_temp.htm`, and leftovers `bb-31`, `bb-32`, `bb-33`, `bb-48`, `bb-49x` | Stale page copies; the leftover issues are already migrated into `barva-bladet/`. Their references are left as they were and may be broken. |
 | `pdfs/` | Root newsletter PDFs outside issues 37–46, plus unreferenced PDFs | Duplicates of PDFs in `barva-bladet/`, or unreferenced. |
 | `unused-images/` | Former `assets/unused-images/` | Images the site no longer uses. |
+| `unreferenced-images/` | 30 images moved from `assets/images/` (mostly 2026 event art and old school/coffee/maypole photos), under their original paths | No page, fragment, archive issue, CSS or JS references them (image cleanup, story 2). Listed as `quarantine` rows in `scripts/image-manifest.csv`. No redirects. |
 | `onewebmedia/`, `coffee-beans/`, `upload.tmp/` | Former site-builder leftovers | Junk from the old hosting setup. |
 
 Pending newsletter issues 37–46 are not here; they wait in `migration-sources/barva-bladet/`.
