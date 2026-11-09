@@ -54,6 +54,12 @@ foreach ($r in ($manifest | Sort-Object { if ($_.class -eq 'split') { 1 } else {
         $moveMap[$r.old_path] = $r.new_path
     }
 }
+# Rows of the requested classes whose tracked path differs only in case are skipped; say so instead of passing silently.
+foreach ($r in $manifest) {
+    if (($Classes -contains $r.class -or $DeleteClasses -contains $r.class) -and $lookup.ContainsKey($r.old_path.ToLowerInvariant()) -and $lookup[$r.old_path.ToLowerInvariant()] -cne $r.old_path -and $lookup[$r.old_path.ToLowerInvariant()] -cne $r.new_path) {
+        Write-Warning "Skipped (tracked path differs in case): $($r.old_path)"
+    }
+}
 $deleteSet = @{}
 foreach ($r in $manifest) { if ($DeleteClasses -contains $r.class) { $deleteSet[$r.old_path] = $true } }
 $noSource = @{}

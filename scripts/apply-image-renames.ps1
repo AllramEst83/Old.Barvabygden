@@ -41,6 +41,19 @@ function Get-RenameTarget($r) {
 $targetByNew = @{}
 foreach ($r in $rows) { if ($r.action -notin 'merge', 'quarantine') { $targetByNew[$r.new_path] = Get-RenameTarget $r } }
 
+# Safety for the destructive step: a merge row is only applied when the duplicate is byte-identical to the kept file.
+$oldByNew = @{}
+foreach ($r in $rows) { if ($r.action -notin 'merge', 'quarantine') { $oldByNew[$r.new_path] = $r } }
+function Get-FileHashOrNull([string]$p) { if (Test-Path -LiteralPath (Join-Path $root $p)) { (Get-FileHash -LiteralPath (Join-Path $root $p) -Algorithm SHA256).Hash } else { $null } }
+foreach ($r in $rows | Where-Object { $_.action -eq 'merge' }) {
+    $dup = Get-FileHashOrNull $r.old_path
+    if (-not $dup) { continue }   # already merged
+    $k = $oldByNew[$r.new_path]
+    $kept = Get-FileHashOrNull $k.old_path
+    if (-not $kept) { $kept = Get-FileHashOrNull (Get-RenameTarget $k) }
+    if ($dup -ne $kept) { throw "Merge refused: $($r.old_path) is not byte-identical to its kept file $($k.old_path)" }
+}
+
 $plan = New-Object System.Collections.Generic.List[object]
 foreach ($r in $rows) {
     switch ($r.action) {
