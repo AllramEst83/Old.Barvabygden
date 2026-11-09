@@ -20,7 +20,7 @@ Content and UI copy are in Swedish.
 - `assets/images/` — image collections grouped by topic (branding, hero, events, museum, kyrkan, folkdans, `shared/`, etc.).
 - `scripts/` — deployment/versioning/maintenance scripts (`update-version.ps1`, `check-links.ps1`, manifest and redirect builders). Not deployed.
 - `docs/` — project docs (`project-documentation.md`, `modernization-plan.md`, `deploy-runbook.md`). Not deployed.
-- `migration-sources/barva-bladet/` — pending newsletter issues (bb-37…46 with PDFs and images) waiting for the migration skill. Not deployed.
+- `migration-sources/barva-bladet/` — staging folder for pending newsletter issues (PDFs and images) waiting for the migration skill; currently empty/absent since issues 37–46 are migrated. Not deployed.
 - `attic/` — quarantined unreferenced media and stale pages (see `attic/README.md`). Not deployed; nothing live may reference it.
 - The repo root holds only `index.html`, `.htaccess`, `.gitignore` and the top-level docs (`README.md`, `CLAUDE.md`, `GEMINI.md`). `scripts/path-manifest.csv` records where every file moved from.
 - `web/` contains a vendored WordPress export (legacy reference) — not part of
