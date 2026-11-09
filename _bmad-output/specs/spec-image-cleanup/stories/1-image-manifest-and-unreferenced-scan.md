@@ -2,7 +2,7 @@
 title: 'Image manifest and unreferenced-image scan'
 type: 'feature'
 created: '2026-11-09'
-status: 'in-progress'
+status: 'in-review'
 baseline_commit: '01618b5ff493c315359c1e8dc57eeb90df45ec26'
 route: 'dispatch'
 review_loop_iteration: 0
@@ -58,20 +58,44 @@ context:
 **Acceptance Criteria:**
 - Given the repo, when the script runs twice, then both CSVs are byte-identical and the working tree has no moved or modified image.
 - Given the manifest, when scanned, then every live image has exactly one row, no `new_path` repeats, and every non-quarantine `new_path` matches the naming pattern in `image-rules.md`.
-- Given the quarantine rows, when each basename is grepped across the scan sources, then none is found.
+- Given the quarantine rows, when each is checked against the scan, then none has a path-resolved reference, none is named by an already-broken link, none has its bare name in script text, and none has `parent-folder/name` in any source. (A bare name in an HTML page that resolves to a different existing file does not keep it live.)
 - Given `scripts/check-links.ps1`, when run, then it reports at or under the baseline.
 
 ## Implementation Notes
 
 - Added `scripts/build-image-manifest.ps1` and generated `scripts/image-manifest.csv` (542 rows: 370 convert, 129 keep, 30 quarantine, 8 merge, 5 rename; no resize rows, the only live webp files are under the caps). Two runs are byte-identical; `check-links.ps1` stays at 128.
-- Unreferenced rule: an image is live if a path-resolved reference hits it, if `parent-folder/name` occurs in any source, if its bare name occurs in script text, or if an already-broken link names it (e.g. `pages/skolan.htm` -> `skola.jpg`; repointing is out of scope). Quarantine is 30, not the inventory's 32: the three issue-35 non-ASCII images are referenced; the old list also lacked none the scan adds.
+- Unreferenced rule: an image is live if a path-resolved reference hits it, if `parent-folder/name` occurs in any source, if its bare name occurs in script text, or if an already-broken link names it (e.g. `pages/skolan.htm` -> `skola.jpg`; repointing is out of scope). Quarantine is 30, not the inventory's 32: the three issue-35 images with non-ASCII names are referenced by the issue-35 page via encoded paths, and `majstang/majst.gif` is quarantined although the inventory did not list it (32 - 3 + 1).
 - Merge keep-rule: most distinct referencing sources, then `shared/`, then shortest path.
 - `6-k-axsn.gif` (issue 6) is a 0-byte file; kept with a warning, not part of this story.
 - Windows is case-insensitive: story 3 must do case-only renames (e.g. `Skolkort.jpg`) with a two-step `git mv`.
 
 ## Spec Change Log
 
+- Review pass 1, finding "AC 3 says no quarantined basename is found in any scan source", but `kaffet46.jpg`, `skol.jpg`, `skol2.jpg`, `Skolkort.jpg`, `bif-1.gif` appear by bare name in archive pages where the reference resolves to a different, existing file. Amended the acceptance criterion to the path-aware rule the script implements. Known-bad state avoided: a name-only scan keeps those files live and misses 6 of the 30. KEEP: path-resolved refs, dangling-link guard, script-text bare-name guard. The script was patched in place rather than reverted and re-derived; its quarantine and merge output did not change.
+
 ## Review Triage Log
+
+| Finding | Verdict | Route | Evidence |
+|---|---|---|---|
+| `-ne` is case-insensitive, so Gran1.GIF x2 and VAPEN4.GIF are `keep` with a changed name | high | patch | Reproduced in CSV; changed to `-cne` (3 rows now `rename`). |
+| Indexed PNG with tRNS is classed opaque | medium | patch | `IsAlphaPixelFormat` is false for 8bpp; now also checks `ImageFlags.HasAlpha`. |
+| Implied `.webp` siblings not in collision check | medium | patch | foo.jpg and transparent foo.png both give foo.webp; convert rows now claim the sibling. |
+| 0-byte/unreadable files enter dedupe | low | patch | Filtered by Readable and Bytes > 0. |
+| Deleted tracked file aborts the run | low | patch | Missing files are skipped with a warning. |
+| Scan sources omit .htaccess/json/xml/svg/txt/php | medium | patch | Widened to every tracked text file outside non-live areas. |
+| No data-*/content/srcset handling; entities not decoded | medium | patch | Patterns widened, srcset split, HtmlDecode variant added. |
+| Sort and `-lt` culture-sensitive; O(n^2) loop | low | patch | Ordinal sort, dictionary-free single-pass loop. |
+| No automated post-conditions | medium | patch | Script now exits 1 on row-count, name-pattern and quarantine-reference violations. |
+| Merge keep-rule differs from image-rules.md | medium | patch | Now: only referenced member, else `shared/`, then ref count, then shortest. Output unchanged. |
+| AC 3 contradicted by bare-name matches in pages | medium | bad_spec | See Spec Change Log; AC amended. |
+| Inventory still lists 32 / 63.5 MB and the issue-35 images | low | patch | Superseded note added to the inventory. |
+| Substring match `1.jpg` in `11.jpg`, `x/a.jpg` in `xx/a.jpg` | low | defer | Errs towards keeping files live; fix needs token-boundary matching. |
+| No reason column or broken-reference report | low | defer | Useful for audit, not required by the intent. |
+| Case-mismatched refs count as valid | low | defer | Pre-existing; Apache would 404 them. |
+| `new_bytes` empty for convert/resize | low | defer | Spec allowed an estimate or empty; story 4 fills it. |
+| Resize/WebP-header paths never exercised | low | defer | No live webp is under the caps; revisit when one is. |
+| Short name kept live by a coincidental script match | false | none | Conservative direction, not a defect. |
+| Alpha scan slow on large PNGs | false | none | Whole run takes about 5 s. |
 
 ## Design Notes
 
