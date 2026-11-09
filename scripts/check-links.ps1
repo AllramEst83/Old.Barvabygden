@@ -5,7 +5,7 @@
 .DESCRIPTION
     Scans .html/.htm/.css/.js files under the repo root, skipping repo-only and untouchable folders
     (web, .ilosoft, .git, _bmad*, .agents, .claude, .vscode, docs, scripts, attic, migration-sources).
-    Each local reference is URL-decoded, stripped of ?query/#fragment and resolved against the file's
+    Fragments (fragments/*.html) are injected into index.html, so their references resolve against the repo root. Each local reference is URL-decoded, stripped of ?query/#fragment and resolved against the file's
     folder (or the repo root for a leading "/", and for fetch() in .js files). References that do not
     exist on disk are "broken".
 
@@ -59,6 +59,7 @@ $broken = New-Object System.Collections.Generic.HashSet[string]
 foreach ($file in Get-Files $root) {
     $rel = $file.FullName.Substring($root.Length).TrimStart('\', '/').Replace('\', '/')
     $isJs = $file.Extension -eq '.js'
+    $isFragment = $rel -match '^(fragments|assets/pages)/' -and $rel -notmatch '^assets/pages/.+\.htm$'
     $text = Read-Text $file.FullName
     $refs = New-Object System.Collections.Generic.HashSet[string]
     foreach ($p in $patterns) {
@@ -71,7 +72,7 @@ foreach ($file in Get-Files $root) {
         if ($clean -eq '') { continue }
         $clean = [System.Uri]::UnescapeDataString($clean)
         if ($clean.StartsWith('/')) { $base = $root; $clean = $clean.TrimStart('/') }
-        elseif ($isJs) { $base = $root }
+        elseif ($isJs -or $isFragment) { $base = $root }   # fetch() targets and fragments resolve against the page that loads them
         else { $base = $file.DirectoryName }
         try { $target = Join-Path $base $clean } catch { continue }
         if (-not (Test-Path -LiteralPath $target)) { [void]$broken.Add("$rel -> $ref") }

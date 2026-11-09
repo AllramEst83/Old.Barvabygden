@@ -91,7 +91,7 @@
     function makeRequest(callback) {
       if (window.fetch) {
         // Modern browsers
-        fetch("./assets/pages/newsletter.html")
+        fetch("./fragments/newsletter.html")
           .then(function (response) {
             if (!response.ok) {
               throw new Error(
@@ -115,7 +115,7 @@
       } else {
         // Fallback for older browsers
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "./assets/pages/newsletter.html");
+        xhr.open("GET", "./fragments/newsletter.html");
         xhr.onload = function () {
           if (xhr.status >= 200 && xhr.status < 300) {
             var content = xhr.responseText;
@@ -212,7 +212,7 @@
     function makeRequest(callback) {
       if (window.fetch) {
         // Modern browsers
-        fetch("./assets/pages/events.html")
+        fetch("./fragments/events.html")
           .then(function (response) {
             if (!response.ok) {
               throw new Error(
@@ -236,7 +236,7 @@
       } else {
         // Fallback for older browsers
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "./assets/pages/events.html");
+        xhr.open("GET", "./fragments/events.html");
         xhr.onload = function () {
           if (xhr.status >= 200 && xhr.status < 300) {
             var content = xhr.responseText;
