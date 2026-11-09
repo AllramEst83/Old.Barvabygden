@@ -30,6 +30,8 @@
 #>
 param(
     [Parameter(Mandatory)][string[]]$Classes,
+    [string]$ManifestPath = (Join-Path $PSScriptRoot 'path-manifest.csv'),
+    [string[]]$DeleteClasses = @(),   # rewritten like moves, then removed with git rm instead of git mv (merged duplicates)
     [switch]$WhatIf
 )
 $ErrorActionPreference = 'Stop'
@@ -40,7 +42,7 @@ $strict = New-Object System.Text.UTF8Encoding($false, $true)
 $cp1252 = [System.Text.Encoding]::GetEncoding(1252)
 $latin1 = [System.Text.Encoding]::GetEncoding(28591)
 
-$manifest = @(Import-Csv (Join-Path $PSScriptRoot 'path-manifest.csv') -Encoding UTF8)
+$manifest = @(Import-Csv $ManifestPath -Encoding UTF8)
 $tracked = @(git -c core.quotepath=off ls-files | Where-Object { $_ })
 $lookup = @{}
 foreach ($t in $tracked) { $lookup[$t.ToLowerInvariant()] = $t }
@@ -48,10 +50,12 @@ foreach ($t in $tracked) { $lookup[$t.ToLowerInvariant()] = $t }
 # old -> new for moving rows that still exist at their old path
 $moveMap = @{}
 foreach ($r in ($manifest | Sort-Object { if ($_.class -eq 'split') { 1 } else { 0 } })) {
-    if ($Classes -contains $r.class -and $lookup.ContainsKey($r.old_path.ToLowerInvariant()) -and -not $moveMap.ContainsKey($r.old_path)) {
+    if (($Classes -contains $r.class -or $DeleteClasses -contains $r.class) -and $lookup.ContainsKey($r.old_path.ToLowerInvariant()) -and $lookup[$r.old_path.ToLowerInvariant()] -ceq $r.old_path -and -not $moveMap.ContainsKey($r.old_path)) {
         $moveMap[$r.old_path] = $r.new_path
     }
 }
+$deleteSet = @{}
+foreach ($r in $manifest) { if ($DeleteClasses -contains $r.class) { $deleteSet[$r.old_path] = $true } }
 $noSource = @{}
 foreach ($r in $manifest) { if ($r.class -in 'pending-source', 'stale') { $noSource[$r.old_path] = $true } }
 $skipDir = '^(web|\.ilosoft|_bmad[^/]*|\.agents|\.claude|\.vscode|docs|scripts)/'
@@ -132,14 +136,14 @@ foreach ($src in $sources) {
             if (-not $lookup.ContainsKey($key)) { return $m.Value }
             $target = $lookup[$key]
             $newTarget = if ($moveMap.ContainsKey($target)) { $moveMap[$target] } else { $target }
-            if ($newSrc -eq $src -and $newTarget -eq $target) { return $m.Value }
+            if ($newSrc -ceq $src -and $newTarget -ceq $target) { return $m.Value }   # case-sensitive: case-only renames must be rewritten
             if ($decoded.StartsWith('/')) { $new = '/' + $newTarget }
             else {
                 $new = Get-Relative $newBase $newTarget
                 if ($decoded.StartsWith('./') -and -not $new.StartsWith('../')) { $new = './' + $new }
             }
             if ($pathPart.Contains('%')) { $new = ($new.Split('/') | ForEach-Object { if ($_ -eq '..' -or $_ -eq '.') { $_ } else { [System.Uri]::EscapeDataString($_) } }) -join '/' }
-            if ($new -eq $decoded) { return $m.Value }
+            if ($new -ceq $decoded) { return $m.Value }
             $script:count++
             return $m.Groups[1].Value + $new + $suffix + $m.Groups[3].Value
         })
@@ -154,6 +158,12 @@ $moved = 0
 foreach ($old in ($moveMap.Keys | Sort-Object)) {
     $new = $moveMap[$old]
     if ($WhatIf) { $moved++; continue }
+    if ($deleteSet.ContainsKey($old)) {
+        git rm -q -- $old
+        if ($LASTEXITCODE -ne 0) { throw "git rm failed: $old" }
+        $moved++
+        continue
+    }
     $dir = Get-Dir $new
     if ($dir -ne '') { New-Item -ItemType Directory -Force -Path (Join-Path $root $dir) | Out-Null }
     git mv -- $old $new
