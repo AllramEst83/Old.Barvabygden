@@ -57,7 +57,7 @@ foreach ($r in $rows | Where-Object { $_.action -eq 'convert' }) {
         })
 }
 Write-Host "To process: $($jobs.Count) of $(@($rows | Where-Object { $_.action -eq 'convert' }).Count) convert images"
-if ($WhatIf -or $jobs.Count -eq 0) { return }
+if ($WhatIf) { return }
 
 $work = Join-Path ([System.IO.Path]::GetTempPath()) "optimize-images-$([guid]::NewGuid().ToString('N'))"
 New-Item -ItemType Directory -Path $work | Out-Null
@@ -83,7 +83,7 @@ $fallbackBytes = @{}
 $webpTotal = 0; $fbTotal = 0; $oldTotal = 0
 
 try {
-    foreach ($group in ($jobs | Group-Object Dir | Sort-Object Name)) {
+    foreach ($group in @($jobs | Group-Object Dir | Sort-Object Name)) {
         $g = @($group.Group)
         Write-Host "$($group.Name): $($g.Count)"
         $abs = { param($j) Join-Path $root $j.Input }
@@ -136,11 +136,21 @@ try {
 function Q([string]$s) { if ($s -match '[,"\r\n]') { '"' + $s.Replace('"', '""') + '"' } else { $s } }
 $lines = New-Object System.Collections.Generic.List[string]
 $lines.Add('old_path,new_path,action,old_bytes,new_bytes')
+# Refreshed from disk on every run (also after an interrupted run or a re-run), so the column never goes stale.
+$sizeTotal = 0; $doneCount = 0
 foreach ($r in $rows) {
-    $nb = if ($fallbackBytes.ContainsKey($r.old_path)) { $fallbackBytes[$r.old_path] } else { $r.new_bytes }
+    $nb = $r.new_bytes
+    if ($r.action -eq 'convert') {
+        $fb = Join-Path $root $r.new_path
+        $wp = Join-Path $root ((Get-DirOf $r.old_path) + '/' + (Get-Stem $r.new_path) + '.webp')
+        if ((Test-Path -LiteralPath $fb) -and (Test-Path -LiteralPath $wp)) {
+            $nb = (Get-Item -LiteralPath $fb).Length; $sizeTotal += $nb + (Get-Item -LiteralPath $wp).Length; $doneCount++
+        }
+    }
     $lines.Add("$(Q $r.old_path),$(Q $r.new_path),$($r.action),$($r.old_bytes),$nb")
 }
 [System.IO.File]::WriteAllText($csv, (($lines -join "`n") + "`n"), (New-Object System.Text.UTF8Encoding($false)))
 
-Write-Host ("Processed {0} images: originals {1} MB -> fallbacks {2} MB + webp {3} MB" -f $jobs.Count, [Math]::Round($oldTotal / 1MB, 1), [Math]::Round($fbTotal / 1MB, 1), [Math]::Round($webpTotal / 1MB, 1))
+Write-Host ("Manifest: {0} convert images done, fallback + webp total {1} MB" -f $doneCount, [Math]::Round($sizeTotal / 1MB, 1))
+if ($jobs.Count) { Write-Host ("Processed {0} images: originals {1} MB -> fallbacks {2} MB + webp {3} MB" -f $jobs.Count, [Math]::Round($oldTotal / 1MB, 1), [Math]::Round($fbTotal / 1MB, 1), [Math]::Round($webpTotal / 1MB, 1)) }
 if ($overCap.Count) { Write-Warning "Over 500 KB after the quality retry:"; $overCap | ForEach-Object { Write-Host "  $_" } }

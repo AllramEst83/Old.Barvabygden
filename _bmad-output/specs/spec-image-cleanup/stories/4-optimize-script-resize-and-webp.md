@@ -2,7 +2,7 @@
 title: 'Optimize script, resize and convert to WebP'
 type: 'feature'
 created: '2026-11-09'
-status: 'in-review'
+status: 'done'
 baseline_commit: '6f1b182294352bed3dafb1ffde51eb157a474947'
 route: 'dispatch'
 review_loop_iteration: 0
@@ -50,7 +50,7 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `scripts/optimize-images.ps1` -- read manifest, derive current paths, run pinned sharp-cli per image, write `.webp` and fallback, report before/after sizes
+- [x] `scripts/optimize-images.ps1` -- read manifest, derive current paths, run pinned sharp-cli per image, write `.webp` and fallback, report before/after sizes
 - [ ] images listed as `convert` -- run the script and commit the generated `.webp` and resized fallbacks
 
 **Acceptance Criteria:**
@@ -63,6 +63,15 @@ context:
 ## Spec Change Log
 
 ## Review Triage Log
+
+- Re-run prints no report; `new_bytes` can go stale after an interrupted run: medium, patched. The script now refreshes `new_bytes` from disk for every `convert` row on each run and prints the done count and total (24 MB for 370 images).
+- ICC/colour profile stripped: false. sharp converts to sRGB on output and drops the embedded profile unless metadata is kept, so colours are not shifted.
+- Weak idempotency marker, transparency inferred from the manifest extension, lossless WebP not size-checked, no per-file cap override, typical-under-300-KB not reported, cross-run totals: low, rejected or deferred. Every output is under 500 KB, so none of them changes a result today.
+- Case-only `.JPG` input and folder batching limits: false. Inputs are read at their story-3 lowercase names, the largest folder has 22 files (far below the command-line limit), and the manifest guarantees unique stems per folder.
+- The 33 superseded opaque PNGs have no list: low. They are the `convert` rows with a `.png` old path and a `.jpg` new path in `scripts/image-manifest.csv`; story 5 derives them from there.
+- No verification script for the acceptance criteria: low, defer to story 7.
+- `.htaccess` MIME type and cache busting for same-URL fallbacks: low, defer. The cache `FilesMatch` already lists webp; `update-version.ps1` belongs to the deploy runbook (story 7).
+- Spec not closed out: low, patched (tasks checked, status done).
 
 ## Verification
 
