@@ -22,6 +22,8 @@ context:
 
 **Always:** Resize and recompress only (long edge at most 1920 px, never upscaled, EXIF stripped, WebP quality 80, lossless WebP for transparent PNG). Fallback keeps its format except opaque PNG, which becomes a new `.jpg`. Idempotent: re-running writes nothing new and reports sizes. Files processed are at their story-3 names (old folder + stem of `new_path` + original extension). Nothing is added to the repo's package files.
 
+**Decisions (human, 2026-11-09):** the encoder is `npx -y sharp-cli@6.1.0` (pins sharp 0.35.4), allowed to run as a pinned download; the quality defaults stand (1920 px, WebP 80, typical file under 300 KB, none over 500 KB).
+
 **Never:** Edit HTML or CSS, crop or retouch, touch GIF/`.ico`, change `quarantine`/`merge` rows, delete an opaque PNG's original (pages still reference it until story 5 repoints them and removes it).
 
 ## I/O & Edge-Case Matrix
@@ -36,11 +38,6 @@ context:
 | Re-run | all outputs exist | no writes, same report | N/A |
 
 </frozen-after-approval>
-
-## Open Questions
-
-1. **Run the encoder through npx?** I tried `npx -y sharp-cli@6.1.0` (pins sharp 0.35.4) and the permission classifier denied it because it downloads and runs npm code. Options: allow it, by adding a Bash permission rule such as `npx -y sharp-cli@6.1.0` or approving it when I retry (the script runs the same pinned command, nothing is added to the repo); you run the encoder yourself and I only write the script; or skip WebP and only resize with .NET `System.Drawing` (no WebP, CAP-4 unmet).
-2. **Quality defaults.** SPEC.md still marks them as awaiting confirmation: long edge 1920 px, WebP quality 80, typical file under 300 KB, none over 500 KB. Keep them, or change?
 
 ## Code Map
 
