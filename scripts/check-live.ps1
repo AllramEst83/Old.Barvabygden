@@ -11,6 +11,10 @@
 .PARAMETER BaseUrl
     Site to check. Default https://barvabygden.se
 
+.PARAMETER DelayMs
+    Pause between requests, in milliseconds (default 700). The host rate-limits bursts with
+    429/503; the script also retries those with a growing wait.
+
 .PARAMETER ListOnly
     Parse .htaccess and print the checks without making requests.
 
@@ -20,7 +24,8 @@
 #>
 param(
     [string]$BaseUrl = 'https://barvabygden.se',
-    [switch]$ListOnly
+    [switch]$ListOnly,
+    [int]$DelayMs = 700
 )
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
@@ -32,6 +37,15 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 function Esc-Url([string]$path) { '/' + (($path.TrimStart('/').Split('/') | ForEach-Object { [System.Uri]::EscapeDataString($_) }) -join '/') }
 
 function Get-Status([string]$url) {
+    for ($try = 0; $try -lt 6; $try++) {
+        Start-Sleep -Milliseconds ($DelayMs + $try * 3000)
+        $r = Get-StatusOnce $url
+        if ($r.code -ne 429 -and $r.code -ne 503) { return $r }
+    }
+    return $r
+}
+
+function Get-StatusOnce([string]$url) {
     $req = [System.Net.HttpWebRequest]::Create($url)
     $req.AllowAutoRedirect = $false
     $req.Method = 'GET'
@@ -65,10 +79,14 @@ if ($ListOnly) {
 $fail = New-Object System.Collections.Generic.List[string]
 function Fail([string]$msg) { $script:fail.Add($msg); Write-Host "FAIL $msg" -ForegroundColor Red }
 
+Write-Host "Checking ${BaseUrl}: $($pairs.Count) redirects, $($blocked.Count) blocked URLs. Takes a few minutes (pause $DelayMs ms between requests)..."
 $homeResp = Get-Status "$BaseUrl/"
 if ($homeResp.code -ne 200) { Fail "/ expected 200, got $($homeResp.code)" }
 
+$done = 0
 foreach ($p in $pairs) {
+    $done++
+    if ($done % 10 -eq 0) { Write-Host "  $done / $($pairs.Count) redirects checked, $($fail.Count) failures so far" }
     $r = Get-Status ($BaseUrl + (Esc-Url $p.old))
     $expected = if ($p.new -eq '/') { '/' } else { $p.new }
     $loc = [string]$r.location
