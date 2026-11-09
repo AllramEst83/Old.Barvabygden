@@ -50,9 +50,9 @@ Live files with spaces 5, non-ASCII 3, uppercase 16 (all repo images: 37, 24, 58
 
 Across live, attic and migration-sources, 80 further duplicate groups exist; they are out of scope.
 
-## Unreferenced live images (32 files, 63.5 MB)
+## Unreferenced live images (32 files, 63.5 MB) - decided: move to attic (CAP-8)
 
-Not named in any page, fragment, archive issue, CSS or JS. Most are 2026 event art kept for future use: the six large PNGs and the event JPGs above, plus `barva-if/BIF 1966.jpg`, `bif-1.gif`, `barvagarden/{barvagarden-watercolor-2026.webp,br.gif}`, `beredda-tillsammans/beredda-tillsammans.webp`, `donations/swish.png`, `events/seniorer/pilangen.png` (2.1 MB), `kaffetaren/{kaffet,kaffet46}.jpg`, `lrf/lrf-logo-trans-bg.png`, `majstang/{maj,maj1,majst.jpg-for-web-NORMAL}.jpg`, `skolan/{Skolkort,skol,skol2,skolbarn f}.jpg`, and three issue-35 images with non-ASCII names.
+Moving them takes live weight from 120 MB to about 56 MB before any processing; the remaining weight is mostly `museum/fence-1.png` and `fence-2.png` (32.7 MB) and `christmas-2026-background.jpg` (3.1 MB). Not named in any page, fragment, archive issue, CSS or JS. Most are 2026 event art kept for future use: the six large PNGs and the event JPGs above, plus `barva-if/BIF 1966.jpg`, `bif-1.gif`, `barvagarden/{barvagarden-watercolor-2026.webp,br.gif}`, `beredda-tillsammans/beredda-tillsammans.webp`, `donations/swish.png`, `events/seniorer/pilangen.png` (2.1 MB), `kaffetaren/{kaffet,kaffet46}.jpg`, `lrf/lrf-logo-trans-bg.png`, `majstang/{maj,maj1,majst.jpg-for-web-NORMAL}.jpg`, `skolan/{Skolkort,skol,skol2,skolbarn f}.jpg`, and three issue-35 images with non-ASCII names.
 
 ## Tooling on this machine
 

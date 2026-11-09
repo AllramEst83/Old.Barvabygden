@@ -1,0 +1,53 @@
+- id: "1"
+  title: Image manifest and unreferenced-image scan
+  description: >-
+    Build scripts/build-image-manifest.ps1 producing scripts/image-manifest.csv for all live images (rename, merge, convert,
+    quarantine, keep) per image-rules.md, with the stronger unreferenced scan for CAP-8; no files move (CAP-5, CAP-8).
+  spec_checkpoint: true
+  done_checkpoint: true
+  invoke_dev_with: &notes >-
+    Use git mv; one commit per story on a feature branch; keep scripts/check-links.ps1 at or under baseline; never touch web/
+    or .ilosoft/; live scope is assets/images/ and barva-bladet/ only. Re-survey first: issues 38-46 were being migrated into
+    barva-bladet/ (uncommitted) when the spec was written, so the counts in image-inventory.md may have grown.
+- id: "2"
+  title: Move unreferenced images to attic
+  description: >-
+    From the manifest quarantine rows, git mv the confirmed-unreferenced live images to attic/unreferenced-images/<original path>
+    and extend attic/README.md (CAP-8).
+  invoke_dev_with: *notes
+- id: "3"
+  title: Normalize names and dedupe inside assets/images
+  description: >-
+    Rename live images to the naming pattern (assets/images and barva-bladet issue images) and merge byte-identical files
+    inside assets/images only, rewriting every reference from the manifest (CAP-1, CAP-2, CAP-5).
+  done_checkpoint: true
+  invoke_dev_with: *notes
+- id: "4"
+  title: Optimize script, resize and convert to WebP
+  description: >-
+    Add scripts/optimize-images.ps1 (sharp via npx, pinned version) and run it from the manifest: resize to the caps and write
+    each .webp plus its fallback; HTML is not touched yet (CAP-3, CAP-4).
+  spec_checkpoint: true
+  done_checkpoint: true
+  invoke_dev_with: *notes
+- id: "5"
+  title: Picture markup across live pages
+  description: >-
+    Rewrite every img of a converted image in index.html, pages/, fragments/ and barva-bladet/ to a picture with a WebP
+    source and the fallback img, keeping attributes; CSS references use the fallback (CAP-4).
+  spec_checkpoint: true
+  done_checkpoint: true
+  invoke_dev_with: *notes
+- id: "6"
+  title: Image redirects and live check
+  description: >-
+    Extend scripts/build-redirects.ps1 with a second marker block of 301s from the image manifest (renamed, merged,
+    format-changed; none for attic moves) and scripts/check-live.ps1 with image redirect checks (CAP-6).
+  invoke_dev_with: *notes
+- id: "7"
+  title: Docs, skills and runbook for the image rules
+  description: >-
+    State the naming, size, format and picture rules in CLAUDE.md, GEMINI.md, the assets and newsletter-migration skills and
+    docs/deploy-runbook.md (image upload and WinSCP delete note), and check a newly migrated issue against them (CAP-7, CAP-6).
+  done_checkpoint: true
+  invoke_dev_with: *notes
