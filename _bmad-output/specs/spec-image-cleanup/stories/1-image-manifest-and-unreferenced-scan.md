@@ -50,10 +50,10 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `scripts/build-image-manifest.ps1` -- survey live images (size, dimensions via System.Drawing, WebP header, PNG alpha scan, SHA-256), classify, normalize names, write CSV and print a summary -- single source of truth for stories 2-6
-- [ ] `scripts/build-image-manifest.ps1` -- stronger reference scan (basename in decoded/encoded/lowercased forms across the sources above) -- confirms CAP-8 quarantine rows
-- [ ] `scripts/image-manifest.csv` -- generate and commit; review the quarantine set against the 32 in `image-inventory.md` and explain differences in Implementation Notes
-- [ ] `_bmad-output/specs/spec-image-cleanup/image-inventory.md` -- refresh totals now that issues 38-46 are in `barva-bladet/`
+- [x] `scripts/build-image-manifest.ps1` -- survey live images (size, dimensions via System.Drawing, WebP header, PNG alpha scan, SHA-256), classify, normalize names, write CSV and print a summary -- single source of truth for stories 2-6
+- [x] `scripts/build-image-manifest.ps1` -- stronger reference scan (basename in decoded/encoded/lowercased forms across the sources above) -- confirms CAP-8 quarantine rows
+- [x] `scripts/image-manifest.csv` -- generate and commit; review the quarantine set against the 32 in `image-inventory.md` and explain differences in Implementation Notes
+- [x] `_bmad-output/specs/spec-image-cleanup/image-inventory.md` -- refresh totals now that issues 38-46 are in `barva-bladet/`
 
 **Acceptance Criteria:**
 - Given the repo, when the script runs twice, then both CSVs are byte-identical and the working tree has no moved or modified image.
@@ -62,6 +62,12 @@ context:
 - Given `scripts/check-links.ps1`, when run, then it reports at or under the baseline.
 
 ## Implementation Notes
+
+- Added `scripts/build-image-manifest.ps1` and generated `scripts/image-manifest.csv` (542 rows: 370 convert, 129 keep, 30 quarantine, 8 merge, 5 rename; no resize rows, the only live webp files are under the caps). Two runs are byte-identical; `check-links.ps1` stays at 128.
+- Unreferenced rule: an image is live if a path-resolved reference hits it, if `parent-folder/name` occurs in any source, if its bare name occurs in script text, or if an already-broken link names it (e.g. `pages/skolan.htm` -> `skola.jpg`; repointing is out of scope). Quarantine is 30, not the inventory's 32: the three issue-35 non-ASCII images are referenced; the old list also lacked none the scan adds.
+- Merge keep-rule: most distinct referencing sources, then `shared/`, then shortest path.
+- `6-k-axsn.gif` (issue 6) is a 0-byte file; kept with a warning, not part of this story.
+- Windows is case-insensitive: story 3 must do case-only renames (e.g. `Skolkort.jpg`) with a two-step `git mv`.
 
 ## Spec Change Log
 

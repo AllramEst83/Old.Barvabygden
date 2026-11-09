@@ -61,3 +61,7 @@ PowerShell 5.1, Git Bash, Python and Node are present. Absent: `cwebp`, ImageMag
 ## References that must follow any change
 
 `index.html`, `pages/*.htm`, `fragments/events.html`, `fragments/newsletter.html`, `barva-bladet/**/*.htm`, `assets/css/*.css` (2 image references), `assets/js` (none found). The `.htaccess` redirect block covers pages and PDFs only, not images.
+
+## Refresh after issues 38-46 landed (Story 1, `scripts/image-manifest.csv`)
+
+Issues 38-46 are now committed under `barva-bladet/`. The manifest script counts 542 live images, 131.7 MB: `assets/images/` 213 files (117.4 MB), `barva-bladet/` 329 files (14.3 MB). The stronger scan quarantines 30 files (61.9 MB), not 32: the three issue-35 images with non-ASCII names are referenced by the archive page (encoded paths), and one more file than before has no reference. Eight duplicates inside `assets/images/` become `merge` rows. Re-run `scripts/build-image-manifest.ps1` for current numbers; the CSV is the source of truth.
