@@ -88,99 +88,10 @@ barva-bladet/2018/barva-news-2018-issue-51.htm -> skytte50.jpg
 barva-bladet/2018/barva-news-2018-issue-51.htm -> sl1900.jpg
 barva-bladet/2018/barva-news-2018-issue-51.htm -> vapen.gif
 barva-bladet/2018/barva-news-2018-issue-51.htm -> yoga50.jpg
-barvaf (2).htm -> ./assets/images/hero/hero-banner.jpg.jpg
-barvaf (2).htm -> bklstap.jpg
-barvaf (2).htm -> bygdeg.jpg
-barvaf (2).htm -> dopd.gif
-barvaf (2).htm -> dopfunt-s.jpg
-barvaf (2).htm -> ekstugan.jpg
-barvaf (2).htm -> horn.gif
-barvaf (2).htm -> kvarns.jpg
-barvaf (2).htm -> kyrkan.jpg
-barvaf (2).htm -> kyrk-sk.jpg
-barvaf (2).htm -> lh.jpg
-barvaf (2).htm -> logan.gif
-barvaf (2).htm -> prost-sk.jpg
-barvaf (2).htm -> utst.htm
-barvaf (2).htm -> vapen.gif
-bb-31.htm -> bilder/logan.gif
-bb-31.htm -> bilder/vapen.gif
-bb-32.htm -> logan.gif
-bb-32.htm -> vapen.gif
-bb-33.htm -> 33%201926.jpg
-bb-33.htm -> 33-44%201.jpg
-bb-33.htm -> 33-44%202.jpg
-bb-33.htm -> 33barn.jpg
-bb-33.htm -> 33bygdeg.jpg
-bb-33.htm -> 33gras.gif
-bb-33.htm -> 33teater1.jpg
-bb-33.htm -> 33teater2.jpg
-bb-33.htm -> 33vals1.jpg
-bb-33.htm -> 33vals2.jpg
-bb-33.htm -> logan.gif
-bb-33.htm -> vapen.gif
-bb-37.htm -> karta.gif
-bb-37.htm -> ljus.gif
-bb-37.htm -> logan.gif
-bb-37.htm -> vapen.gif
-bb-37.htm -> www.barvacruze.se
-bb-37.htm -> www.magner.se
-bb-38.htm -> logan.gif
-bb-38.htm -> rord.jpg
-bb-38.htm -> vapen.gif
-bb-39.htm -> BIF%201966.jpg
-bb-39.htm -> bif-1.gif
-bb-39.htm -> bygdeg%E5rdsbygget.jpg
-bb-39.htm -> logan.gif
-bb-39.htm -> rord.gif
-bb-39.htm -> sm%F6rk%E4rna.gif
-bb-39.htm -> tv%E4ttvagga1.gif
-bb-39.htm -> vapen.gif
-bb-39.htm -> www.rordrommen.nu
-bb-40.htm -> ababok1.jpg
-bb-40.htm -> bif-1.gif
-bb-40.htm -> enket.htm
-bb-40.htm -> enketen.htm
-bb-40.htm -> vapen.gif
-bb-40.htm -> www.duger-du.se
-bb-41.htm -> bif.gif
-bb-41.htm -> majst.gif
-bb-41.htm -> rord.gif
-bb-41.htm -> skol2.jpg
-bb-41.htm -> vapen.gif
-bb-42.htm -> bif.gif
-bb-42.htm -> vapen.gif
-bb-43.htm -> bif.gif
-bb-43.htm -> rord.gif
-bb-43.htm -> Skolkort.jpg
-bb-43.htm -> vapen.gif
-bb-44.htm -> angelicajansson88@hotmail.com
-bb-44.htm -> bif.gif
-bb-44.htm -> rord.gif
-bb-44.htm -> vapen.gif
-bb-45.htm -> bif.gif
-bb-45.htm -> rord.gif
-bb-45.htm -> vapen.gif
-bb-46.htm -> bif46.gif
-bb-46.htm -> jul2015.gif
-bb-46.htm -> kaffet46.jpg
-bb-46.htm -> vapen.gif
-bb-48.html -> bif46.gif
-bb-48.html -> jul2015.gif
-bb-48.html -> kaffet48.jpg
-bb-48.html -> kaffetf48.jpg
-bb-48.html -> skolbarnen48.jpg
-bb-48.html -> vapen.gif
-bb-49x.htm -> bif.gif
-bb-49x.htm -> rord.gif
-bb-49x.htm -> Skolkort.jpg
-bb-49x.htm -> vapen.gif
 fragments/events.html -> ./assets/images/events/[FILE_NAME]
 fragments/events.html -> ./assets/images/events/[HERO_IMAGE]
 fragments/events.html -> ./assets/images/events/[IMAGE_NAME]
 fragments/events.html -> [GOOGLE_MAPS_URL]
-old_index.htm -> nippe50.jpg
-öld_index.html -> nippe50.jpg
 pages/barva.htm -> Välkommen%20till%20Barva!-filer/barva.htm
 pages/barvaf.htm -> ./assets/images/hero/hero-banner.jpg.jpg
 pages/barvaf.htm -> logan.gif
