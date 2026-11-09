@@ -1,3 +1,6 @@
 # Ignore all VS Code settings
 .vscode/
-assets/todo.md
+docs/todo.md
+# Windows/FTP junk
+Thumbs.db
+WS_FTP.LOG
