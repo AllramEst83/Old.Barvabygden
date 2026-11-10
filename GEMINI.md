@@ -23,6 +23,7 @@ A static website for Barvabygden (Barva village), Sweden. This site serves as a 
 
 ## Building and Running
 - **Local Development**: Open `index.html` directly in a browser or serve using a local web server (e.g., `python -m http.server`, `npx serve`).
+- **Server inspection**: a read-only SSH MCP (`ssh-readonly`: `list_dir`, `stat`, `read_text`) can look at the live server; see `.agents/skills/server-ssh-readonly/SKILL.md`. It cannot change anything; never handle credentials.
 - **Deployment**: Run the PowerShell script `./scripts/update-version.ps1` from the root to update version parameters in CSS/JS links for cache busting.
 
 ## Development Conventions

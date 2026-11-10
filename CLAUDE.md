@@ -39,6 +39,12 @@ Content and UI copy are in Swedish.
 - Newsletters: add new issues to `barva-bladet/<year>/` and update `fragments/newsletter.html`.
 - Cache busting is handled by `scripts/update-version.ps1`, run from the repo root.
 
+## Server access (read-only SSH MCP)
+The live server (one.com, SFTP) can be inspected with the `ssh-readonly` MCP, which has only `list_dir`, `stat`
+and `read_text` and cannot change anything. Deploys stay manual in WinSCP (`docs/deploy-runbook.md`).
+- Web root on the server: `/customers/b/5/4/cypv0xbon/webroots/www` (the `/webroots/...` and `/www` paths are symlinks, which the MCP refuses).
+- Never ask for, type or print credentials; the login lives in the user's own MCP registration (`C:\Users\kaywi\.claude.json`). Details, uses and troubleshooting: `.agents/skills/server-ssh-readonly/SKILL.md`. The server's code and setup are in `C:\Users\kaywi\dev\CodedByKay.SSH.MCP` (outside this repo).
+
 ## Local development
 Open `index.html` directly, or serve the folder (e.g. `python -m http.server`, `npx serve`) for full `fetch()`-based fragment loading to work.
 
@@ -46,7 +52,8 @@ Open `index.html` directly, or serve the folder (e.g. `python -m http.server`, `
 Deeper, topic-specific instructions live under `.agents/` (shared across coding
 agents, formerly `.cursor/`):
 - `.agents/rules/` — always-apply conventions (Bootstrap-first, layout patterns).
-- `.agents/skills/` — task-triggered playbooks (asset placement, newsletter
+- `.agents/skills/` — task-triggered playbooks (asset placement, read-only server
+  access over SSH, newsletter
   archive migration, migrating the next newsletter issue end-to-end, legacy
   page modernization, reader mode, Swedish a11y/content, vanilla JS patterns,
   site layout sections).
