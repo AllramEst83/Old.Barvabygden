@@ -30,7 +30,7 @@ Content and UI copy are in Swedish.
 - Prefer Bootstrap utilities/components before writing custom CSS or JS.
 - Vanilla HTML/CSS/JS only — do not introduce frameworks or build tooling unless explicitly requested.
 - New standalone pages go in `pages/`, fragments in `fragments/`, images in a topic folder under `assets/images/`; don't add new loose top-level files.
-- Run `scripts/check-links.ps1` after moving files or editing paths; it must stay at or under `scripts/link-baseline.txt`.
+- Run `scripts/check-links.ps1` after moving files or editing paths; it must stay at or under `scripts/link-baseline.txt`. After adding, moving or renaming images also run `scripts/check-images.ps1`.
 - Keep diffs focused; when touching legacy files, improve only what you touch rather than rewriting broadly.
 - Images: names are lowercase ASCII with hyphens, matching `^[a-z0-9]+(-[a-z0-9]+)*\.(webp|jpg|png|gif|ico)$` (å/ä become a, ö becomes o; no spaces, underscores or uppercase). Long edge at most 1920 px, file at most 500 KB. Photos are JPG, not PNG; PNG only for transparency or line art; GIFs stay as they are.
 - Every `.jpg`/`.png` has a `.webp` sibling and is used as `<picture><source type="image/webp" srcset="x.webp"><img src="x.jpg" ...></picture>` (all `<img>` attributes stay on the inner `<img>`; CSS `url()` and lightbox `data-full` use the fallback). For new images: name them, run `scripts/optimize-images.ps1 -Folder <dir>`, `git add` them, run `scripts/apply-image-pictures.ps1`, then `scripts/check-images.ps1` (must pass).

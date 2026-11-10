@@ -62,11 +62,14 @@ each, and some images removed. Deploy it with the same steps; these points are s
 - **Upload size.** `assets/images/` and `barva-bladet/` now hold about 27 MB, down from about 120 MB.
   Upload `.htaccess` last, as in step 2, so the image redirects never point at files that are missing.
 - **Old copies stay on the server.** Because step 1 keeps "Delete files" off, renamed, merged and
-  format-changed images (and the removed PNGs and attic images) leave their old copies on the server.
-  That is harmless: the 301 redirects answer before the file is looked up. To tidy up, run a second
-  synchronize limited to `assets/images/` and `barva-bladet/` with "Delete files" on and read the
-  preview first: only old image names should be offered for deletion. The root media files are not in
-  those folders, so they stay.
+  format-changed images and the removed PNGs leave their old copies on the server. Those are harmless:
+  the 301 redirects answer before the file is looked up. The 30 images moved to `attic/` have no
+  redirect, so their old files stay publicly reachable (and heavy, about 62 MB) until you delete them.
+  To remove all old copies, run a second synchronize limited to `assets/images/` and `barva-bladet/`
+  with "Delete files" on. Take a backup of those two server folders first and read the preview: only
+  old image names should be offered for deletion, and anything that exists only on the server (an
+  upload that never was in the repo) would be offered too. The root media files are not in those
+  folders, so they stay.
 - **Case-only renames.** 16 images changed only in case (for example `Gran1.GIF` to `gran1.gif`).
   WinSCP on Windows may treat the two names as the same file, so the lowercase file might not be
   uploaded. `./scripts/check-live.ps1` catches it (the redirect target answers 404). If it does,
@@ -76,7 +79,11 @@ each, and some images removed. Deploy it with the same steps; these points are s
   and one archive issue in a browser.
 - **Cache.** Fallback JPGs that were resized in place keep their URL and are cached for a week;
   `scripts/update-version.ps1` (step 1) refreshes the CSS and JS links, but returning visitors may
-  see an old image until their cache expires.
+  see an old image (same picture, larger file) until their cache expires. That is acceptable; no
+  action is needed.
+- **If `.webp` files are served with the wrong type** (`check-live.ps1` reports a Content-Type
+  failure): the `AddType image/webp .webp` line in `.htaccess` was not picked up. Re-upload
+  `.htaccess`; if it persists, ask one.com support to enable mod_mime for the site.
 - **New images later.** Follow the image rules in `CLAUDE.md`: name, `optimize-images.ps1 -Folder`,
   `apply-image-pictures.ps1`, `check-images.ps1`, then deploy as usual.
 

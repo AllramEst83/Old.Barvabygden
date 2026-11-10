@@ -9,7 +9,9 @@
       - a file over 500 KB, or an image with a long edge over 1920 px
       - a .jpg/.png without a .webp sibling
       - byte-identical files inside assets/images/
-      - an <img> of a .jpg/.png that has a .webp sibling but is not inside a <picture>
+      - an <img> of a .jpg/.png that has a .webp sibling but is not inside a <picture>, or a
+        <source srcset> that points to a missing file
+      - an image file that is not tracked by git (it would not be checked: git add it first), or a corrupt image
     Run it after adding or migrating images (git add new files first; the script reads `git ls-files`).
     Unreadable images are reported as warnings only.
 
@@ -36,11 +38,17 @@ $namePat = '^[a-z0-9]+(-[a-z0-9]+)*\.(webp|jpg|png|gif|ico)$'
 $tracked = @(git -c core.quotepath=off ls-files | Where-Object { $_ })
 $lookup = @{}
 foreach ($t in $tracked) { $lookup[$t.ToLowerInvariant()] = $t }
+if ($tracked.Count -eq 0) { Write-Host 'FAIL git ls-files returned nothing; run from a git checkout with git on the PATH.' -ForegroundColor Red; exit 1 }
 $images = @($tracked | Where-Object { $_ -match '^(assets/images|barva-bladet)/' -and $_ -match '(?i)\.(jpe?g|png|gif|webp|ico)$' -and (Test-Path -LiteralPath (Join-Path $root $_)) })
 $scoped = if ($Path) { $p = $Path.Trim('/\').Replace('\', '/') + '/'; @($images | Where-Object { $_.StartsWith($p, [StringComparison]::OrdinalIgnoreCase) }) } else { $images }
 
 $fail = New-Object System.Collections.Generic.List[string]
 $warn = New-Object System.Collections.Generic.List[string]
+
+# Images that exist but are not tracked would be invisible to every check below.
+foreach ($u in @(git -c core.quotepath=off ls-files --others --exclude-standard -- assets/images barva-bladet | Where-Object { $_ -match '(?i)\.(jpe?g|png|gif|webp|ico)$' })) {
+    $fail.Add("untracked image (git add it so it is checked): $u")
+}
 
 foreach ($f in $scoped) {
     $name = $f -replace '^.*/', ''
@@ -52,7 +60,7 @@ foreach ($f in $scoped) {
         try {
             $img = [System.Drawing.Image]::FromFile((Join-Path $root $f))
             try { if ([Math]::Max($img.Width, $img.Height) -gt $maxEdge) { $fail.Add("long edge $([Math]::Max($img.Width, $img.Height)) px: $f") } } finally { $img.Dispose() }
-        } catch { $warn.Add("unreadable image: $f") }
+        } catch { $fail.Add("unreadable or corrupt image: $f") }
     } elseif ($len -eq 0) { $warn.Add("empty file: $f") }
 }
 
@@ -89,7 +97,15 @@ $pages = $tracked | Where-Object { $_ -match '\.html?$' -and ($_ -eq 'index.html
 foreach ($page in $pages) {
     $baseDir = if ($page -match '^fragments/' -or -not $page.Contains('/')) { '' } else { $page.Substring(0, $page.LastIndexOf('/')) }
     foreach ($m in $re.Matches((Read-Text $page))) {
-        if ($m.Value -match '^(?i)<picture') { continue }
+        if ($m.Value -match '^(?i)<picture') {
+            $ss = [regex]::Match($m.Value, '(?is)srcset\s*=\s*"([^"]*)"')
+            if ($ss.Success) {
+                $sp = ($ss.Groups[1].Value.Trim() -split '[?#]')[0]
+                try { $sk = (Resolve-Ref $baseDir ([System.Uri]::UnescapeDataString($sp))).ToLowerInvariant() } catch { $sk = '' }
+                if ($sk -and -not $lookup.ContainsKey($sk)) { $fail.Add("<source srcset> points to a missing file: $page -> $sp") }
+            }
+            continue
+        }
         $sm = $srcRe.Match($m.Value)
         if (-not $sm.Success) { continue }
         $ref = (@($sm.Groups[1], $sm.Groups[2], $sm.Groups[3]) | Where-Object { $_.Success } | Select-Object -First 1).Value.Trim()

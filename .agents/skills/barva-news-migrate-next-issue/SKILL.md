@@ -80,7 +80,7 @@ lowercase ASCII with hyphens (so `Bygdegården--73.jpg` becomes
 saved as PNG is converted to JPG first (update its `src`). After copying, run
 `./scripts/optimize-images.ps1 -Folder barva-bladet/<year>/images/issue-<N>`
 (resizes in place and writes the `.webp` siblings), `git add` the new files, then
-`./scripts/apply-image-pictures.ps1` to wrap the `<img>` tags in `<picture>`.
+`./scripts/apply-image-pictures.ps1` to wrap the `<img>` tags in `<picture>` (it scans every live page, so run it with `-WhatIf` first and confirm that only the new issue's page changes). Keep the `width` and `height` attributes the sibling issues use.
 
 ---
 
@@ -167,7 +167,7 @@ place, the pending source is fully superseded — remove it from
   `./scripts/build-redirects.ps1`. Only those issue's lines should change in
   `git diff .htaccess` (from `/` to the migrated page). Don't re-run
   `scripts/build-manifest.ps1`; the manifest is the record of the moves now.
-- Do **not** commit anything unless the user explicitly asks — this skill's
+- Staging with `git add` is fine (the image scripts read `git ls-files`), but do **not** commit anything unless the user explicitly asks — this skill's
   job ends at a clean, verified working-tree change.
 - Run `./scripts/check-images.ps1`; it must pass for the new issue's images.
 - Report: issue number and year chosen, files created, image count migrated, the `check-images.ps1` result,
