@@ -10,3 +10,6 @@
 - source_spec: `_bmad-output/specs/spec-image-cleanup/stories/1-image-manifest-and-unreferenced-scan.md`
   summary: Exercise the WebP header and resize paths of build-image-manifest.ps1
   evidence: No live webp is under the caps, so `Get-WebpSize` and the `resize` branch have never run on real data; Story 1 review.
+- source_spec: `_bmad-output/specs/spec-image-cleanup/stories/6-image-redirects-and-live-check.md`
+  summary: Document in the deploy runbook that the 16 case-only image renames need a manual check after a WinSCP synchronize.
+  evidence: Local Windows names compare case-insensitively, so the server may keep only the old-case file; the runbook (story 7) should say to run check-live.ps1 and delete the old-case file by hand if a lowercase URL answers 404.
