@@ -2,7 +2,8 @@
 title: 'Picture markup across live pages'
 type: 'feature'
 created: '2026-11-09'
-status: 'draft'
+status: 'in-progress'
+baseline_commit: 'c1c3f857fa2b72bd99d86ce6398ea6693a5e306f'
 route: 'dispatch'
 review_loop_iteration: 0
 context:
