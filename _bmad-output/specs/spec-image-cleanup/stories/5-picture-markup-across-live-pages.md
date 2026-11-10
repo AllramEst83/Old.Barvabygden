@@ -2,7 +2,7 @@
 title: 'Picture markup across live pages'
 type: 'feature'
 created: '2026-11-09'
-status: 'in-review'
+status: 'done'
 baseline_commit: 'c1c3f857fa2b72bd99d86ce6398ea6693a5e306f'
 route: 'dispatch'
 review_loop_iteration: 0
@@ -51,8 +51,8 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `scripts/rewrite-links.ps1` -- add `data-full` to the reference patterns
-- [ ] `scripts/apply-image-pictures.ps1` -- step one (repoint and remove superseded PNGs) and step two (wrap images), with `-WhatIf` and a summary
+- [x] `scripts/rewrite-links.ps1` -- add `data-full` to the reference patterns
+- [x] `scripts/apply-image-pictures.ps1` -- step one (repoint and remove superseded PNGs) and step two (wrap images), with `-WhatIf` and a summary
 - [ ] live pages and `assets/css/site.css` -- run the script and commit the result
 
 **Acceptance Criteria:**
@@ -66,6 +66,17 @@ context:
 ## Spec Change Log
 
 ## Review Triage Log
+
+- Event cards lose the WebP source (`site.js` skeleton wrapper inserted between `<source>` and `<img>`): high, patched. The wrapper now goes around the `<picture>`; checked in Chrome that the event picture keeps `SOURCE,IMG` as children.
+- Carousel image height (`height:100%` inside a flex wrapper) and rental-gallery scroll-snap / `flex-shrink-0` broken by the extra `<picture>` box: high, patched with one rule, `picture { display: contents; }` in `site.css`. Checked in Chrome: gallery images 220x280, first carousel slide fills its 1296x480 wrapper.
+- `wind-mill.png` still referenced from issues 49 and 50: low, defer. The reference (`./assets/images/branding/...`, relative to the issue folder) never resolved; the PNG is removed but nothing worked before either, and the link check baseline already lists it.
+- Unresolved images only counted, no list: low, defer. The 84 are the known dangling references in the link baseline.
+- Regex pass matches `<img>` in comments or `<noscript>`: low, no change. None are wrapped in the committed files.
+- New-event template, CLAUDE.md and skills do not describe the picture convention: medium, defer to story 7 (CAP-7).
+- `.htaccess` `AddType image/webp` and expires: low, defer to story 7.
+- Lightbox `data-full` serves the JPG fallback: no change, decided in the intent. `srcset` missing from the `rewrite-links.ps1` patterns: low, defer.
+- Layout of legacy floats and `d-block`: partly covered by the `display: contents` rule and the browser checks above; archive issues 19, 35, 46 were opened earlier with no broken images.
+- Cache busting for the changed `site.css` and `site.js`: low, defer to the deploy step (`scripts/update-version.ps1`).
 
 ## Verification
 

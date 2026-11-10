@@ -1042,3 +1042,8 @@ body.bb-legacy .back-link:focus {
     margin-bottom: 0.5rem !important;
   }
 }
+
+/* <picture> (WebP source + fallback img) must not add a layout box: the inner img keeps behaving as a direct child (flex items, % heights, d-block). */
+picture {
+  display: contents;
+}

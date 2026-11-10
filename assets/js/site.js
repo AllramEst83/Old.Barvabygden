@@ -380,8 +380,10 @@ window.addEventListener("DOMContentLoaded", () => {
           });
         }
 
-        img.parentNode.insertBefore(wrapper, img);
-        wrapper.appendChild(img);
+        // Wrap the <picture> (if any) so its WebP <source> stays a direct sibling of the <img>
+        const anchor = img.closest("picture") || img;
+        anchor.parentNode.insertBefore(wrapper, anchor);
+        wrapper.appendChild(anchor);
         img.style.opacity = "0";
         img.style.transition = "opacity 0.3s ease";
 
