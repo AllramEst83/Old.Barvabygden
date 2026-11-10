@@ -2,7 +2,7 @@
 title: 'Picture markup across live pages'
 type: 'feature'
 created: '2026-11-09'
-status: 'in-progress'
+status: 'in-review'
 baseline_commit: 'c1c3f857fa2b72bd99d86ce6398ea6693a5e306f'
 route: 'dispatch'
 review_loop_iteration: 0
@@ -75,3 +75,9 @@ context:
 
 **Manual checks:**
 - Open `index.html` and a few pages in a browser; confirm images and the lightbox show.
+
+- Added `scripts/apply-image-pictures.ps1` and `data-full` to the reference patterns of `scripts/rewrite-links.ps1`. Step 1 repointed 43 references in 6 files to the `.jpg` of 33 opaque PNGs and removed the PNGs with `git rm`. Step 2 wrapped 612 `<img>` in 84 files (`index.html`, `pages/`, `fragments/`, `barva-bladet/`). 84 `<img>` targets resolve to nothing (already-broken bare names such as `skola.jpg`) and were left alone. Re-run changes nothing.
+- Also fixed 16 `data-full` values in `pages/stiftelsen-barva-bygdegard.htm` that pointed at `../images/barvagarden/...` (broken since the restructure); one named a file renamed in story 3 and one the merged `danshall.jpg` (now `folkdans/danshall.jpg`). Story 3 missed them because `data-full` was not a rewritten attribute.
+- Verification: `check-links.ps1` 128 (baseline). A scan finds 612 `<picture>` elements, every WebP source exists, and no `<img>` of an image with a WebP sibling is left unwrapped. In Chrome on a local server: `index.html` loads 17 WebP images with none broken (one placeholder `<img src="">` is pre-existing); `utst`, `kyrkan`, the stiftelsen page and archive issues 19, 35 and 46 show all images; the only broken images are the 4 known dangling ones on `skolan.htm`.
+- CSS: `site.css` now points at `background-pattern-1.jpg` (fallback only, no `image-set()`). The 33 superseded PNGs are removed; story 6 adds redirects for their URLs.
+- Live image weight (WebP and fallbacks together) is now 27.2 MB across 874 files, no file over 500 KB: the success signal of SPEC.md (under 40 MB) is met.

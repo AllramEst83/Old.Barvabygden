@@ -67,9 +67,9 @@ foreach ($r in $manifest) { if ($r.class -in 'pending-source', 'stale') { $noSou
 $skipDir = '^(web|\.ilosoft|_bmad[^/]*|\.agents|\.claude|\.vscode|docs|scripts)/'
 
 $patterns = @(
-    '(?is)(\b(?:href|src|background|poster|data-src)\s*=\s*")([^"]*)(")',
-    "(?is)(\b(?:href|src|background|poster|data-src)\s*=\s*')([^']*)(')",
-    '(?is)(\b(?:href|src|background|poster|data-src)\s*=\s*)([^\s"''>]+)()',
+    '(?is)(\b(?:href|src|background|poster|data-src|data-full)\s*=\s*")([^"]*)(")',
+    "(?is)(\b(?:href|src|background|poster|data-src|data-full)\s*=\s*')([^']*)(')",
+    '(?is)(\b(?:href|src|background|poster|data-src|data-full)\s*=\s*)([^\s"''>]+)()',
     '(?is)(url\(\s*["'']?)([^)"'']+?)(["'']?\s*\))',
     '(?is)(fetch\(\s*["''])([^"'']+)(["''])'
 )

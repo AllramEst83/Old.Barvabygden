@@ -29,7 +29,7 @@
   --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 
   /* ================== Background images =======================*/
-  --barvadagen-bg: url("../images/patterns/background-pattern-1.png"),
+  --barvadagen-bg: url("../images/patterns/background-pattern-1.jpg"),
     rgb(232 251 229 / 85%);
 }
 
