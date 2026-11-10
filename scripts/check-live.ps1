@@ -5,7 +5,9 @@
 .DESCRIPTION
     Reads the generated redirect block from .htaccess and checks, for each line, that the old URL
     answers 301 with a Location that matches the new URL, and that the new URL answers 200. Also
-    checks that repo-only URLs answer 404 and that the home page answers 200.
+    checks that repo-only URLs answer 404 and that the home page answers 200. Image redirects (the
+    "image redirects" block) are checked the same way and counted separately, and a sample of
+    WebP files must answer 200 with Content-Type image/webp.
     Exit code 0 when everything passes, 1 otherwise. Makes real HTTP requests: run it after upload.
 
 .PARAMETER BaseUrl
@@ -55,7 +57,7 @@ function Get-StatusOnce([string]$url) {
         if ($null -eq $_.Exception.Response) { return @{ code = 0; location = '' } }
         $resp = $_.Exception.Response
     }
-    $result = @{ code = [int]$resp.StatusCode; location = $resp.Headers['Location'] }
+    $result = @{ code = [int]$resp.StatusCode; location = $resp.Headers['Location']; type = [string]$resp.ContentType }
     $resp.Close()
     return $result
 }
@@ -70,7 +72,18 @@ foreach ($line in [System.IO.File]::ReadAllLines((Join-Path $root '.htaccess'), 
 if (-not $pairs.Count) { Write-Host 'No redirect lines found in .htaccess; run scripts/build-redirects.ps1.' -ForegroundColor Red; exit 1 }
 $blocked = @('/docs/', '/scripts/', '/attic/', '/migration-sources/', '/README.md', '/CLAUDE.md', '/.agents/', '/.claude/', '/.git/', '/scripts/path-manifest.csv')
 
+$imgPairs = @($pairs | Where-Object { $_.old -match '^/(assets/images|barva-bladet)/' -and $_.old -match '(?i)\.(jpe?g|png|gif|webp|ico)$' })
+# A few WebP files that must be served with the right MIME type (first, middle and last image redirect targets).
+$webpSamples = @()
+if ($imgPairs.Count) {
+    foreach ($i in @(0, [int][Math]::Floor($imgPairs.Count / 2), ($imgPairs.Count - 1)) | Select-Object -Unique) {
+        $t = $imgPairs[$i].new
+        if ($t -match '(?i)\.(jpe?g|png)$') { $webpSamples += ($t -replace '(?i)\.(jpe?g|png)$', '.webp') }
+    }
+}
+
 if ($ListOnly) {
+    Write-Host "$($imgPairs.Count) of the redirects are image redirects; $($webpSamples.Count) WebP files are checked for Content-Type."
     Write-Host "$($pairs.Count) redirects to check, $($blocked.Count) blocked URLs, plus the home page."
     $pairs | Select-Object -First 5 | ForEach-Object { Write-Host "  $($_.old) -> $($_.new)" }
     exit 0
@@ -97,12 +110,18 @@ foreach ($p in $pairs) {
     if ($n.code -ne 200) { Fail "$($p.old): new URL $expected expected 200, got $($n.code)" }
 }
 
+foreach ($w in $webpSamples) {
+    $r = Get-Status ($BaseUrl + $w)
+    if ($r.code -ne 200) { Fail "$w expected 200, got $($r.code)" }
+    elseif ($r.type -notmatch '^image/webp') { Fail "$w expected Content-Type image/webp, got $($r.type)" }
+}
+
 foreach ($b in $blocked) {
     $r = Get-Status ($BaseUrl + $b)
     if ($r.code -ne 404) { Fail "$b expected 404, got $($r.code)" }
 }
 
-Write-Host "Checked $($pairs.Count) redirects, $($blocked.Count) blocked URLs: $($fail.Count) failures."
+Write-Host "Checked $($pairs.Count) redirects ($($imgPairs.Count) image), $($webpSamples.Count) WebP types, $($blocked.Count) blocked URLs: $($fail.Count) failures."
 if ($fail.Count) { exit 1 }
 Write-Host 'All live checks passed.' -ForegroundColor Green
 exit 0
