@@ -46,6 +46,7 @@ description: Migrate legacy Barva-Bladet issues into the modern archive by match
    - copy image file into `barva-bladet/<year>/images/issue-<issue>/`
    - update issue HTML `src` paths to `./images/issue-<issue>/<filename>`
    - if two files share same name, keep both with safe suffixes and update references
+   - apply the image rules (see `assets-and-paths`): lowercase ASCII hyphenated names, then `./scripts/optimize-images.ps1 -Folder barva-bladet/<year>/images/issue-<issue>`, `git add` the files, and `./scripts/apply-image-pictures.ps1` to wrap the `<img>` tags in `<picture>`
 6. Insert/normalize back-link in each moved issue HTML using the standard pattern:
    - `href="../../index.html"`
    - `class="back-link"`
@@ -54,7 +55,7 @@ description: Migrate legacy Barva-Bladet issues into the modern archive by match
    - eliminate replacement char `�`
    - restore Swedish letters (`å`, `ä`, `ö`, `Å`, `Ä`, `Ö`) or safe entities
 8. Update year accordion and issue cards in `fragments/newsletter.html`.
-9. Validate every issue and image link points to an existing file.
+9. Validate every issue and image link points to an existing file, and run `./scripts/check-images.ps1` (names, size, WebP sibling, `<picture>` markup); it must pass.
 10. Remove the consumed sources from `migration-sources/barva-bladet/` and repoint the issue's redirects (manifest rows → `migrated`, then `./scripts/build-redirects.ps1`); see `barva-news-migrate-next-issue` Step 5.
 
 ## Year mapping rules

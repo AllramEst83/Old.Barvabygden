@@ -74,6 +74,14 @@ legacy `logan.gif`/`vapen.gif` references for the shared
 sibling issues (187×145 / 105×130) rather than the old file's own declared
 size.
 
+Apply the image rules from `assets-and-paths` to every image you copy in: names
+lowercase ASCII with hyphens (so `Bygdegården--73.jpg` becomes
+`bygdegarden-73.jpg`), long edge at most 1920 px, file at most 500 KB. A photo
+saved as PNG is converted to JPG first (update its `src`). After copying, run
+`./scripts/optimize-images.ps1 -Folder barva-bladet/<year>/images/issue-<N>`
+(resizes in place and writes the `.webp` siblings), `git add` the new files, then
+`./scripts/apply-image-pictures.ps1` to wrap the `<img>` tags in `<picture>`.
+
 ---
 
 ## Step 2 — Decide whether mojibake-fixing is needed
@@ -161,7 +169,8 @@ place, the pending source is fully superseded — remove it from
   `scripts/build-manifest.ps1`; the manifest is the record of the moves now.
 - Do **not** commit anything unless the user explicitly asks — this skill's
   job ends at a clean, verified working-tree change.
-- Report: issue number and year chosen, files created, image count migrated,
+- Run `./scripts/check-images.ps1`; it must pass for the new issue's images.
+- Report: issue number and year chosen, files created, image count migrated, the `check-images.ps1` result,
   U+FFFD before → after (or "skipped, source was clean"), the case-sanity
   check result, the exact newsletter.html section added, and the list of
   source files deleted and the redirect lines repointed.

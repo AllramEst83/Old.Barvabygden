@@ -18,13 +18,23 @@
     - A result over 500 KB is retried at quality 70; if it is still over, it is kept and listed.
     - The manifest's new_bytes column is filled with the fallback size.
 
+.PARAMETER Folder
+    For NEW images (not in the manifest), e.g. barva-bladet/2016/images/issue-48. Every .jpg and .png in the
+    folder (recursive) whose name already matches the naming rule and that has no .webp yet is resized and
+    recompressed in place and gets a .webp sibling; a PNG keeps its format (transparency is assumed) and
+    gets a lossless WebP. The manifest is not touched. Afterwards `git add` the files and run
+    ./scripts/apply-image-pictures.ps1 to wrap the <img> tags, then ./scripts/check-images.ps1.
+
 .PARAMETER WhatIf
     List what would be processed; write nothing.
 
 .EXAMPLE
     ./scripts/optimize-images.ps1
 #>
-param([switch]$WhatIf)
+param(
+    [string]$Folder = '',   # new images: process the .jpg/.png files of this repo-relative folder instead of the manifest
+    [switch]$WhatIf
+)
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
@@ -43,7 +53,19 @@ function Get-DirOf([string]$p) { $p.Substring(0, $p.LastIndexOf('/')) }
 
 # ---- Plan ----
 $jobs = New-Object System.Collections.Generic.List[object]
-foreach ($r in $rows | Where-Object { $_.action -eq 'convert' }) {
+if ($Folder) {
+    $abs = Join-Path $root $Folder
+    if (-not (Test-Path -LiteralPath $abs -PathType Container)) { throw "Folder not found: $Folder" }
+    foreach ($f in Get-ChildItem -LiteralPath $abs -Recurse -File | Where-Object { $_.Extension -match '(?i)^\.(jpe?g|png)$' }) {
+        $rel = $f.FullName.Substring($root.Length).TrimStart('\', '/').Replace('\', '/')
+        if ($f.Name -cnotmatch '^[a-z0-9]+(-[a-z0-9]+)*\.(jpg|png)$') { Write-Warning "Name breaks the naming rule, rename it first: $rel"; continue }
+        $dir = Get-DirOf $rel
+        $stem = Get-Stem $rel
+        if (Test-Path -LiteralPath (Join-Path $root "$dir/$stem.webp")) { continue }
+        $jobs.Add([pscustomobject]@{ Row = $null; Dir = $dir; Stem = $stem; Input = $rel; Fallback = $rel; Webp = "$dir/$stem.webp"; Transparent = ($f.Extension -match '(?i)^\.png$'); OldBytes = $f.Length })
+    }
+}
+foreach ($r in @($rows | Where-Object { -not $Folder -and $_.action -eq 'convert' })) {
     $dir = Get-DirOf $r.old_path
     $stem = Get-Stem $r.new_path
     $input = "$dir/$stem$(Get-Ext $r.old_path)"
@@ -56,7 +78,7 @@ foreach ($r in $rows | Where-Object { $_.action -eq 'convert' }) {
             Transparent = ($fallback -like '*.png'); OldBytes = (Get-Item -LiteralPath (Join-Path $root $input)).Length
         })
 }
-Write-Host "To process: $($jobs.Count) of $(@($rows | Where-Object { $_.action -eq 'convert' }).Count) convert images"
+Write-Host $(if ($Folder) { "To process: $($jobs.Count) new images in $Folder" } else { "To process: $($jobs.Count) of $(@($rows | Where-Object { $_.action -eq 'convert' }).Count) convert images" })
 if ($WhatIf) { return }
 
 $work = Join-Path ([System.IO.Path]::GetTempPath()) "optimize-images-$([guid]::NewGuid().ToString('N'))"
@@ -106,7 +128,7 @@ try {
                 # Replace an existing fallback only when the result is smaller; a new .jpg beside a .png is always written.
                 if (-not $sameFile -or $newLen -lt $j.OldBytes) { Move-Item -LiteralPath $outFile -Destination $target -Force }
                 else { $newLen = $j.OldBytes }
-                $fallbackBytes[$j.Row.old_path] = $newLen
+                if ($j.Row) { $fallbackBytes[$j.Row.old_path] = $newLen }
                 if ($newLen -gt $maxBytes) { $overCap.Add("$($j.Fallback) $([Math]::Round($newLen / 1KB)) KB (fallback)") }
                 $fbTotal += $newLen; $oldTotal += $j.OldBytes
             }
@@ -130,6 +152,12 @@ try {
     }
 } finally {
     Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
+}
+
+if ($Folder) {
+    Write-Host ("Processed {0} images: originals {1} MB -> fallbacks {2} MB + webp {3} MB" -f $jobs.Count, [Math]::Round($oldTotal / 1MB, 1), [Math]::Round($fbTotal / 1MB, 1), [Math]::Round($webpTotal / 1MB, 1))
+    if ($overCap.Count) { Write-Warning 'Over 500 KB after the quality retry:'; $overCap | ForEach-Object { Write-Host "  $_" } }
+    return
 }
 
 # ---- Record fallback sizes in the manifest (same layout as build-image-manifest.ps1) ----

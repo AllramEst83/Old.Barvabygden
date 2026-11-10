@@ -9,9 +9,10 @@ repeatable procedure for it. Ordinary later deploys use steps 1–3 only.
 1. On `feature/folder-restructure` (or after merging it), regenerate the generated files so they
    match the manifest:
    ```powershell
-   ./scripts/build-redirects.ps1           # .htaccess 301 block
+   ./scripts/build-redirects.ps1           # .htaccess 301 blocks (pages, PDFs and images)
    ./scripts/build-server-delete-list.ps1  # scripts/server-delete-list.txt
    ./scripts/check-links.ps1               # must report: No new broken references
+   ./scripts/check-images.ps1              # image rules: names, size, WebP, picture markup
    ./scripts/update-version.ps1            # cache-busting version in index.html
    ```
 2. Serve locally (`python -m http.server`) and open `index.html`, one page from `pages/`, both
@@ -53,6 +54,32 @@ Never upload: `docs/`, `scripts/`, `attic/`, `migration-sources/`, `_bmad/`, `_b
 5. **Re-run step 3.** Redirects (mod_alias `Redirect`) fire whether or not the old copy still exists,
    so the result should be identical.
 
+## Images
+
+The image cleanup replaced many image files: new names, resized JPG/PNG fallbacks, a `.webp` next to
+each, and some images removed. Deploy it with the same steps; these points are specific to images.
+
+- **Upload size.** `assets/images/` and `barva-bladet/` now hold about 27 MB, down from about 120 MB.
+  Upload `.htaccess` last, as in step 2, so the image redirects never point at files that are missing.
+- **Old copies stay on the server.** Because step 1 keeps "Delete files" off, renamed, merged and
+  format-changed images (and the removed PNGs and attic images) leave their old copies on the server.
+  That is harmless: the 301 redirects answer before the file is looked up. To tidy up, run a second
+  synchronize limited to `assets/images/` and `barva-bladet/` with "Delete files" on and read the
+  preview first: only old image names should be offered for deletion. The root media files are not in
+  those folders, so they stay.
+- **Case-only renames.** 16 images changed only in case (for example `Gran1.GIF` to `gran1.gif`).
+  WinSCP on Windows may treat the two names as the same file, so the lowercase file might not be
+  uploaded. `./scripts/check-live.ps1` catches it (the redirect target answers 404). If it does,
+  delete the old-case file on the server by hand and upload the new one.
+- **Verify.** `./scripts/check-live.ps1` also checks every image redirect (old URL 301, new URL 200)
+  and that `.webp` files are served as `image/webp`. Then look at the home page, one page per topic
+  and one archive issue in a browser.
+- **Cache.** Fallback JPGs that were resized in place keep their URL and are cached for a week;
+  `scripts/update-version.ps1` (step 1) refreshes the CSS and JS links, but returning visitors may
+  see an old image until their cache expires.
+- **New images later.** Follow the image rules in `CLAUDE.md`: name, `optimize-images.ps1 -Folder`,
+  `apply-image-pictures.ps1`, `check-images.ps1`, then deploy as usual.
+
 ## If something goes wrong
 
 - Redirects misbehave or the site breaks: re-upload the previous `.htaccess` (keep a copy before
@@ -65,6 +92,7 @@ Never upload: `docs/`, `scripts/`, `attic/`, `migration-sources/`, `_bmad/`, `_b
 ## Reference
 
 - `scripts/path-manifest.csv`: every moved file, old path → new path, with its class.
+- `scripts/image-manifest.csv`: every live image, old path, new path and action (rename, merge, convert, quarantine, keep); the source of the image redirects.
 - `attic/README.md`: what the quarantine holds.
 - Pending newsletter issues 37–46 wait in `migration-sources/barva-bladet/` and redirect to `/`
   until the migration skill moves them into `barva-bladet/` and repoints their redirect.

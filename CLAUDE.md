@@ -32,6 +32,9 @@ Content and UI copy are in Swedish.
 - New standalone pages go in `pages/`, fragments in `fragments/`, images in a topic folder under `assets/images/`; don't add new loose top-level files.
 - Run `scripts/check-links.ps1` after moving files or editing paths; it must stay at or under `scripts/link-baseline.txt`.
 - Keep diffs focused; when touching legacy files, improve only what you touch rather than rewriting broadly.
+- Images: names are lowercase ASCII with hyphens, matching `^[a-z0-9]+(-[a-z0-9]+)*\.(webp|jpg|png|gif|ico)$` (å/ä become a, ö becomes o; no spaces, underscores or uppercase). Long edge at most 1920 px, file at most 500 KB. Photos are JPG, not PNG; PNG only for transparency or line art; GIFs stay as they are.
+- Every `.jpg`/`.png` has a `.webp` sibling and is used as `<picture><source type="image/webp" srcset="x.webp"><img src="x.jpg" ...></picture>` (all `<img>` attributes stay on the inner `<img>`; CSS `url()` and lightbox `data-full` use the fallback). For new images: name them, run `scripts/optimize-images.ps1 -Folder <dir>`, `git add` them, run `scripts/apply-image-pictures.ps1`, then `scripts/check-images.ps1` (must pass).
+- Renaming or moving an already published image breaks its old URL: record it as a row in `scripts/image-manifest.csv` and run `scripts/build-redirects.ps1` (image redirect block). Unreferenced images go to `attic/unreferenced-images/`, not into the live tree.
 - Events: add new cards to `fragments/events.html` following the existing card structure.
 - Newsletters: add new issues to `barva-bladet/<year>/` and update `fragments/newsletter.html`.
 - Cache busting is handled by `scripts/update-version.ps1`, run from the repo root.
