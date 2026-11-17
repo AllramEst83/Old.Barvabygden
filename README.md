@@ -72,6 +72,13 @@ Old.Barvabygden/
 - Traditional village documentation
 - Cultural event promotion
 
+## 🧩 Workspace
+
+This repo is part of the `BarvaBygden` VS Code workspace (`C:\Users\kaywi\dev\Workspaces\BarvaBygden\barvabygden.code-workspace`), together with:
+
+- `CodedByKay.SSH.MCP` - read-only SSH MCP for inspecting the live server
+- `BarvaBygden/` (workspace folder) - shared BMAD setup (`_bmad/`, `_bmad-output/`) and agent instructions (`.agents/`)
+
 ## 🚀 Getting Started
 
 ### Prerequisites

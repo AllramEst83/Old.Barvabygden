@@ -43,14 +43,19 @@ Content and UI copy are in Swedish.
 The live server (one.com, SFTP) can be inspected with the `ssh-readonly` MCP, which has only `list_dir`, `stat`
 and `read_text` and cannot change anything. Deploys stay manual in WinSCP (`docs/deploy-runbook.md`).
 - Web root on the server: `/customers/b/5/4/cypv0xbon/webroots/www` (the `/webroots/...` and `/www` paths are symlinks, which the MCP refuses).
-- Never ask for, type or print credentials; the login lives in the user's own MCP registration (`C:\Users\kaywi\.claude.json`). Details, uses and troubleshooting: `.agents/skills/server-ssh-readonly/SKILL.md`. The server's code and setup are in `C:\Users\kaywi\dev\CodedByKay.SSH.MCP` (outside this repo).
+- Never ask for, type or print credentials; the login lives in the user's own MCP registration (`C:\Users\kaywi\.claude.json`). Details, uses and troubleshooting: `.agents/skills/server-ssh-readonly/SKILL.md`. The server's code and setup are in `C:\Users\kaywi\dev\CodedByKay.SSH.MCP` (a sibling repo in the BarvaBygden workspace).
 
 ## Local development
 Open `index.html` directly, or serve the folder (e.g. `python -m http.server`, `npx serve`) for full `fetch()`-based fragment loading to work.
 
+## Workspace
+This repo is one of three grouped in `C:\Users\kaywi\dev\Workspaces\BarvaBygden\barvabygden.code-workspace`:
+`Old.Barvabygden` (this site), `CodedByKay.SSH.MCP` (read-only SSH MCP) and the workspace folder itself,
+which holds the shared BMAD setup (`_bmad/`, `_bmad-output/`) and `.agents/`.
+
 ## Detailed guidance: `.agents/`
-Deeper, topic-specific instructions live under `.agents/` (shared across coding
-agents, formerly `.cursor/`):
+Deeper, topic-specific instructions live under `.agents/` in the workspace folder
+(`C:\Users\kaywi\dev\Workspaces\BarvaBygden\.agents\`, shared across coding agents, formerly `.cursor/`):
 - `.agents/rules/` — always-apply conventions (Bootstrap-first, layout patterns).
 - `.agents/skills/` — task-triggered playbooks (asset placement, read-only server
   access over SSH, newsletter
